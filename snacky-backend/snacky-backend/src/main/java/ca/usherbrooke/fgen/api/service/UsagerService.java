@@ -39,9 +39,9 @@ public class UsagerService {
 
     @GET
     @Path("getallusagers")
-    public List<String> getAllUsagers(
+    public List<Usager> getAllUsagers(
     ) {
-        List<String> Usagers = UsagerMapper.allUsagers();
+        List<Usager> Usagers = UsagerMapper.allUsagers();
         System.out.println("users: " + Usagers);
         return Usagers;
     }
@@ -83,7 +83,7 @@ public class UsagerService {
     }
 
     public static Usager unescapeEntities(Usager Usager) {
-        //zUsager.description = Parser.unescapeEntities(Usager.description, true);
+        Usager.description = Parser.unescapeEntities(Usager.description, true);
         return Usager;
     }
 

@@ -12,6 +12,7 @@ public class Usager {
     public String email;
     public String profilPic;
     public Integer statusId;
+    public String description;
 
     // Getters and Setters for each field
 }

@@ -19,7 +19,7 @@ public interface UsagerMapper {
                         @Param("status_id")String Status_id_Usager);
     Usager selectOne(@Param("usager_id") Integer id);
     void deleteOne(@Param("usager_id") Integer id);
-    List<String> allUsagers();
+    List<Usager> allUsagers();
     void insertUsager(@Param("usager") Usager Usager);
     Integer getNewId();
 }

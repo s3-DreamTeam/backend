@@ -38,7 +38,13 @@
 
 
     <select id="allUsagers" resultType="String">
-        select nom
+        select usager_id,
+               nom,
+               prenom,
+               solde,
+               email,
+               profil_pic,
+               status_id
         from projet.usager
     </select>
 
