@@ -10,13 +10,16 @@ import java.util.List;
 @Mapper
 public interface UsagerMapper {
 
-    List<Usager> select(@Param("id") Integer id,
-                         @Param("Nom_Usager") String Nom_Usager,
-                         @Param("Prenom_Usager")String Prenom_Usager,
-                         @Param("Solde_Usager") Integer Solde_Usager);
-    Usager selectOne(@Param("id") Integer id);
-    void deleteOne(@Param("id") Integer id);
-    List<Usager> allUsagers();
-    void insertUsager(@Param("Usager") Usager Usager);
+    List<Usager> select(@Param("usager_id") Integer usager_id,
+                        @Param("nom") String Nom_Usager,
+                        @Param("prenom")String Prenom_Usager,
+                        @Param("solde") Integer Solde_Usager,
+                        @Param("email")String Email_Usager,
+                        @Param("profil_pic")String Profile_pic_Usager,
+                        @Param("status_id")String Status_id_Usager);
+    Usager selectOne(@Param("usager_id") Integer id);
+    void deleteOne(@Param("usager_id") Integer id);
+    List<String> allUsagers();
+    void insertUsager(@Param("usager") Usager Usager);
     Integer getNewId();
 }
