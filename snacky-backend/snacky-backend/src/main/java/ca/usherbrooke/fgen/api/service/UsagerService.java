@@ -42,7 +42,7 @@ public class UsagerService {
     public List<String> getAllUsagers(
     ) {
         List<String> Usagers = UsagerMapper.allUsagers();
-        System.out.println(Usagers);
+        System.out.println("users: " + Usagers);
         return Usagers;
     }
 
@@ -68,8 +68,10 @@ public class UsagerService {
     @PUT
     @Path("putusager")
     //@RolesAllowed({Roles.TEACHER})
-    public void insertUsager(Usager Usager) {
-        UsagerMapper.insertUsager(Usager);
+    public void insertUsager() {
+        System.out.println("add: ");
+        Usager lol = new Usager();
+        UsagerMapper.insertUsager(lol);
     }
 
     @GET

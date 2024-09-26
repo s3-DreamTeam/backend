@@ -32,8 +32,8 @@
                email,
                profil_pic,
                status_id
-        from projet.usager,
-        where usager_id = #{id}
+        from projet.usager
+        where usager_id = #{usager_id}
     </select>
 
 
