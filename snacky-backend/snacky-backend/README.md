@@ -10,7 +10,7 @@ Snacky Backend
 3. Clic droit sur le fichier `devcontainer.json`
 4. Cliquer sur Dev containers -> Create dev containers and mount sources -> Intellij Idea
 
-![Le droit chemin](/images/devcontainers.png)
+![Le droit chemin](./images/devcontainers.png)
 
 ## 2. Démarrer le serveur d'application
 
