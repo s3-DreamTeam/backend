@@ -18,6 +18,16 @@ Snacky Backend
 - Démarrer la database __QUI EST DANS LE REPO DATABASE__
 - Tester un service dans un browser : localhost:8888/api/getusager/1
 
+## 3. Générer l'image docker
+
+- Démarrer le devcontainer
+- Aller dans le terminal (s'assurer d'etre dans la root du projet)
+- taper: `./gradlew build`
+- sortir du devcontainer
+- ouvrir un terminal (s'assurer d'etre dans la root du projet)
+- taper: `sudo bash build-docker.sh`
+- maintenant l'image est disponible dans PROJECT-ROOT/docker/test/snacky-backend.tar
+
 #### Informations
 
 - Le devcontainer a la propriété présentement d'avoir le meme réseau que son host (votre ordi).
