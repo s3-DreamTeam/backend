@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="snacky-backend">
+    <output-path>$PROJECT_DIR$/out/artifacts/snacky_backend</output-path>
+    <root id="archive" name="snacky-backend.jar">
+      <element id="archive" name="snacky-backend.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

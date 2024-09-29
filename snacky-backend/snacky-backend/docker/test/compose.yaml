@@ -1,0 +1,7 @@
+
+services:
+  backend:
+    image: snacky-backend:latest
+    ports:
+      - "8888:8888"
+    network_mode: "host"
