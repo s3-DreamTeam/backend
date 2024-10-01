@@ -39,8 +39,7 @@ public class UsagerService {
 
     @GET
     @Path("getallusagers")
-    public List<Usager> getAllUsagers(
-    ) {
+    public List<Usager> getAllUsagers() {
         List<Usager> Usagers = UsagerMapper.allUsagers();
         System.out.println("users: " + Usagers);
         return Usagers;
@@ -48,26 +47,20 @@ public class UsagerService {
 
     @GET
     @Path("getusager/{usager_id}")
-    public Usager getUsager(
-            @PathParam("usager_id") Integer usager_id
-    ) {
+    public Usager getUsager(@PathParam("usager_id") Integer usager_id) {
         Usager Usager = UsagerMapper.selectOne(usager_id);
         return unescapeEntities(Usager);
     }
 
     @DELETE
     @Path("deleteUsager/{id}")
-    public void deleteUsager(
-            @PathParam("id") Integer id
-    ) {
+    public void deleteUsager(@PathParam("id") Integer id) {
         UsagerMapper.deleteOne(id);
         return;
     }
 
-
     @PUT
     @Path("putusager")
-    //@RolesAllowed({Roles.TEACHER})
     public void insertUsager() {
         System.out.println("add: ");
         Usager lol = new Usager();
