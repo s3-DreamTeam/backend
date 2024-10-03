@@ -1,18 +1,15 @@
 package ca.usherbrooke.fgen.api.service;
-
 import ca.usherbrooke.fgen.api.business.Usager;
 import ca.usherbrooke.fgen.api.mapper.UsagerMapper;
 import org.apache.ibatis.annotations.Param;
 import org.jsoup.parser.Parser;
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.stream.Collectors;
-
-
-
+import javax.annotation.security.RolesAllowed;
+import io.quarkus.security.identity.SecurityIdentity;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -22,7 +19,8 @@ public class UsagerService {
 
     @Inject
     UsagerMapper UsagerMapper;
-
+    @Inject
+    SecurityIdentity identity;
 
 /*    @GET
     @Path("getUsagers/{trimester}/{profile}/{unit}")
@@ -39,6 +37,7 @@ public class UsagerService {
 
     @GET
     @Path("getallusagers")
+    @RolesAllowed("teacher")
     public List<Usager> getAllUsagers(
     ) {
         List<Usager> Usagers = UsagerMapper.allUsagers();

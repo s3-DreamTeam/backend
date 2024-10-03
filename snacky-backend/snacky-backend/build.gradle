@@ -22,6 +22,36 @@ dependencies {
     implementation 'io.quarkus:quarkus-resteasy'
     implementation 'io.quarkus:quarkus-smallrye-openapi'
     implementation 'org.jsoup:jsoup:1.14.3'
+    //JE RAJOUTE DES DINGUERIE ICI
+//    implementation 'io.quarkus:quarkus-hibernate-validator'
+//    implementation 'io.quarkus:quarkus-arc'
+//    implementation 'io.quarkus:quarkus-rest'
+
+//    implementation("io.quarkus:quarkus-hibernate-orm-panache")
+
+    //DINGUERIE CONTROlÉ
+    implementation ("io.quarkus:quarkus-oidc")
+    implementation ("io.quarkus:quarkus-keycloak-authorization")
+    //DINGUERIE INCERTAINE
+    implementation 'jakarta.annotation:jakarta.annotation-api:2.0.0'
+    implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
+    //implementation 'io.quarkus:quarkus-resteasy-reactive' //comprendre pourquoi je ne suis pas capable d'inclure ce fichier
+
 }
 
 version = '1.0.0'
+//implementation 'io.quarkus:quarkus-hibernate-validator'
+
+
+//implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+//implementation 'io.quarkus:quarkus-arc'
+//implementation 'io.quarkus:quarkus-rest'
+//implementation("io.quarkus:quarkus-rest-jackson")
+//implementation("io.quarkus:quarkus-oidc")
+//
+//
+//// Hibernate ORM specific dependencies
+//implementation("io.quarkus:quarkus-hibernate-orm-panache")
+//
+//// JDBC driver dependencies
+//implementation("io.quarkus:quarkus-jdbc-postgresql")
