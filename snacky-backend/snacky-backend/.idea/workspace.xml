@@ -46,7 +46,7 @@
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
       <window_info id="Learn" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.6660094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31900632" />
       <window_info id="Commit" order="1" weight="0.25" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -59,7 +59,7 @@
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" />
       <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.16431451" />
-      <window_info anchor="bottom" id="Run" order="4" weight="0.3304054" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.16431451" />
       <window_info anchor="bottom" id="Services" order="5" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
@@ -109,8 +109,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-343715fb1037-intellij.indexing.shared.core-IU-243.16718.32" />
-        <option value="bundled-js-predefined-d6986cc7102b-bd4b0a03caa6-JavaScript-IU-243.16718.32" />
+        <option value="bundled-jdk-9823dce3aa75-2c89be11f927-intellij.indexing.shared.core-IU-243.18137.10" />
+        <option value="bundled-js-predefined-d6986cc7102b-b86d7ee83eed-JavaScript-IU-243.18137.10" />
       </set>
     </attachedChunks>
   </component>
@@ -124,6 +124,7 @@
       <updated>1727555576702</updated>
       <workItem from="1727555578636" duration="491000" />
       <workItem from="1727779099566" duration="54000" />
+      <workItem from="1728004204485" duration="184000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,7 @@ Snacky Backend
 
 - Démarrer le service en exécutant le snacky-backend.main dans  intellij
 - Démarrer la database __QUI EST DANS LE REPO DATABASE__
-- Tester un service dans un browser : localhost:8888/api/getusager/1
+- Tester un service dans un browser : localhost:443/api/getusager/1
 
 ## 3. Générer l'image docker
 
