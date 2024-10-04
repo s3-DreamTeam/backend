@@ -8,6 +8,7 @@ import org.jsoup.parser.Parser;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,12 +37,13 @@ public class UsagerService {
         return unescapeEntities(Usagers);
     }*/
 
-
+    //This is modified for Shawn, it will be empty
     @GET
     @Path("getallusagers")
     public List<Usager> getAllUsagers() {
-        List<Usager> Usagers = UsagerMapper.allUsagers();
-        System.out.println("users: " + Usagers);
+        //List<Usager> Usagers = UsagerMapper.allUsagers();
+        //System.out.println("users: " + Usagers);
+        List<Usager> Usagers = new ArrayList<>();
         return Usagers;
     }
 
