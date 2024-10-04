@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ca.usherbrooke.fgen.api.mapper.UsagerMapper">
+
+    <select id="select" resultType="ca.usherbrooke.fgen.api.business.Usager">
+        select id,
+               trimester_id,
+               profile_id,
+               unit,
+               description,
+               inscription,
+               cip,
+               inscriptor
+        from app.Usager
+        where (trimester_id,
+               profile_id,
+               unit,
+               id) =
+              (coalesce(#{trimesterId}, trimester_id),
+               coalesce(#{profileId}, profile_id),
+               coalesce(#{unit}, unit),
+               coalesce(#{id}, id))
+    </select>
+
+    <select id="selectOne" resultType="ca.usherbrooke.fgen.api.business.Usager">
+        select usager_id,
+               nom,
+               prenom,
+               solde,
+               email,
+               profil_pic,
+               status_id
+        from projet.usager
+        where usager_id = #{usager_id}
+    </select>
+
+
+    <select id="allUsagers" resultType="String">
+        select usager_id,
+               nom,
+               prenom,
+               solde,
+               email,
+               profil_pic,
+               status_id
+        from projet.usager
+    </select>
+
+    <delete id="deleteOne">
+        delete
+        from app.Usager
+        where id = #{id}
+    </delete>
+
+    <select id="getNewId" resultType="Integer">
+        select nextval('app.Usager_seq'::regclass)
+    </select>
+
+    <insert id="insertUsager">
+        insert into app.Usager(id,
+                                       trimester_id,
+                                       profile_id,
+                                       unit,
+                                       description,
+                                       cip,
+                                       inscriptor)
+        values (#{Usager.id},
+                #{Usager.trimesterId},
+                #{Usager.profileId},
+                #{Usager.unit},
+                #{Usager.description},
+                #{Usager.cip},
+                #{Usager.inscriptor})
+        on conflict (id) do update set description = excluded.description;
+    </insert>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ca.usherbrooke.fgen.api.mapper.machine_inventory_pageMapper">
+
+    <select id="getAllImageMachine" resultType="ca.usherbrooke.fgen.api.business.machine_inventory_page">
+        select
+            nom,
+            image_machine
+
+        from projet.machine_inventory_page
+        where usager_id = #{id}
+    </select>
+
+    <select id="getImage" resultType="String">
+        select
+            image_machine
+        from projet.machine_inventory_page
+        where usager_id = #{id}
+    </select>
+
+</mapper>
