@@ -40,6 +40,8 @@ public class UsagerService {
     //This is modified for Shawn, it will be empty
     @GET
     @Path("getallusagers")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Usager> getAllUsagers() {
         //List<Usager> Usagers = UsagerMapper.allUsagers();
         //System.out.println("users: " + Usagers);
