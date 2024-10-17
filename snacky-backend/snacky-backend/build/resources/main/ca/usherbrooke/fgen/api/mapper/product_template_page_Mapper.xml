@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ca.usherbrooke.fgen.api.mapper.product_template_page_Mapper">
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="ca.usherbrooke.fgen.api.mapper.product_template_page_Mapper">-->
 
-    <select id="getCompactProductTemplate" resultType="ca.usherbrooke.fgen.api.business.product_template_page">
-        select
-            image_type_p,
-            manufacturier_type_p,
-            model_type_p
+<!--    <select id="getCompactProductTemplate" resultType="ca.usherbrooke.fgen.api.business.product_template_page">-->
+<!--        select-->
+<!--            image_type_p,-->
+<!--            manufacturier_type_p,-->
+<!--            model_type_p-->
 
-        from projet.product_template_page
-        where id_usager = #{id}
-    </select>
+<!--        from projet.product_template_page-->
+<!--        where id_usager = #{id}-->
+<!--    </select>-->
 
 
-</mapper>
+<!--</mapper>-->

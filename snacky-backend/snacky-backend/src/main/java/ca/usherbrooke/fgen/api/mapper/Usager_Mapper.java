@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface UsagerMapper {
+public interface Usager_Mapper {
 
     Usager selectOne(@Param("Usager_id") Integer id);
     void deleteOne(@Param("Usager_id") Integer id);

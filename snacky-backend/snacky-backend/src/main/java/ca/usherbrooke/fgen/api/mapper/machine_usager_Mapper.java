@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface machine_usagerMapper {
+public interface machine_usager_Mapper {
 
     List<machine_usager> getAll();
 }

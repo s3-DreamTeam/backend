@@ -1,7 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_usager;
-import ca.usherbrooke.fgen.api.mapper.machine_usagerMapper;
+import ca.usherbrooke.fgen.api.mapper.machine_usager_Mapper;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -15,7 +15,7 @@ import java.util.List;
 public class machine_usagerService {
 
     @Inject
-    machine_usagerMapper machine_usagerMapper;
+    machine_usager_Mapper machine_usagerMapper;
 
     @GET
     @Path("getall_machine_usager")
