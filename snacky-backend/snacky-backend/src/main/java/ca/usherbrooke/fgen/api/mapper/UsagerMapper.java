@@ -12,6 +12,7 @@ public interface UsagerMapper {
     Usager selectOne(@Param("Usager_id") Integer id);
     void deleteOne(@Param("Usager_id") Integer id);
     List<Usager> allUsagers();
+    List<String> nomUsagers();
     void insertUsager(@Param("Usager") Usager Usager);
     Integer getNewId();
 }

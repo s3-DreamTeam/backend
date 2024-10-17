@@ -4,5 +4,5 @@ import java.util.Base64;
 
 public class machine_inventory_page {
     public String image_machine;
-    public String nom;
+    public String nom_machine;
 }

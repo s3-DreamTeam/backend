@@ -5,14 +5,13 @@ package ca.usherbrooke.fgen.api.business;
 
 //@RegisterForReflection
 public class Usager {
-    public Integer usagerId;
-    public String nom;
-    public String prenom;
-    public Integer solde;
-    public String email;
-    public String profilPic;
-    public Integer statusId;
-    public String description;
+    public Integer id_usager;
+    public String nom_usager;
+    public String prenom_usager;
+    public Integer solde_usager;
+    public String email_usager;
+    public String profil_pic_usager;
+    public Integer id_status;
 
     // Getters and Setters for each field
 }

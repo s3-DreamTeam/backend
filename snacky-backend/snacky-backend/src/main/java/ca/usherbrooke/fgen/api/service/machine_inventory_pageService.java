@@ -21,17 +21,13 @@ public class machine_inventory_pageService {
     @Path("getAllmachine_inventory_page/{id}")
     public List<machine_inventory_page> getAllmachine_inventory_page(@PathParam("id") Integer id) {
 
-        return machine_inventory_pageMapper.getAllImageMachine(id);
-        //System.out.println("Hello machine_inventory_page");
-        //System.out.println(val);
-
-       // return val;
+        return machine_inventory_pageMapper.getCompactMachine(id);
     }
 
-    @GET
-    @Path("getImage/{id}")
-    public String getImage(@PathParam("id") Integer id)
-    {
-        return machine_inventory_pageMapper.getImage(id);
-    }
+//    @GET
+//    @Path("getImage/{id}")
+//    public String getImage(@PathParam("id") Integer id)
+//    {
+//        return machine_inventory_pageMapper.getImage(id);
+//    }
 }

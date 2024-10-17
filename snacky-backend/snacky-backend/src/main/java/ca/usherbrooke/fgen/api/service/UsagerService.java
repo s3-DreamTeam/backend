@@ -48,10 +48,18 @@ public class UsagerService {
     }
 
     @GET
+    @Path("getPrenom")
+    public List<String> nomUsagers()
+    {
+        List<String> prenoms = UsagerMapper.nomUsagers();
+        return prenoms;
+    }
+
+    @GET
     @Path("getusager/{usager_id}")
     public Usager getUsager(@PathParam("usager_id") Integer usager_id) {
         Usager Usager = UsagerMapper.selectOne(usager_id);
-        return unescapeEntities(Usager);
+        return Usager;
     }
 
     @DELETE
@@ -77,15 +85,7 @@ public class UsagerService {
         return id;
     }
 
-    public static Usager unescapeEntities(Usager Usager) {
-        Usager.description = Parser.unescapeEntities(Usager.description, true);
-        return Usager;
-    }
 
-    public List<Usager> unescapeEntities(List<Usager> Usagers) {
-        return Usagers
-                .stream()
-                .map(UsagerService::unescapeEntities)
-                .collect(Collectors.toList());
-    }
+
+
 }
