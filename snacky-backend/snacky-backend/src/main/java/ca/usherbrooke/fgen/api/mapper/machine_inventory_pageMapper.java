@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Mapper
-public interface machine_inventory_page_Mapper {
+public interface machine_inventory_pageMapper {
 
     List<machine_inventory_page> getCompactMachine(@Param("id") Integer id);
     //String getImage(@Param("id") Integer id);

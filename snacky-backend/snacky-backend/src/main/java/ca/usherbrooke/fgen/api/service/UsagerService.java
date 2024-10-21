@@ -1,12 +1,18 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.Usager;
-import ca.usherbrooke.fgen.api.mapper.Usager_Mapper;
+import ca.usherbrooke.fgen.api.mapper.UsagerMapper;
+import org.apache.ibatis.annotations.Param;
+import org.jsoup.parser.Parser;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+
 
 
 @Path("/api")
@@ -16,7 +22,7 @@ public class UsagerService {
 
 
     @Inject
-    Usager_Mapper UsagerMapper;
+    UsagerMapper UsagerMapper;
 
 
 /*    @GET

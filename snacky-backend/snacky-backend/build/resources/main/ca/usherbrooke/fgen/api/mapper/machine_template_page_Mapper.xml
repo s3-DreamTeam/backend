@@ -1,16 +1,16 @@
-<!--<?xml version="1.0" encoding="UTF-8" ?>-->
-<!--<!DOCTYPE mapper-->
-<!--        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
-<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
-<!--<mapper namespace="ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper">-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper">
 
-<!--    <select id="getCompactTemplateMachine" resultType="ca.usherbrooke.fgen.api.business.machine_template_page">-->
-<!--        select-->
-<!--            image_type_m,-->
-<!--            model_type_m,-->
-<!--            manufacturier_type_m-->
+    <select id="getCompactTemplateMachine" resultType="ca.usherbrooke.fgen.api.business.machine_template_page">
+        select
+            image_type_m,
+            model_type_m,
+            manufacturier_type_m
 
-<!--        from projet.machine_template_page-->
-<!--        where id_usager = #{id}-->
-<!--    </select>-->
-<!--</mapper>-->
+        from projet.machine_template_page
+        where id_usager = #{id}
+    </select>
+</mapper>
