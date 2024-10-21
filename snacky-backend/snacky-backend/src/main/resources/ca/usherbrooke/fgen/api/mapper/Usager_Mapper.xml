@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ca.usherbrooke.fgen.api.mapper.UsagerMapper">
+<mapper namespace="ca.usherbrooke.fgen.api.mapper.Usager_Mapper">
 
     <select id="selectOne" resultType="ca.usherbrooke.fgen.api.business.Usager">
         select id_usager,
@@ -43,6 +43,21 @@
         select nextval('app.Usager_seq'::regclass)
     </select>
 
-
+    <insert id="insertUser" parameterType="ca.usherbrooke.fgen.api.business.Usager">
+        INSERT INTO projet.Usager (id_usager,
+                                   nom_usager,
+                                   prenom_usager,
+                                   solde_usager,
+                                   email_usager,
+                                   profil_pic_usager,
+                                   id_status)
+        VALUES (#{id_usager},
+                #{nom_usager},
+                #{prenom_usager},
+                #{solde_usager},
+                #{email_usager},
+                #{profil_pic_usager},
+                #{id_status});
+    </insert>
 
 </mapper>
