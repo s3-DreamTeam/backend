@@ -1,2 +1,6 @@
 # too big
 snacky-backend.tar
+# gossage
+snacky-backend/snacky-backend/.gradle
+snacky-backend/snacky-backend/build
+snacky-backend/snacky-backend/.idea
