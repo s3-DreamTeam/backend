@@ -13,6 +13,6 @@ public interface Usager_Mapper {
     void deleteOne(@Param("Usager_id") Integer id);
     List<Usager> allUsagers();
     List<String> nomUsagers();
-    void insertUsager(@Param("Usager") Usager Usager);
+    void insertUsager(@Param("newUsager") Usager Usager);
     Integer getNewId();
 }

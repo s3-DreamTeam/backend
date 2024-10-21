@@ -64,11 +64,10 @@ public class UsagerService {
     }
 
     @PUT
-    @Path("putusager")
-    public void insertUsager() {
+    @Path("insertUsager/{newUsager}")
+    public void insertUsager(@PathParam("newUsager") Usager usager) {
         System.out.println("add: ");
-        Usager lol = new Usager();
-        UsagerMapper.insertUsager(lol);
+        UsagerMapper.insertUsager(usager);
     }
 
     @GET
