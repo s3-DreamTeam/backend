@@ -8,6 +8,6 @@
         select
             *
         from projet.machine_inventory_specific
-        where usager_id = #{id}
+        where id_usager = #{id_usager}
     </select>
 </mapper>

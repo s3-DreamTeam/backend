@@ -7,7 +7,7 @@
     <select id="getAllProductTemplate" resultType="ca.usherbrooke.fgen.api.business.product_template_specific">
         select
             *
-        from projet.machine_inventory_page
-        where id_usager = #{id}
+        from projet.product_template_specific
+        where id_usager = #{id_usager}
     </select>
 </mapper>

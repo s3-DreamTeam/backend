@@ -1,7 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_inventory_page;
-import ca.usherbrooke.fgen.api.mapper.machine_inventory_pageMapper;
+import ca.usherbrooke.fgen.api.mapper.machine_inventory_page_Mapper;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -15,10 +15,10 @@ import java.util.List;
 public class machine_inventory_pageService {
 
     @Inject
-    machine_inventory_pageMapper machine_inventory_pageMapper;
+    machine_inventory_page_Mapper machine_inventory_pageMapper;
 
     @GET
-    @Path("getAllmachine_inventory_page/{id}")
+    @Path("getAllMachineInventoryPage/{id}")
     public List<machine_inventory_page> getAllmachine_inventory_page(@PathParam("id") Integer id) {
 
         return machine_inventory_pageMapper.getCompactMachine(id);

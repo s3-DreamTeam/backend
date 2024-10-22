@@ -8,7 +8,7 @@
         select
             *
         from projet.machine_template_specific
-        where id_usager = #{id}
+        where id_usager = #{id_usager}
     </select>
 
 </mapper>

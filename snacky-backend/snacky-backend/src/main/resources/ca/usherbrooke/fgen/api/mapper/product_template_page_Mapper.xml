@@ -11,7 +11,7 @@
             model_type_p
 
         from projet.product_template_page
-        where id_usager = #{id}
+        where id_usager = #{id_usager}
     </select>
 
 

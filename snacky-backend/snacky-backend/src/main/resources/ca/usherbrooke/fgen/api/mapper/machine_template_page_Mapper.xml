@@ -11,6 +11,6 @@
             manufacturier_type_m
 
         from projet.machine_template_page
-        where id_usager = #{id}
+        where id_usager = #{id_usager}
     </select>
 </mapper>

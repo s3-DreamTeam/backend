@@ -43,15 +43,15 @@
         select nextval('app.Usager_seq'::regclass)
     </select>
 
-    <insert id="insertUser" parameterType="ca.usherbrooke.fgen.api.business.Usager">
-        INSERT INTO projet.Usager (id_usager,
+    <insert id="insertUsager" parameterType="ca.usherbrooke.fgen.api.business.Usager">
+        INSERT INTO projet.Usager (
                                    nom_usager,
                                    prenom_usager,
                                    solde_usager,
                                    email_usager,
                                    profil_pic_usager,
                                    id_status)
-        VALUES (#{id_usager},
+        VALUES (
                 #{nom_usager},
                 #{prenom_usager},
                 #{solde_usager},
