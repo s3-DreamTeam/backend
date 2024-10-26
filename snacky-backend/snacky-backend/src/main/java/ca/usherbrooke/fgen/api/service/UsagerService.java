@@ -36,7 +36,7 @@ public class UsagerService {
     @Path("getallusagers")
     public List<Usager> getAllUsagers() {
         //List<Usager> Usagers = UsagerMapper.allUsagers();
-        List<Usager> Usagers = new ArrayList<>();;
+        List<Usager> Usagers = new ArrayList<>();
         //System.out.println("users: " + Usagers);
         //List<Usager> Usagers = new ArrayList<>();
         return Usagers;
