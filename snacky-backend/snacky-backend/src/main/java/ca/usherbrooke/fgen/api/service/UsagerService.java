@@ -80,7 +80,7 @@ public class UsagerService {
     }
 
     @GET
-    @Path("getnewid")
+    @Path("getnewids")
     //@RolesAllowed({Roles.TEACHER})
     public Integer getnewid() {
         Integer id = UsagerMapper.getNewId();
