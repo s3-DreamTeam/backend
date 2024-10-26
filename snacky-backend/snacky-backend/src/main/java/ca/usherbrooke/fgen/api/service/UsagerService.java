@@ -87,7 +87,12 @@ public class UsagerService {
         return id;
     }
 
-
+    @GET
+    @Path("test")
+    //@RolesAllowed({Roles.TEACHER})
+    public String test() {
+        return "BRO WTF IS THIS SHIT";
+    }
 
 
 }
