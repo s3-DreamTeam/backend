@@ -51,7 +51,7 @@ public class product_template_page_Service {
     }
 
     @GET
-    @Path("ProductTemplate/Get/AllID/{id_usager}")
+    @Path("ProductTemplate/Get/AllID")
     public List<String> getCompactProductAllID()
     {
         List<String> listInt = new ArrayList<>();

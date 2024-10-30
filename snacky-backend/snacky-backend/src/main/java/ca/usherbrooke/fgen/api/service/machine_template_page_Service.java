@@ -50,7 +50,7 @@ public class machine_template_page_Service {
     }
 
     @GET
-    @Path("MachineTemplate/Get/AllID/{id_usager}")
+    @Path("MachineTemplate/Get/AllID")
     public List<String> getMachinesSpecificsAllID()
     {
         List<String> listInt = new ArrayList<>();
