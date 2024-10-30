@@ -22,4 +22,64 @@ public class product_template_page_Service {
     {
         return Mapper.getCompactProductTemplate(id_usager);
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //tout est a modifier, c fait pour shawn qu'il a pas l'erreur 404
+
+    //
+    @GET
+    @Path("ProductTemplate/Get/Image/{id_usager}")
+    public List<product_template_page> getCompactProductImage(@PathParam("id_usager") Integer id_usager)
+    {
+        return Mapper.getCompactTemplateMachine(id_usager);
+    }
+
+
+    @GET
+    @Path("ProductTemplate/Get/Surface/{id_usager}")
+    public List<int> getCompactProductSurface(@PathParam("id_usager") Integer id_usager)
+    {
+        List<int> listInt = new ArrayList<>();
+
+        return listInt;
+    }
+
+    @GET
+    @Path("ProductTemplate/Get/AllID/{id_usager}")
+    public List<String> getCompactProductAllID()
+    {
+        List<String> listInt = new ArrayList<>();
+
+        return listInt;
+    }
+
+    @GET
+    @Path("ProductTemplate/New/{id_usager}")
+    public product_template_page setCompactProduct(@PathParam("id_usager") Integer id_usager)
+    {
+        product_template_page product = new product_template_page();
+        return machine;
+    }
+
+    @GET
+    @Path("ProductTemplate/Modify/{id_usager}")
+    public product_template_page modifyCompactProduct(@PathParam("id_usager") Integer id_usager)
+    {
+        product_template_page product = new product_template_page();
+        return machine;
+    }
+
+    @GET
+    @Path("ProductTemplate/Delete/{id_usager}")
+    public product_template_page deleteCompactProduct(@PathParam("id_usager") Integer id_usager)
+    {
+        product_template_page product = new product_template_page();
+        return machine;
+    }
 }
