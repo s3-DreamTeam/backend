@@ -17,7 +17,7 @@ public class machine_template_page_Service {
     machine_template_page_Mapper Mapper;
 
     @GET
-    @Path("getCompactTemplateMachine/{id_usager}")
+    @Path("MachineTemplate/Get/Full/{id_usager}")
     public List<machine_template_page> getMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
     {
         return Mapper.getCompactTemplateMachine(id_usager);

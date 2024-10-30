@@ -17,7 +17,7 @@ public class product_template_page_Service {
     product_template_page_Mapper Mapper;
 
     @GET
-    @Path("getCompactProductTemplate/{id_usager}")
+    @Path("ProductTemplate/Get/Full/{id_usager}")
     public List<product_template_page> getCompactProductTemplate(@PathParam("id_usager") Integer id_usager)
     {
         return Mapper.getCompactProductTemplate(id_usager);
