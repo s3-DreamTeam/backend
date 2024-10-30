@@ -6,6 +6,7 @@ import ca.usherbrooke.fgen.api.mapper.product_template_page_Mapper;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/api")
@@ -37,15 +38,15 @@ public class product_template_page_Service {
     @Path("ProductTemplate/Get/Image/{id_usager}")
     public List<product_template_page> getCompactProductImage(@PathParam("id_usager") Integer id_usager)
     {
-        return Mapper.getCompactTemplateMachine(id_usager);
+        return Mapper.getCompactProductTemplate(id_usager);
     }
 
 
     @GET
     @Path("ProductTemplate/Get/Surface/{id_usager}")
-    public List<int> getCompactProductSurface(@PathParam("id_usager") Integer id_usager)
+    public List<Integer> getCompactProductSurface(@PathParam("id_usager") Integer id_usager)
     {
-        List<int> listInt = new ArrayList<>();
+        List<Integer> listInt = new ArrayList<>();
 
         return listInt;
     }
@@ -64,7 +65,7 @@ public class product_template_page_Service {
     public product_template_page setCompactProduct(@PathParam("id_usager") Integer id_usager)
     {
         product_template_page product = new product_template_page();
-        return machine;
+        return product;
     }
 
     @GET
@@ -72,7 +73,7 @@ public class product_template_page_Service {
     public product_template_page modifyCompactProduct(@PathParam("id_usager") Integer id_usager)
     {
         product_template_page product = new product_template_page();
-        return machine;
+        return product;
     }
 
     @GET
@@ -80,6 +81,6 @@ public class product_template_page_Service {
     public product_template_page deleteCompactProduct(@PathParam("id_usager") Integer id_usager)
     {
         product_template_page product = new product_template_page();
-        return machine;
+        return product;
     }
 }

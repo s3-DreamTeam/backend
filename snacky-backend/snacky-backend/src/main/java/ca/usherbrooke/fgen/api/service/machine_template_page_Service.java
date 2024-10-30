@@ -6,6 +6,7 @@ import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/api")
@@ -42,9 +43,9 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/Get/Surface/{id_usager}")
-    public List<int> getMachinesSpecificsSurface(@PathParam("id_usager") Integer id_usager)
+    public List<Integer> getMachinesSpecificsSurface(@PathParam("id_usager") Integer id_usager)
     {
-        List<int> listInt = new ArrayList<>();
+        List<Integer> listInt = new ArrayList<>();
 
         return listInt;
     }
@@ -62,7 +63,7 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/New/{id_usager}")
     public machine_template_page setMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
     {
-        machine_template_page machine = new machine_template_page_Service();
+        machine_template_page machine = new machine_template_page();
         return machine;
     }
 
@@ -70,7 +71,7 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Modify/{id_usager}")
     public machine_template_page modifyMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
     {
-        machine_template_page machine = new machine_template_page_Service();
+        machine_template_page machine = new machine_template_page();
         return machine;
     }
 
@@ -78,7 +79,7 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Delete/{id_usager}")
     public machine_template_page deleteMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
     {
-        machine_template_page machine = new machine_template_page_Service();
+        machine_template_page machine = new machine_template_page();
         return machine;
     }
 }
