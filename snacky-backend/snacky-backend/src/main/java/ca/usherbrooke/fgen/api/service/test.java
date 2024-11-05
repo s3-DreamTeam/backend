@@ -33,7 +33,7 @@ public class test {
         //return responseDTO;
     }
 
-    @GET
+    @POST
     @Path("test")
     public String getMessagePara(String val) {
 
