@@ -15,11 +15,12 @@ public class test {
 
     @GET
     @Path("test")
-    public Response getMessage() {
+    public String getMessage() {
 
-        testClass responseDTO = new testClass();
-        responseDTO.message = "Message.exe ";
-        return Response.ok(responseDTO).build();
+//        testClass responseDTO = new testClass();
+//        responseDTO.message = "Message.exe ";
+//        return Response.ok(responseDTO).build();
+        return "Ta mere";
     }
 }
 
