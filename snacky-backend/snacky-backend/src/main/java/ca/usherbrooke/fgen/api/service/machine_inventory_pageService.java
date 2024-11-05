@@ -24,5 +24,10 @@ public class machine_inventory_pageService {
         return machine_inventory_pageMapper.getCompactMachine(id);
     }
 
-
+//    @GET
+//    @Path("getImage/{id}")
+//    public String getImage(@PathParam("id") Integer id)
+//    {
+//        return machine_inventory_pageMapper.getImage(id);
+//    }
 }

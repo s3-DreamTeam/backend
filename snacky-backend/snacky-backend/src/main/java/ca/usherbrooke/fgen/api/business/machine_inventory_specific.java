@@ -9,5 +9,3 @@ public class machine_inventory_specific {
     public Integer id_remplissage;
     public Integer id_usager;
 }
-
-

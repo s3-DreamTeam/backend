@@ -10,32 +10,4 @@
         from projet.machine_inventory_specific
         where id_usager = #{id_usager}
     </select>
-
-
-    <select id="getMachinesImage" resultType="String">
-        select
-            image_machine
-        from projet.machine_inventory_specific
-        where id_usager = #{id_usager}
-    </select>
-
-    <select id="getAllMachinesID" resultType="Integer">
-        select
-            id_machine
-        from projet.machine_inventory_specific
-        where id_usager = #{id_usager}
-    </select>
-
-
-    <!--
-    Ce qui est a faire
-
-    machine_surface getMachinesSurface(id_usager, id_machine)
-
-
-    void newMachineSpecifics(machine_inventory_specific) //ca pourrait etre un bool
-    bool deleteMachineSpecifics(id_usager, id_machine)
-
-
-     -->
 </mapper>
