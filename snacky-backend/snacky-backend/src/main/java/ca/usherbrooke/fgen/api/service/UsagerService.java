@@ -86,13 +86,7 @@ public class UsagerService {
         Integer id = UsagerMapper.getNewId();
         return id;
     }
-
-    @GET
-    @Path("test")
-    //@RolesAllowed({Roles.TEACHER})
-    public String test() {
-        return "BRO WTF IS THIS SHIT";
-    }
+    
 
 
 }
