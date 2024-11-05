@@ -1,11 +1,11 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.machine_inventory_page;
-import ca.usherbrooke.fgen.api.mapper.machine_inventory_page_Mapper;
+import ca.usherbrooke.fgen.api.business.testClass;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/api")
@@ -15,9 +15,11 @@ public class test {
 
     @POST
     @Path("test")
-    public String getMessage(String id) {
+    public Response getMessage(String id) {
 
-        return "Message.exe " + id;
+        testClass responseDTO = new testClass();
+        responseDTO.message = "Message.exe " + id;
+        return Response.ok(responseDTO).build();
     }
 }
 
