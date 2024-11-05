@@ -34,7 +34,7 @@ public class test {
     }
 
     @GET
-    @Path("testGetPara")
+    @Path("test")
     public String getMessagePara(String val) {
 
 //        testClass responseDTO = new testClass();
@@ -44,7 +44,7 @@ public class test {
     }
 
     @POST
-    @Path("test")
+    @Path("testPostPara")
     public Response postMessagePara(String val) {
 
         testClass responseDTO = new testClass();
