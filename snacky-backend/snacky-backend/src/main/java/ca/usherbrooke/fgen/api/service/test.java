@@ -15,10 +15,10 @@ public class test {
 
     @POST
     @Path("test")
-    public Response getMessage(String id) {
+    public Response getMessage() {
 
         testClass responseDTO = new testClass();
-        responseDTO.message = "Message.exe " + id;
+        responseDTO.message = "Message.exe ";
         return Response.ok(responseDTO).build();
     }
 }
