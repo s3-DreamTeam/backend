@@ -14,7 +14,7 @@ import java.util.List;
 public class test {
 
     @GET
-    @Path("testingReturn")
+    @Path("testGet")
     public String getMessage() {
 
 //        testClass responseDTO = new testClass();
@@ -24,8 +24,28 @@ public class test {
     }
 
     @POST
+    @Path("testPost")
+    public Response postMessage() {
+
+        testClass responseDTO = new testClass();
+        responseDTO.message = "Message.exe ";
+        return Response.ok(responseDTO).build();
+        //return responseDTO;
+    }
+
+    @GET
+    @Path("testGetPara")
+    public String getMessagePara(String val) {
+
+//        testClass responseDTO = new testClass();
+//        responseDTO.message = "Message.exe ";
+//        return Response.ok(responseDTO).build();
+        return "Ta mere" + val;
+    }
+
+    @POST
     @Path("test")
-    public Response testingReturn() {
+    public Response postMessagePara(String val) {
 
         testClass responseDTO = new testClass();
         responseDTO.message = "Message.exe ";
