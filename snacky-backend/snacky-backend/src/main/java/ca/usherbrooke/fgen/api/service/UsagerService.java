@@ -86,7 +86,7 @@ public class UsagerService {
         Integer id = UsagerMapper.getNewId();
         return id;
     }
-    
+
 
 
 }
