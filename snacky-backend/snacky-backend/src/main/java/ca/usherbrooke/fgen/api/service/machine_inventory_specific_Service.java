@@ -21,8 +21,8 @@ public class machine_inventory_specific_Service {
     machine_inventory_specific_Mapper machine_inventory_specificMapper;
 
     @GET
-    @Path("MachineInventory/Get/Full/{id_usager}")
-    public List<machine_inventory_specific> getMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineInventory/Get/Full")
+    public List<machine_inventory_specific> getMachinesSpecifics(Integer id_usager)
     {
         return machine_inventory_specificMapper.getAllMachine(id_usager);
     }
