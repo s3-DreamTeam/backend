@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/api")
-@Produces(MediaType.APPLICATION_XML)
+@Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class test {
 
@@ -21,6 +21,16 @@ public class test {
 //        responseDTO.message = "Message.exe ";
 //        return Response.ok(responseDTO).build();
         return "Ta mere";
+    }
+
+    @GET
+    @Path("testingReturn")
+    public testClass testingReturn() {
+
+        testClass responseDTO = new testClass();
+        responseDTO.message = "Message.exe ";
+//        return Response.ok(responseDTO).build();
+        return responseDTO;
     }
 }
 
