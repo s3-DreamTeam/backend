@@ -55,7 +55,7 @@ public class machine_template_page_Service {
         return listInt;
     }
 //    @Path("MachineTemplate/Get/AllID")
-    @GET
+    @POST
     @Path("test")
     public String getMachinesSpecificsAllID()
     {
