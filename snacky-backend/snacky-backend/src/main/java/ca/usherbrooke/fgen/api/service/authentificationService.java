@@ -16,7 +16,7 @@ public class authentificationService {
 
     @POST
     @Path("testdgdf")
-    public String test() {
+    public String testdgdf() {
         return (new User(identity).getUserID());
     }
 
