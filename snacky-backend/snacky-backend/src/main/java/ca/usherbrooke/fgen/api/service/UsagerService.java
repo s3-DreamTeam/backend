@@ -33,7 +33,7 @@ public class UsagerService {
 
     //This is modified for Shawn, it will be empty
     @GET
-    @Path("getallusagersforfun")
+    @Path("getallusagers")
     public List<Usager> getAllUsagers() {
         List<Usager> Usagers = UsagerMapper.allUsagers();
         //List<Usager> Usagers = new ArrayList<>();

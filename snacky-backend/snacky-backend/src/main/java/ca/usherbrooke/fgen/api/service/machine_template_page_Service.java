@@ -60,8 +60,8 @@ public class machine_template_page_Service {
     public String getMachinesSpecificsAllID()
     {
         //List<Integer> listInt = new ArrayList<>();
-        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
-
+        //return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
+        return "hello there my friend, i am not a hacker";
         //return listInt;
     }
 
