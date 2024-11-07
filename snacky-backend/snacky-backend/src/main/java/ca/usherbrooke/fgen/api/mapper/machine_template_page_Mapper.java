@@ -10,4 +10,5 @@ import java.util.List;
 @Mapper
 public interface machine_template_page_Mapper {
     List<machine_template_page> getCompactTemplateMachine(@Param("id_usager") Integer id_usager);
+    List<Integer> getMachinesSpecificsAllID(@Param("name_usager") String name_usager);
 }
