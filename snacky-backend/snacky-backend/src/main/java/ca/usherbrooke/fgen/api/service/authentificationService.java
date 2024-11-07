@@ -20,7 +20,7 @@ public class authentificationService {
 
     @POST
     @Path("test")
-    public User me() {
+    public User test() {
         return new User(identity);
     }
 
