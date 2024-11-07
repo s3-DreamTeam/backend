@@ -23,7 +23,7 @@ public class authentificationService {
     SecurityIdentity identity;
 
     @GET
-    @Path("/test")
+    @Path("test")
     public User me() {
         return new User(identity);
     }
