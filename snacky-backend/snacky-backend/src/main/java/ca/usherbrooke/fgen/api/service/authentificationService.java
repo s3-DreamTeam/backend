@@ -18,8 +18,8 @@ public class authentificationService {
 
     @POST
     @Path("test")
-    public User test() {
-        return new User(identity);
+    public String test() {
+        return (new User(identity)).toString();
     }
 
     public static class User {
