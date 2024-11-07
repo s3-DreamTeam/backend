@@ -15,8 +15,8 @@ public class authentificationService {
     SecurityIdentity identity;
 
     @POST
-    @Path("testdgdf")
-    public String testdgdf() {
+    @Path("postUserName")
+    public String postUserName() {
         return (new User(identity).getUserID());
     }
 
