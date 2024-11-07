@@ -55,14 +55,14 @@ public class machine_template_page_Service {
         return listInt;
     }
 //    @Path("MachineTemplate/Get/AllID")
-    @POST
-    @Path("test")
-    public String getMachinesSpecificsAllID()
+    @GET
+    @Path("MachineTemplate/Get/AllID")
+    public List<Integer> getMachinesSpecificsAllID()
     {
         //List<Integer> listInt = new ArrayList<>();
 //        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
-        //return (Mapper.getMachinesSpecificsAllID("Nom 1")).toString();
-        return "hello there my friend, i am not a hacker";
+        return Mapper.getMachinesSpecificsAllID("Nom 1");
+        //return "hello there my friend, i am not a hacker";
         //return listInt;
     }
 
