@@ -21,9 +21,9 @@ public class authentificationService {
 
     @Inject
     SecurityIdentity identity;
-    
+
     @POST
-    @Path("test")
+    @Path("testsrtg")
     public User me() {
         return new User(identity);
     }
