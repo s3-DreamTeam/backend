@@ -19,7 +19,7 @@ public class authentificationService {
     @POST
     @Path("test")
     public String test() {
-        return (new User(identity).getUserName());
+        return (new User(identity).getUserID());
     }
 
     public static class User {
@@ -27,10 +27,11 @@ public class authentificationService {
         private final String userName;
 
         User(SecurityIdentity identity) {
-            this.userName = identity.getPrincipal().getName();
+            this.userName = identity.getPrincipal().getName();//permet de get le CIP du dude
+            //this.userName = identity.getCredentials().toString();
         }
 
-        public String getUserName() {
+        public String getUserID() {
             return userName;
         }
     }
