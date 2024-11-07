@@ -15,6 +15,8 @@ import jakarta.ws.rs.Path;
 import io.quarkus.security.identity.SecurityIdentity;
 
 @Path("/api")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class authentificationService {
 
     @Inject
