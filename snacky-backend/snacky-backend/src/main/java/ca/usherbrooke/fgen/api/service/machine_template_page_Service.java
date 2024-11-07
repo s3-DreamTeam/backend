@@ -2,7 +2,6 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_template_page;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
-import ca.usherbrooke.fgen.api.service.authentificationService;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
@@ -55,13 +54,13 @@ public class machine_template_page_Service {
 
         return listInt;
     }
-
+//    @Path("MachineTemplate/Get/AllID")
     @GET
-    @Path("MachineTemplate/Get/AllID")
-    public List<Integer> getMachinesSpecificsAllID()
+    @Path("test")
+    public String getMachinesSpecificsAllID()
     {
         //List<Integer> listInt = new ArrayList<>();
-        return Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID());
+        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
 
         //return listInt;
     }
