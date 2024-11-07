@@ -19,7 +19,7 @@ public class authentificationService {
     @POST
     @Path("test")
     public String test() {
-        return (new User(identity)).toString();
+        return (new User(identity).getUserName());
     }
 
     public static class User {
