@@ -5,9 +5,11 @@ import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
+import javax.validation.constraints.Null;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Path("/api")
@@ -61,7 +63,16 @@ public class machine_template_page_Service {
     {
         //List<Integer> listInt = new ArrayList<>();
 //        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
-        return Mapper.getMachinesSpecificsAllID("Nom 1");
+        //return Mapper.getMachinesSpecificsAllID("Nom 1");
+        try{
+            return Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID());
+        }
+        catch (Exception exception)
+        {
+            return new ArrayList<Integer>();
+        }
+
+
         //return "hello there my friend, i am not a hacker";
         //return listInt;
     }
