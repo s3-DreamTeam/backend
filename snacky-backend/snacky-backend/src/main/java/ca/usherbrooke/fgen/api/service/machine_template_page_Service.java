@@ -58,18 +58,18 @@ public class machine_template_page_Service {
     }
 //    @Path("MachineTemplate/Get/AllID")
     @POST
-    @Path("MachineTemplate/Get/AllID")
-    public String getMachinesSpecificsAllID()
+    @Path("test")
+    public List<Integer> getMachinesSpecificsAllID()
     {
         //List<Integer> listInt = new ArrayList<>();
 //        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
         //return Mapper.getMachinesSpecificsAllID("Nom 1");
         try{
-            return (Mapper.getMachinesSpecificsAllID("Nom 1")).toString();
+            return Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID());
         }
         catch (Exception exception)
         {
-            return exception.toString();
+            return new ArrayList<Integer>();
         }
 
 
