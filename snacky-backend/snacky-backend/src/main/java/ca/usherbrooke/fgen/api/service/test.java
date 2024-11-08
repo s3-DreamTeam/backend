@@ -34,7 +34,7 @@ public class test {
     }
 
     @POST
-    @Path("test")
+    @Path("testasd")
     public String getMessagePara(String val) {
 
 //        testClass responseDTO = new testClass();
