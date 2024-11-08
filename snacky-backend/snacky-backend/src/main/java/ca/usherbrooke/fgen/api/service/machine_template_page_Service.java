@@ -65,7 +65,7 @@ public class machine_template_page_Service {
 //        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
         //return Mapper.getMachinesSpecificsAllID("Nom 1");
         try{
-            return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
+            return (Mapper.getMachinesSpecificsAllID("Nom 1")).toString();
         }
         catch (Exception exception)
         {
