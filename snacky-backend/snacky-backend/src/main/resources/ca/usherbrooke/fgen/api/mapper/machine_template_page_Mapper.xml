@@ -18,8 +18,13 @@
     <select id="getMachinesSpecificsAllID" resultType="Integer">
         select
             projet.machine_inventory_specific.id_machine
-        from projet.machine_inventory_specific, projet.usager
-            JOIN projet.usager ON usager.id_usager = machine_inventory_specific.id_usager
-        where projet.usager.nom_usager = #{name_usager}
+        from
+            projet.machine_inventory_specific
+        JOIN
+            projet.usager
+        ON
+            usager.id_usager = machine_inventory_specific.id_usager
+        where
+            projet.usager.nom_usager = #{name_usager}
     </select>
 </mapper>
