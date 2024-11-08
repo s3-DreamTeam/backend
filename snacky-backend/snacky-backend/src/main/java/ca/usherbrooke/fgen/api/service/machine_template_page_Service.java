@@ -24,10 +24,10 @@ public class machine_template_page_Service {
     SecurityIdentity identity;
 
     @GET
-    @Path("MachineTemplate/Get/Full/{id_usager}")
-    public List<machine_template_page> getMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineTemplate/Get/Full")
+    public List<machine_template_page> getMachinesSpecifics()
     {
-        return Mapper.getCompactTemplateMachine(id_usager);
+        return Mapper.getCompactTemplateMachine(new authentificationService.User(identity).getUserID());
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,16 +40,16 @@ public class machine_template_page_Service {
 
     //
     @GET
-    @Path("MachineTemplate/Get/Image/{id_usager}")
-    public List<machine_template_page> getMachinesSpecificsImage(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineTemplate/Get/Image")
+    public String getMachinesSpecificsImage()
     {
-        return Mapper.getCompactTemplateMachine(id_usager);
+        return Mapper.getImageMachine(new authentificationService.User(identity).getUserID());
     }
 
 
     @GET
-    @Path("MachineTemplate/Get/Surface/{id_usager}")
-    public List<Integer> getMachinesSpecificsSurface(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineTemplate/Get/Surface")
+    public List<Integer> getMachinesSpecificsSurface()
     {
         List<Integer> listInt = new ArrayList<>();
 
@@ -65,7 +65,7 @@ public class machine_template_page_Service {
 //        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
         //return Mapper.getMachinesSpecificsAllID("Nom 1");
         try{
-            return Mapper.getMachinesSpecificsAllID("Nom 1");
+            return Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID());
         }
         catch (Exception exception)
         {
