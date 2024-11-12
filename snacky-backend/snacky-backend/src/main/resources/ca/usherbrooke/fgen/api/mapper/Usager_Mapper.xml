@@ -38,11 +38,12 @@
     </select>
 
     <insert id="insertUsager" parameterType="ca.usherbrooke.fgen.api.business.Usager">
-        INSERT INTO projet.Usager (
+        INSERT INTO projet.Usager (id_usager,
                                    nom_usager,
                                    prenom_usager,
                                    solde_usager)
-        VALUES (#{Usager.nom_usager},
+        VALUES (#{Usager.id_usager},
+                #{Usager.nom_usager},
                 #{Usager.prenom_usager},
                 #{Usager.solde_usager});
     </insert>
