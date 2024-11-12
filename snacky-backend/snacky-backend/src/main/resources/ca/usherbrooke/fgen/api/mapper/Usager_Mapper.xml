@@ -47,16 +47,10 @@
         INSERT INTO projet.Usager (
                                    nom_usager,
                                    prenom_usager,
-                                   solde_usager,
-                                   email_usager,
-                                   profil_pic_usager,
-                                   id_status)
+                                   solde_usager)
         VALUES (#{Usager.nom_usager},
                 #{Usager.prenom_usager},
-                #{Usager.solde_usager},
-                #{Usager.email_usager},
-                #{Usager.profil_pic_usager},
-                #{Usager.id_status});
+                #{Usager.solde_usager});
     </insert>
 
 </mapper>

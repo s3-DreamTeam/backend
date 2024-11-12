@@ -69,13 +69,10 @@ public class UsagerService {
     public void insertUsager(@PathParam("newUsager") String usager) {
         System.out.println("add: ");
         Usager usagerNew = new Usager();
-        usagerNew.id_usager = 42;
-        usagerNew.email_usager = "email42";
+        usagerNew.id_usager = 'Lanc0902';
         usagerNew.nom_usager = "MyName42";
         usagerNew.prenom_usager = "First42";
         usagerNew.solde_usager = 42;
-        usagerNew.id_status = 42;
-        usagerNew.profil_pic_usager = "photode42";
         UsagerMapper.insertUsager(usagerNew);
     }
 
