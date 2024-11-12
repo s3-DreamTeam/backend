@@ -17,10 +17,7 @@
         select id_usager,
                nom_usager,
                prenom_usager,
-               solde_usager,
-               email_usager,
-               profil_pic_usager,
-               id_status
+               solde_usager
         from projet.usager
     </select>
 
