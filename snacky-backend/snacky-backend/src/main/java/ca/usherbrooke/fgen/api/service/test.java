@@ -51,7 +51,7 @@ public class test {
             return machineTemplate.toString();
         } catch (Exception e) {
 
-            return e.toString();
+            return "erreur:\n" + e.getMessage();
         }
     }
 
