@@ -42,10 +42,10 @@
                                    nom_usager,
                                    prenom_usager,
                                    solde_usager)
-        VALUES (#{Usager.id_usager},
-                #{Usager.nom_usager},
-                #{Usager.prenom_usager},
-                #{Usager.solde_usager});
+        VALUES (#{newUsager.id_usager},
+                #{newUsager.nom_usager},
+                #{newUsager.prenom_usager},
+                #{newUsager.solde_usager});
     </insert>
 
 </mapper>

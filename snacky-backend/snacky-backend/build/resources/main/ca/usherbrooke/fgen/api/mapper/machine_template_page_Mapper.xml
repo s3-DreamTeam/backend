@@ -27,4 +27,17 @@
         where
             projet.usager.nom_usager = #{name_usager}
     </select>
+
+<!--    <select id="createMachineTemplate" resultType="Void">-->
+<!--        select-->
+<!--            projet.machine_inventory_specific.id_machine-->
+<!--        from-->
+<!--            projet.machine_inventory_specific-->
+<!--                JOIN-->
+<!--            projet.usager-->
+<!--            ON-->
+<!--                usager.id_usager = machine_inventory_specific.id_usager-->
+<!--        where-->
+<!--            projet.usager.nom_usager = #{name_usager}-->
+<!--    </select>-->
 </mapper>

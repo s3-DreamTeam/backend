@@ -7,10 +7,7 @@
     <select id="selectOne" resultType="ca.usherbrooke.fgen.api.business.Usager">
         select id_usager,
                nom_usager,
-               prenom_usager,
-               email_usager,
-               profil_pic_usager,
-               id_status
+               prenom_usager
         from projet.usager
         where id_usager = #{usager_id}
     </select>
@@ -20,10 +17,7 @@
         select id_usager,
                nom_usager,
                prenom_usager,
-               solde_usager,
-               email_usager,
-               profil_pic_usager,
-               id_status
+               solde_usager
         from projet.usager
     </select>
 
@@ -44,20 +38,14 @@
     </select>
 
     <insert id="insertUsager" parameterType="ca.usherbrooke.fgen.api.business.Usager">
-        INSERT INTO projet.Usager (
+        INSERT INTO projet.Usager (id_usager,
                                    nom_usager,
                                    prenom_usager,
-                                   solde_usager,
-                                   email_usager,
-                                   profil_pic_usager,
-                                   id_status)
-        VALUES (
-                #{nom_usager},
-                #{prenom_usager},
-                #{solde_usager},
-                #{email_usager},
-                #{profil_pic_usager},
-                #{id_status});
+                                   solde_usager)
+        VALUES (#{newUsager.id_usager},
+                #{newUsager.nom_usager},
+                #{newUsager.prenom_usager},
+                #{newUsager.solde_usager});
     </insert>
 
 </mapper>
