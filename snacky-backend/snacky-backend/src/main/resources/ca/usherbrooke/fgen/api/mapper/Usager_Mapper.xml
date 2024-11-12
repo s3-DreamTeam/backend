@@ -51,13 +51,12 @@
                                    email_usager,
                                    profil_pic_usager,
                                    id_status)
-        VALUES (
-                #{nom_usager},
-                #{prenom_usager},
-                #{solde_usager},
-                #{email_usager},
-                #{profil_pic_usager},
-                #{id_status});
+        VALUES (#{Usager.nom_usager},
+                #{Usager.prenom_usager},
+                #{Usager.solde_usager},
+                #{Usager.email_usager},
+                #{Usager.profil_pic_usager},
+                #{Usager.id_status});
     </insert>
 
 </mapper>
