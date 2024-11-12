@@ -2,6 +2,7 @@ package ca.usherbrooke.fgen.api.business;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List; // import if Slots is a list
 
 public class machine_template {
 
@@ -61,5 +62,9 @@ public class machine_template {
     @JsonAlias({"cash_produit"})
     public boolean cash_produit;
 
-    // Add any additional properties like Slots, isLoading, etc. if needed
+    @JsonProperty("Slots")
+    @JsonAlias({"slots_produit"}) // Add this if you have a mapped internal name
+    public List<String> slots; // Replace List<String> with the appropriate type of Slots
+
+    // Add other properties if needed...
 }
