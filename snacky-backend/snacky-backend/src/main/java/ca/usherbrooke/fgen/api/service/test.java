@@ -48,7 +48,7 @@ public class test {
         try {
             //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
             //Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
-            return "Machine template: \n" + machineTemplate.toString();
+            return String.valueOf(machineTemplate);
         } catch (Exception e) {
 
             return "erreur:\n" + e.getMessage();
