@@ -1,19 +1,62 @@
 package ca.usherbrooke.fgen.api.business;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Machine {
-    public Integer idTemplate_machine;
-    public String machineImage_machine;
-    public String manufacturer_machine;
-    public String model_machine;
-    public String climate_machine;
-    public boolean hasSerialNumbers_machine;
-    public boolean colorVaries_machine;
-    public boolean seeThroughWindow_machine;
-    public boolean hasInternetConnection_machine;
-    public boolean hasBluetooth_machine;
-    public boolean hasPhysicalConnection_machine;
-    public boolean onlineStore_machine;
-    public boolean debitCards_machine;
-    public boolean creditCards_machine;
-    public boolean cash_machine;
+    @JsonProperty("Machine's Image")
+    public String machineImage_produit;
+
+    @JsonProperty("Name")
+    public String name_produit;
+
+    @JsonProperty("Location")
+    public String location_produit;
+
+    @JsonProperty("Serial ID")
+    public String serialId_produit;
+
+    @JsonProperty("Machine's Color")
+    public String machineColor_produit;
+
+    @JsonProperty("Activated")
+    public boolean activated_produit;
+
+    @JsonProperty("Min temperature")
+    public Integer minTemperature_produit;
+
+    @JsonProperty("Set temperature")
+    public Integer setTemperature_produit;
+
+    @JsonProperty("Max temperature")
+    public Integer maxTemperature_produit;
+
+    @JsonProperty("Network SSID")
+    public String networkSSID_produit;
+
+    @JsonProperty("Network Password")
+    public String networkPassword_produit;
+
+    @JsonProperty("Bluetooth SSID")
+    public String bluetoothSSID_produit;
+
+    @JsonProperty("Bluetooth Password")
+    public String bluetoothPassword_produit;
+
+    @JsonProperty("Physical Connector")
+    public String physicalConnector_produit;
+
+    @JsonProperty("Online Store URL")
+    public String onlineStoreUrl_produit;
+
+    @JsonProperty("Debit Providers")
+    public String debitProviders_produit;
+
+    @JsonProperty("Credit Providers")
+    public String creditProviders_produit;
+
+    @JsonProperty("Accepted Currencies")
+    public String acceptedCurrencies_produit;
+
+    @JsonProperty("TemplateID")
+    public Integer templateId_produit;
 }

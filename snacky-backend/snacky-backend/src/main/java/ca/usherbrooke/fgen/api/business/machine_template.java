@@ -1,26 +1,45 @@
 package ca.usherbrooke.fgen.api.business;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 public class machine_template {
-    public Integer id_machine;
-    public String machineImage_machine;
-    public String name_machine;
-    public String location_machine;
-    public String serialId_machine;
-    public String machineColor_machine;
-    public boolean activated_machine;
-    public Integer minTemperature_machine;
-    public Integer setTemperature_machine;
-    public Integer maxTemperature_machine;
-    public String networkSSID_machine;
-    public String networkPassword_machine;
-    public String bluetoothSSID_machine;
-    public String bluetoothPassword_machine;
-    public String physicalConnector_machine;
-    public String onlineStoreUrl_machine;
-    public String debitProviders_machine;
-    public String creditProviders_machine;
-    public String acceptedCurrencies_machine;
-    public Integer templateId_machine;
+    @JsonProperty("Machine's image")
+    public String machineImage_produit;
 
+    @JsonProperty("Manufacturer")
+    public String manufacturer_produit;
 
+    @JsonProperty("Model")
+    public String model_produit;
+
+    @JsonProperty("Climate")
+    public String climate_produit;
+
+    @JsonProperty("Has serial numbers")
+    public boolean hasSerialNumbers_produit;
+
+    @JsonProperty("Color varies")
+    public boolean colorVaries_produit;
+
+    @JsonProperty("See through window")
+    public boolean seeThroughWindow_produit;
+
+    @JsonProperty("Has internet connection")
+    public boolean hasInternetConnection_produit;
+
+    @JsonProperty("Has Bluetooth")
+    public boolean hasBluetooth_produit;
+
+    @JsonProperty("Has physical connection")
+    public boolean hasPhysicalConnection_produit;
+
+    @JsonProperty("Online store")
+    public boolean onlineStore_produit;
+
+    @JsonProperty("Debit cards")
+    public boolean debitCards_produit;
+
+    @JsonProperty("Credit cards")
+    public boolean creditCards_produit;
+
+    @JsonProperty("Cash")
+    public boolean cash_produit;
 }
