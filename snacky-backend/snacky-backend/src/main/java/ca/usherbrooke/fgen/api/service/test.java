@@ -43,12 +43,14 @@ public class test {
 //        testClass responseDTO = new testClass();
 //        responseDTO.message = "Message.exe ";
 //        return Response.ok(responseDTO).build();
-        ObjectMapper objectMapper = new ObjectMapper();
+        //ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
             //Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
-            return String.valueOf(machineTemplate);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(machineTemplate);
+            return jsonString;
         } catch (Exception e) {
 
             return "erreur:\n" + e.getMessage();
