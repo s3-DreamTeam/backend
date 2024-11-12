@@ -64,9 +64,9 @@ public class UsagerService {
         return;
     }
 
-    @PUT
-    @Path("insertUsager/{newUsager}")
-    public void insertUsager(@PathParam("newUsager") String usager) {
+    @GET
+    @Path("insertUsager")
+    public void insertUsager() {
         System.out.println("add: ");
         Usager usagerNew = new Usager();
         usagerNew.id_usager = "Lanc0902";
