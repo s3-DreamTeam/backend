@@ -40,7 +40,7 @@ public class test {
 //        testClass responseDTO = new testClass();
 //        responseDTO.message = "Message.exe ";
 //        return Response.ok(responseDTO).build();
-        return "Charles ca update pas le backend, genre j'ai pas de message dans discord\n\nIDK c weird il fait l'update de mon ancien push.\n\n" + val;
+        return "Charles ca update pas le backend, genre j'ai pas de message dans discord\n\nIDK c weird il fait l'update de mon ancien push.\n\nIdk Machine, machine fuck you\n\n" + val;
     }
 
     @POST
