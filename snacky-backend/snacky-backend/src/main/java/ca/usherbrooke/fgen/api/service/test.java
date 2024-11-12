@@ -37,7 +37,7 @@ public class test {
 
     @POST
     @Path("test")
-    public String getMessagePara(String jsonString) {
+    public machine_template getMessagePara(machine_template jsonString) {
 
         return jsonString;
 //        testClass responseDTO = new testClass();
