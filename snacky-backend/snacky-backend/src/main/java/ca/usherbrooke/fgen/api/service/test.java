@@ -37,22 +37,22 @@ public class test {
 
     @POST
     @Path("test")
-    public machine_template getMessagePara(machine_template jsonString) {
+    public String getMessagePara(machine_template machineTemplate) {
 
-        return jsonString;
+        //return jsonString;
 //        testClass responseDTO = new testClass();
 //        responseDTO.message = "Message.exe ";
 //        return Response.ok(responseDTO).build();
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//        try {
-//            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-//            //Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
-//            return machineTemplate.toString();
-//        } catch (Exception e) {
-//
-//            return jsonString;
-//        }
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            //Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
+            return machineTemplate.toString();
+        } catch (Exception e) {
+
+            return e.toString();
+        }
     }
 
     @POST
