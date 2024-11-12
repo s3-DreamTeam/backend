@@ -1,9 +1,10 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.machine_template_page;
+import ca.usherbrooke.fgen.api.business.machine_template;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
 import ca.usherbrooke.fgen.api.business.machine_template_surface;
 import io.quarkus.security.identity.SecurityIdentity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.inject.Inject;
 import javax.validation.constraints.Null;
@@ -26,7 +27,7 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/Get/Full")
-    public List<machine_template_page> getMachinesSpecifics()
+    public List<machine_template> getMachinesSpecifics()
     {
         return Mapper.getCompactTemplateMachine(new authentificationService.User(identity).getUserID());
     }
@@ -59,9 +60,6 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Get/AllID")
     public List<Integer> getMachinesSpecificsAllID()
     {
-        //List<Integer> listInt = new ArrayList<>();
-//        return (Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID())).toString();
-        //return Mapper.getMachinesSpecificsAllID("Nom 1");
         try{
             return Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID());
         }
@@ -69,33 +67,41 @@ public class machine_template_page_Service {
         {
             return new ArrayList<Integer>();
         }
-
-
-        //return "hello there my friend, i am not a hacker";
-        //return listInt;
     }
 
     @GET
-    @Path("MachineTemplate/New/{id_usager}")
-    public machine_template_page setMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineTemplate/New")
+    public void createMachineTemplate(String jsonString)
     {
-        machine_template_page machine = new machine_template_page();
-        return machine;
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GET
-    @Path("MachineTemplate/Modify/{id_usager}")
-    public machine_template_page modifyMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineTemplate/Modify")
+    public void modifyMachinesTemplate(String jsonString)
     {
-        machine_template_page machine = new machine_template_page();
-        return machine;
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GET
     @Path("MachineTemplate/Delete/{id_usager}")
-    public machine_template_page deleteMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
+    public machine_template deleteMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
     {
-        machine_template_page machine = new machine_template_page();
+        machine_template machine = new machine_template();
         return machine;
     }
 }

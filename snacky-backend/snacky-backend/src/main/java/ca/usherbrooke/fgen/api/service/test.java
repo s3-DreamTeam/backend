@@ -1,6 +1,8 @@
 package ca.usherbrooke.fgen.api.service;
 
+import ca.usherbrooke.fgen.api.business.machine_template;
 import ca.usherbrooke.fgen.api.business.testClass;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -35,12 +37,22 @@ public class test {
 
     @POST
     @Path("test")
-    public String getMessagePara(String val) {
+    public String getMessagePara(String jsonString) {
 
 //        testClass responseDTO = new testClass();
 //        responseDTO.message = "Message.exe ";
 //        return Response.ok(responseDTO).build();
-        return "Charles ca update pas le backend, genre j'ai pas de message dans discord\n\nIDK c weird il fait l'update de mon ancien push.\n\nIdk Machine, machine fuck you\n\n" + val;
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            //Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
+            return machineTemplate.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "Non";
     }
 
     @POST

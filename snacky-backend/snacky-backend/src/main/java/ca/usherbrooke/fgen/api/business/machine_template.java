@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class machine_template {
 
-    @JsonProperty("Machine's image")
+    @JsonProperty("Image")
     @JsonAlias({"machineImage_produit"})
     public String machineImage_produit;
 
@@ -17,47 +17,49 @@ public class machine_template {
     @JsonAlias({"model_produit"})
     public String model_produit;
 
-    @JsonProperty("Climate")
+    @JsonProperty("Category")
     @JsonAlias({"climate_produit"})
     public String climate_produit;
 
-    @JsonProperty("Has serial numbers")
-    @JsonAlias({"hasSerialNumbers_produit"})
-    public boolean hasSerialNumbers_produit;
-
-    @JsonProperty("Color varies")
+    @JsonProperty("ColorVaries")
     @JsonAlias({"colorVaries_produit"})
     public boolean colorVaries_produit;
 
-    @JsonProperty("See through window")
+    @JsonProperty("SeeThroughWindow")
     @JsonAlias({"seeThroughWindow_produit"})
     public boolean seeThroughWindow_produit;
 
-    @JsonProperty("Has internet connection")
+    @JsonProperty("HasSerialNumber")
+    @JsonAlias({"hasSerialNumbers_produit"})
+    public boolean hasSerialNumbers_produit;
+
+    @JsonProperty("HasInternetConnection")
     @JsonAlias({"hasInternetConnection_produit"})
     public boolean hasInternetConnection_produit;
 
-    @JsonProperty("Has Bluetooth")
+    @JsonProperty("HasBluetoothConnection")
     @JsonAlias({"hasBluetooth_produit"})
     public boolean hasBluetooth_produit;
 
-    @JsonProperty("Has physical connection")
+    @JsonProperty("HasPhysicalConnection")
     @JsonAlias({"hasPhysicalConnection_produit"})
     public boolean hasPhysicalConnection_produit;
 
-    @JsonProperty("Online store")
+    @JsonProperty("HasOnlineStore")
     @JsonAlias({"onlineStore_produit"})
     public boolean onlineStore_produit;
 
-    @JsonProperty("Debit cards")
+    @JsonProperty("AcceptsDebit")
     @JsonAlias({"debitCards_produit"})
     public boolean debitCards_produit;
 
-    @JsonProperty("Credit cards")
+    @JsonProperty("AcceptsCredit")
     @JsonAlias({"creditCards_produit"})
     public boolean creditCards_produit;
 
-    @JsonProperty("Cash")
+    @JsonProperty("AcceptsCash")
     @JsonAlias({"cash_produit"})
     public boolean cash_produit;
+
+    // Add any additional properties like Slots, isLoading, etc. if needed
 }
