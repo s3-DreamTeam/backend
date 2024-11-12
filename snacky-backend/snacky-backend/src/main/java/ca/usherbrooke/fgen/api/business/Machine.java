@@ -1,6 +1,6 @@
 package ca.usherbrooke.fgen.api.business;
 
-public class machine {
+public class Machine {
     public Integer idTemplate_machine;
     public String machineImage_machine;
     public String manufacturer_machine;
