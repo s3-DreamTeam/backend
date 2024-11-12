@@ -7,10 +7,7 @@
     <select id="selectOne" resultType="ca.usherbrooke.fgen.api.business.Usager">
         select id_usager,
                nom_usager,
-               prenom_usager,
-               email_usager,
-               profil_pic_usager,
-               id_status
+               prenom_usager
         from projet.usager
         where id_usager = #{usager_id}
     </select>
