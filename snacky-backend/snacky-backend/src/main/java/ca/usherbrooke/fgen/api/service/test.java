@@ -50,9 +50,8 @@ public class test {
             return machineTemplate.toString();
         } catch (Exception e) {
             e.printStackTrace();
+            return "Non" + e.getMessage();
         }
-
-        return "Non";
     }
 
     @POST
