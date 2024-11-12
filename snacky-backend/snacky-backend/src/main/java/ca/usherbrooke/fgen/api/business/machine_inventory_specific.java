@@ -1,5 +1,5 @@
 package ca.usherbrooke.fgen.api.business;
-
+//Je crois pas utiliser
 public class machine_inventory_specific {
     public Integer id_machine;
     public String emplacement_machine;

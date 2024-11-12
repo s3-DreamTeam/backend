@@ -1,5 +1,5 @@
 package ca.usherbrooke.fgen.api.business;
-
+//Je crois pas utiliser
 public class product_inventory_specific {
     public Integer id_produit;
     public Integer quantite_produit;

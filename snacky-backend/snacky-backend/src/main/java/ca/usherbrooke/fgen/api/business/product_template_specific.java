@@ -1,5 +1,5 @@
 package ca.usherbrooke.fgen.api.business;
-
+//Je crois pas utiliser
 public class product_template_specific {
     public Integer id_type_p;
     public String image_type_p;
