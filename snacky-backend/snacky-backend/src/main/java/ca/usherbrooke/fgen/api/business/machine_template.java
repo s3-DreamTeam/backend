@@ -1,12 +1,15 @@
 package ca.usherbrooke.fgen.api.business;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List; // import if Slots is a list
 
+import java.util.List;
+
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class machine_template {
 
-    @JsonProperty("Image")
+    @JsonProperty("Machine's image")
     @JsonAlias({"machineImage_produit"})
     public String machineImage_produit;
 
@@ -18,53 +21,47 @@ public class machine_template {
     @JsonAlias({"model_produit"})
     public String model_produit;
 
-    @JsonProperty("Category")
+    @JsonProperty("Climate")
     @JsonAlias({"climate_produit"})
     public String climate_produit;
 
-    @JsonProperty("ColorVaries")
-    @JsonAlias({"colorVaries_produit"})
-    public boolean colorVaries_produit;
-
-    @JsonProperty("SeeThroughWindow")
-    @JsonAlias({"seeThroughWindow_produit"})
-    public boolean seeThroughWindow_produit;
-
-    @JsonProperty("HasSerialNumber")
+    @JsonProperty("Has serial numbers")
     @JsonAlias({"hasSerialNumbers_produit"})
     public boolean hasSerialNumbers_produit;
 
-    @JsonProperty("HasInternetConnection")
+    @JsonProperty("Color varies")
+    @JsonAlias({"colorVaries_produit"})
+    public boolean colorVaries_produit;
+
+    @JsonProperty("See through window")
+    @JsonAlias({"seeThroughWindow_produit"})
+    public boolean seeThroughWindow_produit;
+
+    @JsonProperty("Has internet connection")
     @JsonAlias({"hasInternetConnection_produit"})
     public boolean hasInternetConnection_produit;
 
-    @JsonProperty("HasBluetoothConnection")
+    @JsonProperty("Has Bluetooth")
     @JsonAlias({"hasBluetooth_produit"})
     public boolean hasBluetooth_produit;
 
-    @JsonProperty("HasPhysicalConnection")
+    @JsonProperty("Has physical connection")
     @JsonAlias({"hasPhysicalConnection_produit"})
     public boolean hasPhysicalConnection_produit;
 
-    @JsonProperty("HasOnlineStore")
+    @JsonProperty("Online store")
     @JsonAlias({"onlineStore_produit"})
     public boolean onlineStore_produit;
 
-    @JsonProperty("AcceptsDebit")
+    @JsonProperty("Debit cards")
     @JsonAlias({"debitCards_produit"})
     public boolean debitCards_produit;
 
-    @JsonProperty("AcceptsCredit")
+    @JsonProperty("Credit cards")
     @JsonAlias({"creditCards_produit"})
     public boolean creditCards_produit;
 
-    @JsonProperty("AcceptsCash")
+    @JsonProperty("Cash")
     @JsonAlias({"cash_produit"})
     public boolean cash_produit;
-
-    @JsonProperty("Slots")
-    @JsonAlias({"slots_produit"}) // Add this if you have a mapped internal name
-    public List<String> slots; // Replace List<String> with the appropriate type of Slots
-
-    // Add other properties if needed...
 }
