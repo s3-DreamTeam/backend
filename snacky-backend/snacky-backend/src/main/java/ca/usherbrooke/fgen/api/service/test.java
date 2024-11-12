@@ -49,8 +49,8 @@ public class test {
             //Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
             return machineTemplate.toString();
         } catch (Exception e) {
-            e.printStackTrace();
-            return "Non" + e.getMessage();
+            
+            return jsonString;
         }
     }
 
