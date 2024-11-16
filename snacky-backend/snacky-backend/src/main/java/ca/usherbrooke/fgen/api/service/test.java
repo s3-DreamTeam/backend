@@ -36,7 +36,7 @@ public class test {
     }
 
     @POST
-    @Path("test")
+    @Path("testasdasd")
     public String getMessagePara(machine_template machineTemplate) {
 
         //return jsonString;

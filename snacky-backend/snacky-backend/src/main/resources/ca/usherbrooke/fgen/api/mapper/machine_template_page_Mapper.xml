@@ -21,7 +21,7 @@
         WHERE id_machine = #{id_machine}
     </select>
 
-    
+
 
     <select id="getMachinesSpecificsAllID" parameterType="String" resultType="Integer">
         select

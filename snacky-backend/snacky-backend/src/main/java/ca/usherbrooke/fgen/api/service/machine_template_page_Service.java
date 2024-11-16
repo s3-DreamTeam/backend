@@ -59,18 +59,25 @@ public class machine_template_page_Service {
         }
     }
 
+//    @Path("MachineTemplate/New")
     @POST
-    @Path("MachineTemplate/New")
-    public void createMachineTemplate(String jsonString)
+    @Path("test")
+    public String createMachineTemplate(String jsonString)
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+//            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            machine_template machineTemplate = new machine_template();
+            machineTemplate.cash_machine = true;
+
+
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
             Mapper.createMachineTemplate(machineTemplate);
+            return "Finished request";
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            return "erreur: " + e.getMessage();
         }
     }
 
