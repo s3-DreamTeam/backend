@@ -1,15 +1,11 @@
 package ca.usherbrooke.fgen.api.business;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class machine_template {
 
-    @JsonProperty("Machine's image")
+    @JsonProperty("Machine's Image")
     @JsonAlias({"machineImage_produit"})
     public String machineImage_produit;
 
@@ -36,6 +32,18 @@ public class machine_template {
     @JsonProperty("See through window")
     @JsonAlias({"seeThroughWindow_produit"})
     public boolean seeThroughWindow_produit;
+
+    @JsonProperty("Row Count")
+    @JsonAlias({"rowCount_produit"})
+    public Integer rowCount_produit;
+
+    @JsonProperty("Column Count")
+    @JsonAlias({"columnCount_produit"})
+    public Integer columnCount_produit;
+
+    @JsonProperty("Quantity Per Slots")
+    @JsonAlias({"quantityPerSlots_produit"})
+    public Integer quantityPerSlots_produit;
 
     @JsonProperty("Has internet connection")
     @JsonAlias({"hasInternetConnection_produit"})

@@ -12,10 +12,10 @@ import java.util.List;
 
 @Mapper
 public interface machine_inventory_specific_Mapper {
-    List<machine_inventory_specific> getAllMachine(@Param("id_usager") Integer id_usager);
-    String getMachinesImage(@Param("id_usager") Integer id_usager);
-    machine_surface getMachinesSurface(@Param("id_usager") Integer id_usager);
-    List<Integer> getAllMachinesID(@Param("id_usager") Integer id_usager);
-    void newMachineSpecifics(@Param("id_usager") Integer id_usager);
-    boolean deleteMachineSpecifics(@Param("id_usager") Integer id_usager);
+    List<machine_inventory_specific> getAllMachine(@Param("id_usager") String id_usager);
+    String getMachinesImage(@Param("id_usager") String id_usager, @Param("id_machine") String id_machine);
+    machine_surface getMachinesSurface(@Param("id_usager") String id_usager);
+    List<Integer> getAllMachinesID(@Param("id_usager") String id_usager);
+    void newMachineSpecifics(@Param("id_usager") String id_usager);
+    boolean deleteMachineSpecifics(@Param("id_usager") String id_usager);
 }

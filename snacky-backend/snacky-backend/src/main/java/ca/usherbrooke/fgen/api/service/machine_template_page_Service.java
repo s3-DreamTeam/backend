@@ -32,15 +32,6 @@ public class machine_template_page_Service {
         return Mapper.getCompactTemplateMachine(new authentificationService.User(identity).getUserID());
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //tout est a modifier, c fait pour shawn qu'il a pas l'erreur 404
-
-    //
     @GET
     @Path("MachineTemplate/Get/Image")
     public String getMachinesSpecificsImage()
@@ -48,14 +39,13 @@ public class machine_template_page_Service {
         return Mapper.getImageMachine(new authentificationService.User(identity).getUserID());
     }
 
-
     @GET
     @Path("MachineTemplate/Get/Surface")
     public machine_template_surface getMachinesSpecificsSurface(Integer ID)
     {
         return Mapper.getMachineSurfaceTemplate(new authentificationService.User(identity).getUserID(), ID);
     }
-//    @Path("MachineTemplate/Get/AllID")
+
     @GET
     @Path("MachineTemplate/Get/AllID")
     public List<Integer> getMachinesSpecificsAllID()
@@ -98,10 +88,9 @@ public class machine_template_page_Service {
     }
 
     @GET
-    @Path("MachineTemplate/Delete/{id_usager}")
-    public machine_template deleteMachinesSpecifics(@PathParam("id_usager") Integer id_usager)
+    @Path("MachineTemplate/Delete")
+    public void deleteMachinesSpecifics(String id_machine)
     {
-        machine_template machine = new machine_template();
-        return machine;
+        Mapper.deleteMachineTemplate(id_machine);
     }
 }
