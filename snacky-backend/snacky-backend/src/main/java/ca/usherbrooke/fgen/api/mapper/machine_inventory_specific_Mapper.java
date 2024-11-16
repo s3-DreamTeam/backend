@@ -17,5 +17,5 @@ public interface machine_inventory_specific_Mapper {
     machine_surface getMachinesSurface(@Param("id_usager") String id_usager);
     List<Integer> getAllMachinesID(@Param("id_usager") String id_usager);
     void newMachineSpecifics(@Param("id_usager") String id_usager, @Param("newMachine") machine newMachine);
-    boolean deleteMachineSpecifics(@Param("id_usager") String id_usager);
+    boolean deleteMachineSpecifics(@Param("id_usager") String id_usager, @Param("id_machine") String id_machine);
 }
