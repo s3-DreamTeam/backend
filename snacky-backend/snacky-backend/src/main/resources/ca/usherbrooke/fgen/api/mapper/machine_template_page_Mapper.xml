@@ -37,20 +37,14 @@
     </select>
 
     <insert id="createMachineTemplate" parameterType="ca.usherbrooke.fgen.api.business.machine_template">
-        INSERT INTO projet.type_de_machine (model_type_m,
-                                            manufacturier_type_m)
-        VALUES (#{machine_template.model_machine},
-                #{machine_template.manufacturer_machine})
-        INSERT INTO projet.machine (image_machine,
-                                    id_type_m,
-                                    id_remplissage)
-        VALUES (#{machine_template.machineImage_machine},
-                (SELECT MAX(id_type_m) FROM projet.type_de_machine),
-                1)
+        INSERT INTO projet.type_de_machine (model_type_m, manufacturier_type_m)
+        VALUES (#{model_machine}, #{manufacturer_machine});
 
-        INSERT INTO projet.usager_x_machines (id_usager,
-                                              id_machine)
-        VALUES (#{machine_template.id_usager},
-            (SELECT MAX(id_machine) FROM projet.machine))
+        INSERT INTO projet.machine (image_machine, id_type_m, id_remplissage)
+        VALUES (#{machineImage_machine}, (SELECT MAX(id_type_m) FROM projet.type_de_machine), 1);
+
+        INSERT INTO projet.usager_x_machines (id_usager, id_machine)
+        VALUES (#{id_usager}, (SELECT MAX(id_machine) FROM projet.machine));
     </insert>
+
 </mapper>
