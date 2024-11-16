@@ -61,7 +61,7 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/New")
-    public void createMachineTemplate(String jsonString)
+    public int createMachineTemplate(String jsonString)
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -69,8 +69,10 @@ public class machine_template_page_Service {
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
             Mapper.createMachineTemplate(machineTemplate);
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
+            return -1;
         }
     }
 
