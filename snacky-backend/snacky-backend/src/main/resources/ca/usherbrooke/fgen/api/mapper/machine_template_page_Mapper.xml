@@ -15,7 +15,7 @@
     </select>
 
 
-    <select id="getMachinesSpecificsAllID" resultType="Integer">
+    <select id="getMachinesSpecificsAllID" parameterType="String" resultType="Integer">
         select
             projet.machine_inventory_specific.id_machine
         from
