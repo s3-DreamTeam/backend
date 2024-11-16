@@ -24,8 +24,19 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import javax.inject.Inject;
 @QuarkusTest
 public class GreetingResourceTest {
-    @Inject
-    SecurityIdentity identity;  // Injecter l'instance de SecurityIdentity
+    
+    @Test
+    @TestSecurity(authorizationEnabled = false)
+    public void testGetMachinesSpecificsAllID() {
+        given()
+                .header("Authorization", "Bearer mockToken")  // Token fictif
+                .contentType(MediaType.APPLICATION_JSON)
+                .when()
+                .get("/api/MachineTemplate/Get/AllID")  // Endpoint que vous testez
+                .then()
+                .statusCode(200)
+                .body("size()", equalTo(0));  // Vérification de la réponse
+    }
     //    @Test
 //    public void testGetMessagePara() {
 //        given()
