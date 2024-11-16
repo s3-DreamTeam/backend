@@ -3,7 +3,7 @@ package ca.usherbrooke.fgen.api.business;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Machine {
+public class Machinessss {
     @JsonProperty("Machine's Image")
     @JsonAlias({"machineImage_produit"})
     public String machineImage_produit;
