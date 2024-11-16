@@ -67,7 +67,8 @@ public class machine_template_page_Service {
 
         try {
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-            Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
+            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
+            Mapper.createMachineTemplate(machineTemplate);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -81,7 +82,8 @@ public class machine_template_page_Service {
 
         try {
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-            Mapper.createMachineTemplate(new authentificationService.User(identity).getUserID(), machineTemplate);
+            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
+            Mapper.createMachineTemplate(machineTemplate);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -12,7 +12,7 @@ import java.util.List;
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class product_template_page_Service {
+public class product_template_Service {
 
     @Inject
     product_template_page_Mapper Mapper;
