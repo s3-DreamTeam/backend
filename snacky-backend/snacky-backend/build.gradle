@@ -33,6 +33,7 @@ dependencies {
     //TESTS
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+    testImplementation 'io.quarkus:quarkus-test-security'
 }
 
 version = '1.0.0'
