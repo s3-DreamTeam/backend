@@ -66,14 +66,15 @@ public class UsagerService {
 
     @GET
     @Path("insertUsager")
-    public void insertUsager() {
+    public int insertUsager() {
         System.out.println("add: ");
         Usager usagerNew = new Usager();
-        usagerNew.id_usager = "Lanc0902";
-        usagerNew.nom_usager = "MyName42";
-        usagerNew.prenom_usager = "First42";
+        usagerNew.id_usager = "larv1803";
+        usagerNew.nom_usager = "Charlestouille";
+        usagerNew.prenom_usager = "chien";
         usagerNew.solde_usager = 42;
         UsagerMapper.insertUsager(usagerNew);
+        return 0;
     }
 
     @GET
