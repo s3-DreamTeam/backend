@@ -28,7 +28,7 @@
             projet.usager.nom_usager = #{name_usager}
     </select>
 
-    <insert id="createMachineTemplate" parameterType="ca.usherbrooke.fgen.api.business.">
+    <insert id="createMachineTemplate" parameterType="ca.usherbrooke.fgen.api.business.machine_template">
         INSERT INTO projet.type_de_machine (model_type_m,
                                             manufacturier_type_m)
         VALUES (#{machine_template.model_machine},
