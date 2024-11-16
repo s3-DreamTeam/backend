@@ -27,9 +27,9 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/Get/Full")
-    public List<machine_template> getMachinesSpecifics()
+    public List<machine_template> getTemplateMachine()
     {
-        return Mapper.getCompactTemplateMachine(new authentificationService.User(identity).getUserID());
+        return Mapper.getTemplateMachine(new authentificationService.User(identity).getUserID());
     }
 
     @GET
@@ -59,22 +59,19 @@ public class machine_template_page_Service {
         }
     }
 
-    @GET
+    @POST
     @Path("MachineTemplate/New")
-    public int createMachineTemplate(String jsonString)
+    public void createMachineTemplate(String jsonString)
     {
-        return 1;
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//        try {
-//            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-//            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
-//            Mapper.createMachineTemplate(machineTemplate);
-//            return 1;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return -1;
-//        }
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
+            Mapper.createMachineTemplate(machineTemplate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GET
