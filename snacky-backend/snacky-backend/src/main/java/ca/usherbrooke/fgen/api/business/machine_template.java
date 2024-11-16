@@ -6,70 +6,70 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class machine_template {
 
     @JsonProperty("Machine's Image")
-    @JsonAlias({"machineImage_produit"})
-    public String machineImage_produit;
+    @JsonAlias({"machineImage_machine"})
+    public String machineImage_machine;
 
     @JsonProperty("Manufacturer")
-    @JsonAlias({"manufacturer_produit"})
-    public String manufacturer_produit;
+    @JsonAlias({"manufacturer_machine"})
+    public String manufacturer_machine;
 
     @JsonProperty("Model")
-    @JsonAlias({"model_produit"})
-    public String model_produit;
+    @JsonAlias({"model_machine"})
+    public String model_machine;
 
     @JsonProperty("Climate")
-    @JsonAlias({"climate_produit"})
-    public String climate_produit;
+    @JsonAlias({"climate_machine"})
+    public String climate_machine;
 
     @JsonProperty("Has serial numbers")
-    @JsonAlias({"hasSerialNumbers_produit"})
-    public boolean hasSerialNumbers_produit;
+    @JsonAlias({"hasSerialNumbers_machine"})
+    public boolean hasSerialNumbers_machine;
 
     @JsonProperty("Color varies")
-    @JsonAlias({"colorVaries_produit"})
-    public boolean colorVaries_produit;
+    @JsonAlias({"colorVaries_machine"})
+    public boolean colorVaries_machine;
 
     @JsonProperty("See through window")
-    @JsonAlias({"seeThroughWindow_produit"})
-    public boolean seeThroughWindow_produit;
+    @JsonAlias({"seeThroughWindow_machine"})
+    public boolean seeThroughWindow_machine;
 
     @JsonProperty("Row Count")
-    @JsonAlias({"rowCount_produit"})
-    public Integer rowCount_produit;
+    @JsonAlias({"rowCount_machine"})
+    public Integer rowCount_machine;
 
     @JsonProperty("Column Count")
-    @JsonAlias({"columnCount_produit"})
-    public Integer columnCount_produit;
+    @JsonAlias({"columnCount_machine"})
+    public Integer columnCount_machine;
 
     @JsonProperty("Quantity Per Slots")
-    @JsonAlias({"quantityPerSlots_produit"})
-    public Integer quantityPerSlots_produit;
+    @JsonAlias({"quantityPerSlots_machine"})
+    public Integer quantityPerSlots_machine;
 
     @JsonProperty("Has internet connection")
-    @JsonAlias({"hasInternetConnection_produit"})
-    public boolean hasInternetConnection_produit;
+    @JsonAlias({"hasInternetConnection_machine"})
+    public boolean hasInternetConnection_machine;
 
     @JsonProperty("Has Bluetooth")
-    @JsonAlias({"hasBluetooth_produit"})
-    public boolean hasBluetooth_produit;
+    @JsonAlias({"hasBluetooth_machine"})
+    public boolean hasBluetooth_machine;
 
     @JsonProperty("Has physical connection")
-    @JsonAlias({"hasPhysicalConnection_produit"})
-    public boolean hasPhysicalConnection_produit;
+    @JsonAlias({"hasPhysicalConnection_machine"})
+    public boolean hasPhysicalConnection_machine;
 
     @JsonProperty("Online store")
-    @JsonAlias({"onlineStore_produit"})
-    public boolean onlineStore_produit;
+    @JsonAlias({"onlineStore_machine"})
+    public boolean onlineStore_machine;
 
     @JsonProperty("Debit cards")
-    @JsonAlias({"debitCards_produit"})
-    public boolean debitCards_produit;
+    @JsonAlias({"debitCards_machine"})
+    public boolean debitCards_machine;
 
     @JsonProperty("Credit cards")
-    @JsonAlias({"creditCards_produit"})
-    public boolean creditCards_produit;
+    @JsonAlias({"creditCards_machine"})
+    public boolean creditCards_machine;
 
     @JsonProperty("Cash")
-    @JsonAlias({"cash_produit"})
-    public boolean cash_produit;
+    @JsonAlias({"cash_machine"})
+    public boolean cash_machine;
 }

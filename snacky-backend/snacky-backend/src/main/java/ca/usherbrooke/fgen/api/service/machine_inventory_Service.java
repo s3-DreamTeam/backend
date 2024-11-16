@@ -1,8 +1,10 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_inventory_specific;
+import ca.usherbrooke.fgen.api.business.machine;
 import ca.usherbrooke.fgen.api.mapper.machine_inventory_specific_Mapper;
 import ca.usherbrooke.fgen.api.business.machine_surface;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
@@ -23,7 +25,7 @@ public class machine_inventory_Service {
 
     @GET
     @Path("MachineInventory/Get/Full")
-    public List<machine_inventory_specific> getMachinesSpecifics()
+    public List<machine> getMachinesSpecifics()
     {
         return machine_inventory_specificMapper.getAllMachine(new authentificationService.User(identity).getUserID());
     }
@@ -54,9 +56,16 @@ public class machine_inventory_Service {
 
     @GET
     @Path("MachineInventory/New")
-    public void newMachineSpecifics(Integer id_usager)
+    public void newMachineSpecifics(String jsonString)
     {
-        //machine_inventory_specificMapper.newMachineSpecifics(id_usager, machine);
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            machine newMachine = objectMapper.readValue(jsonString, machine.class);
+            machine_inventory_specificMapper.newMachineSpecifics(new authentificationService.User(identity).getUserID(), newMachine);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GET
