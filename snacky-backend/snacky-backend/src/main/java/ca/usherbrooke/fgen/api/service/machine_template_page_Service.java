@@ -51,7 +51,7 @@ public class machine_template_page_Service {
     public List<Integer> getMachinesSpecificsAllID()
     {
         try{
-            return Mapper.getMachinesSpecificsAllID(new authentificationService.User(identity).getUserID());
+            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
         }
         catch (Exception exception)
         {
