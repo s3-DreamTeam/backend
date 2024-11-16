@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper">
 
-    <select id="getCompactTemplateMachine" resultType="ca.usherbrooke.fgen.api.business.machine_template_page">
+    <select id="getTemplateMachine" resultType="ca.usherbrooke.fgen.api.business.machine_template_page">
         select
             image_type_m,
             model_type_m,
@@ -14,8 +14,16 @@
         where id_usager = #{id_usager}
     </select>
 
+    <select id="getImageMachine" resultType="String">
+        SELECT
+            image_machine
+        FROM projet.machine
+        WHERE id_machine = #{id_machine}
+    </select>
 
-    <select id="getMachinesSpecificsAllID" resultType="Integer">
+    <select id="getMachineSurfaceTemplate" resultType="ca.usherbrooke.fgen.api.business.machine_template_surface"
+
+    <select id="getMachinesSpecificsAllID" parameterType="String" resultType="Integer">
         select
             projet.machine_inventory_specific.id_machine
         from
@@ -37,12 +45,12 @@
                                     id_type_m,
                                     id_remplissage)
         VALUES (#{machine_template.machineImage_machine},
-                SELECT MAX(id_type_m) FROM projet.type_de_machine,
+                (SELECT MAX(id_type_m) FROM projet.type_de_machine),
                 1)
 
         INSERT INTO projet.usager_x_machines (id_usager,
                                               id_machine)
         VALUES (#{machine_template.id_usager},
-            SELECT MAX(id_machine) FROM projet.machine)
+            (SELECT MAX(id_machine) FROM projet.machine))
     </insert>
 </mapper>
