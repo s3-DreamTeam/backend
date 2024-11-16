@@ -53,7 +53,7 @@ public class test {
             return jsonString;
         } catch (Exception e) {
 
-            return "erreur du message:\n" + e.getMessage();
+            return "il faut que sa update un jour\nerreur du message:\n" + e.getMessage();
         }
     }
 
