@@ -40,7 +40,7 @@ public class machine_template_page_Service {
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonString = objectMapper.writeValueAsString(val);
 
-            System.out.println("MachineTemplate/Get/Image\nData received from DB:");
+            System.out.println("MachineTemplate/Get/Full\nData received from DB:");
             System.out.println(jsonString);
 
         } catch (Exception e) {
@@ -96,11 +96,11 @@ public class machine_template_page_Service {
     public List<Integer> getMachinesSpecificsAllID()
     {
         try{
-            //return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
+            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
             //return Mapper.getTemplateMachinesAllID("graf2102");
-            List<Integer> inte = new ArrayList<Integer>();
-            inte.add(9);
-            return inte;
+//            List<Integer> inte = new ArrayList<Integer>();
+//            inte.add(9);
+//            return inte;
         }
         catch (Exception exception)
         {
