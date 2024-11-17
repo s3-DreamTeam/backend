@@ -7,11 +7,11 @@ public class machine_template_surface {
 
     @JsonProperty("Manufacturer")
     @JsonAlias({"manufacturier_type_m"})
-    public String manufacturer_machine;
+    public String manufacturier_type_m;
 
     @JsonProperty("Model")
     @JsonAlias({"model_type_m"})
-    public String model_machine;
+    public String model_type_m;
 
     @JsonProperty("id")
     @JsonAlias({"id_machine"})
