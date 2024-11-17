@@ -72,8 +72,8 @@ public class machine_inventory_Service {
 
     @GET
     @Path("MachineInventory/Delete")
-    public boolean deleteMachineSpecifics(String machineID)
+    public boolean deleteMachineSpecifics(Integer machineID)
     {
-        return machine_inventory_specificMapper.deleteMachineSpecifics(new authentificationService.User(identity).getUserID(), machineID);
+        return machine_inventory_specificMapper.deleteMachineSpecifics(machineID);
     }
 }
