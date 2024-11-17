@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface product_inventory_specific_Mapper {
+public interface product_inventory_Mapper {
 
     List<product_inventory_specific> getAllProduct(@Param("id_usager") Integer id_usager);
 }

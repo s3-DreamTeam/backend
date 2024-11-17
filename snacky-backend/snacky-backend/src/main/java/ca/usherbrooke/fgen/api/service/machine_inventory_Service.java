@@ -1,5 +1,6 @@
 package ca.usherbrooke.fgen.api.service;
 
+import ca.usherbrooke.fgen.api.business.MachineTemplateImage;
 import ca.usherbrooke.fgen.api.business.machine;
 import ca.usherbrooke.fgen.api.business.machine_inventory_surface;
 import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
@@ -32,16 +33,44 @@ public class machine_inventory_Service {
 
     @POST
     @Path("MachineInventory/Get/Image")
-    public String getMachinesImage(Integer machineID)
-    {
-        return machine_inventory_specificMapper.getMachinesImage(machineID);
+    public String getMachinesImage(Integer ID) throws Exception {
+        System.out.println("MachineInventory/Get/Image\nRaw data received (ID):");
+        System.out.println(ID);
+
+        MachineTemplateImage ima = new MachineTemplateImage();
+        ima.image = machine_inventory_specificMapper.getMachinesImage(ID);
+        try
+        {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(ima);
+
+            System.out.println("MachineInventory/Get/Image\nData received from DB:");
+            System.out.println(jsonString);
+            return jsonString;
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
+        }
     }
 
     @POST
     @Path("MachineInventory/Get/Surface")
-    public machine_inventory_surface getMachinesSurface(Integer machineID)
-    {
-        return machine_inventory_specificMapper.getMachinesSurface(machineID);
+    public String getMachinesSurface(Integer ID) throws Exception {
+        try
+        {
+            machine_inventory_surface variable = machine_inventory_specificMapper.getMachinesSurface(ID);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(variable);
+
+            System.out.println("Data from DB:");
+            System.out.println(jsonString);
+            return jsonString;
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
+        }
     }
 
     @GET

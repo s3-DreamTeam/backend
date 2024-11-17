@@ -2,7 +2,7 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.product_template;
 import ca.usherbrooke.fgen.api.business.product_template_page;
-import ca.usherbrooke.fgen.api.mapper.product_template_page_Mapper;
+import ca.usherbrooke.fgen.api.mapper.product_template_Mapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
@@ -17,7 +17,7 @@ import java.util.List;
 public class product_template_Service {
 
     @Inject
-    product_template_page_Mapper Mapper;
+    product_template_Mapper Mapper;
 
     @Inject
     SecurityIdentity identity;
