@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class machine {
+    public String id_usager;
+
     @JsonProperty("Machine's Image")
     @JsonAlias({"machineImage_produit"})
     public String machineImage_produit;

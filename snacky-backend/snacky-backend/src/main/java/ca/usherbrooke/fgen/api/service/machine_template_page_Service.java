@@ -27,9 +27,9 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/Get/Full")
-    public List<machine_template> getTemplateMachine()
+    public machine_template getTemplateMachine(Integer ID)
     {
-        return Mapper.getTemplateMachine(new authentificationService.User(identity).getUserID());
+        return Mapper.getTemplateMachine(ID);
     }
 
     @GET
