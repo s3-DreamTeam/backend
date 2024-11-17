@@ -1,7 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
-import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
+import ca.usherbrooke.fgen.api.mapper.machine_template_Mapper;
 import io.quarkus.security.identity.SecurityIdentity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -14,10 +14,10 @@ import java.util.List;
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class machine_template_page_Service {
+public class machine_template_Service {
 
     @Inject
-    machine_template_page_Mapper Mapper;
+    machine_template_Mapper Mapper;
 
     @Inject
     SecurityIdentity identity;
