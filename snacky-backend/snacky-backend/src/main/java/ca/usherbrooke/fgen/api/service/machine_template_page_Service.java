@@ -97,12 +97,14 @@ public class machine_template_page_Service {
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
+        System.console().writer().println(jsonString);
+
         try {
-            //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-            machine_template machineTemplate = new machine_template();
-            machineTemplate.cash_machine = true;
-            machineTemplate.model_machine = "allo charles";
-            machineTemplate.manufacturer_machine = "Hardcoding for life";
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+//            machine_template machineTemplate = new machine_template();
+//            machineTemplate.cash_machine = true;
+//            machineTemplate.model_machine = "allo charles";
+//            machineTemplate.manufacturer_machine = "Hardcoding for life";
 
 
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
