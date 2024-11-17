@@ -1,8 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.machine_inventory_specific;
 import ca.usherbrooke.fgen.api.business.machine;
-import ca.usherbrooke.fgen.api.mapper.machine_inventory_specific_Mapper;
+import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
 import ca.usherbrooke.fgen.api.business.machine_surface;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
@@ -18,7 +17,7 @@ import java.util.List;
 public class machine_inventory_Service {
 
     @Inject
-    machine_inventory_specific_Mapper machine_inventory_specificMapper;
+    machine_inventory_Mapper machine_inventory_specificMapper;
 
     @Inject
     SecurityIdentity identity;
