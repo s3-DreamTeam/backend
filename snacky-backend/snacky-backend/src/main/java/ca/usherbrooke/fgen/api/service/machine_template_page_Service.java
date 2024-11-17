@@ -1,10 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.machine_template;
-import ca.usherbrooke.fgen.api.business.receive_ID;
-import ca.usherbrooke.fgen.api.business.usagerMachine;
+import ca.usherbrooke.fgen.api.business.*;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
-import ca.usherbrooke.fgen.api.business.machine_template_surface;
 import com.fasterxml.jackson.databind.JsonNode;
 import io.quarkus.security.identity.SecurityIdentity;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -102,21 +99,21 @@ public class machine_template_page_Service {
         System.out.println(jsonString);
 
         try {
-            //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            testdefou machineTemplate = objectMapper.readValue(jsonString, testdefou.class);
 
-            JsonNode rootNode = objectMapper.readTree(jsonString);
-            JsonNode machineTemplateNode = rootNode.get("machineTemplateObject");
-            machine_template machineTemplate = objectMapper.treeToValue(machineTemplateNode, machine_template.class);
+//            JsonNode rootNode = objectMapper.readTree(jsonString);
+//            JsonNode machineTemplateNode = rootNode.get("machineTemplateObject");
+//            machine_template machineTemplate = objectMapper.treeToValue(machineTemplateNode, machine_template.class);
 
 //            machine_template machineTemplate = new machine_template();
 //            machineTemplate.cash_machine = true;
 //            machineTemplate.model_machine = "allo charles";
 //            machineTemplate.manufacturer_machine = "Hardcoding for life";
             System.out.println("machine template:");
-            System.out.println(objectMapper.writeValueAsString(machineTemplate));
+            System.out.println(objectMapper.writeValueAsString(machineTemplate.machineTemplateObject));
 
-            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
-            Mapper.createMachineTemplate(machineTemplate);
+            machineTemplate.machineTemplateObject.id_usager = new authentificationService.User(identity).getUserID();
+            Mapper.createMachineTemplate(machineTemplate.machineTemplateObject);
         } catch (Exception e) {
             e.printStackTrace();
         }
