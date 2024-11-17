@@ -157,8 +157,19 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/Delete")
-    public void deleteMachinesSpecifics(Integer id_machine)
+    public void deleteMachinesSpecifics(Integer ID)
     {
-        Mapper.deleteMachineTemplate(id_machine);
+        System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
+        System.out.println(ID);
+
+        try
+        {
+            Mapper.deleteMachineTemplate(ID);
+            System.out.println("Finished deleting: " + ID);
+        }
+        catch (Exception e)
+        {
+            System.out.println("failed to delete:");
+        }
     }
 }
