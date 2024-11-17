@@ -140,7 +140,7 @@ public class machine_template_page_Service {
         }
     }
 
-    @GET
+    @POST
     @Path("MachineTemplate/Modify")
     public void modifyMachinesTemplate(String jsonString)
     {
@@ -155,7 +155,7 @@ public class machine_template_page_Service {
         }
     }
 
-    @GET
+    @POST
     @Path("MachineTemplate/Delete")
     public void deleteMachinesSpecifics(Integer ID)
     {
