@@ -68,7 +68,7 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/Get/Surface")
     @POST
     @Path("MachineTemplate/Get/Surface")
-    public machine_template_surface getMachinesSpecificsSurface(Integer ID)
+    public String getMachinesSpecificsSurface(Integer ID)
     {
         System.out.println("MachineTemplate/Get/Surface\nRaw data received (ID):");
         System.out.println(ID);
@@ -83,12 +83,13 @@ public class machine_template_page_Service {
 
             System.out.println("Data from DB:");
             System.out.println(jsonString);
+            return jsonString;
 
         } catch (Exception e) {
             System.out.println("failed to get or convert data from DB:");
         }
 
-        return variable;
+        return "variable";
     }
 
     @GET
