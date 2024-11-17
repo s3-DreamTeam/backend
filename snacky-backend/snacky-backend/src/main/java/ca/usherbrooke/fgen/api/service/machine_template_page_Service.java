@@ -5,6 +5,8 @@ import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import io.quarkus.security.identity.SecurityIdentity;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
 
 import javax.inject.Inject;
 import javax.validation.constraints.Null;
@@ -129,6 +131,8 @@ public class machine_template_page_Service {
 
         } catch (Exception e) {
             System.out.println("erreur new machine template:\n" + e.getMessage());
+
+            throw new WebApplicationException("Image is to big", Response.Status.BAD_REQUEST);
         }
     }
 
