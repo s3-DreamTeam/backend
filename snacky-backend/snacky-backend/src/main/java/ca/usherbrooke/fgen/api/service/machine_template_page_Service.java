@@ -97,6 +97,7 @@ public class machine_template_page_Service {
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
+        System.out.println("Raw data received:");
         System.out.println(jsonString);
 
         try {
@@ -105,7 +106,8 @@ public class machine_template_page_Service {
 //            machineTemplate.cash_machine = true;
 //            machineTemplate.model_machine = "allo charles";
 //            machineTemplate.manufacturer_machine = "Hardcoding for life";
-
+            System.out.println("machine template:");
+            System.out.println(objectMapper.writeValueAsString(machineTemplate));
 
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
             Mapper.createMachineTemplate(machineTemplate);
