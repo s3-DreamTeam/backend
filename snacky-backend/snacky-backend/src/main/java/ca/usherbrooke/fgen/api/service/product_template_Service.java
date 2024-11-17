@@ -31,9 +31,9 @@ public class product_template_Service {
 
     @GET
     @Path("ProductTemplate/Get/Image")
-    public String getProductImage(String id_machine)
+    public String getProductImage(Integer ID)
     {
-        return Mapper.getProductTemplateImage(id_machine);
+        return Mapper.getProductTemplateImage(ID);
     }
 
 
