@@ -99,9 +99,27 @@ public class machine_template_page_Service {
         System.out.println(jsonString);
 
         try {
-            testdefou machineTemplate = objectMapper.readValue(jsonString, testdefou.class);
+//            testdefou machineTemplate = objectMapper.readValue(jsonString, testdefou.class);
+//
+//            System.out.println("machine template:");
+//            System.out.println(objectMapper.writeValueAsString(machineTemplate.machineTemplateObject));
+//
+//            machineTemplate.machineTemplateObject.id_usager = new authentificationService.User(identity).getUserID();
+//            Mapper.createMachineTemplate(machineTemplate.machineTemplateObject);
 
-//            JsonNode rootNode = objectMapper.readTree(jsonString);
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+
+            System.out.println("machine template:");
+            System.out.println(objectMapper.writeValueAsString(machineTemplate));
+
+            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
+            Mapper.createMachineTemplate(machineTemplate);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //            JsonNode rootNode = objectMapper.readTree(jsonString);
 //            JsonNode machineTemplateNode = rootNode.get("machineTemplateObject");
 //            machine_template machineTemplate = objectMapper.treeToValue(machineTemplateNode, machine_template.class);
 
@@ -109,14 +127,6 @@ public class machine_template_page_Service {
 //            machineTemplate.cash_machine = true;
 //            machineTemplate.model_machine = "allo charles";
 //            machineTemplate.manufacturer_machine = "Hardcoding for life";
-            System.out.println("machine template:");
-            System.out.println(objectMapper.writeValueAsString(machineTemplate.machineTemplateObject));
-
-            machineTemplate.machineTemplateObject.id_usager = new authentificationService.User(identity).getUserID();
-            Mapper.createMachineTemplate(machineTemplate.machineTemplateObject);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @GET
