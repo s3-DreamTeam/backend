@@ -46,8 +46,8 @@
 
     <select id="getMachineSurfaceTemplate" parameterType="Interger" resultType="ca.usherbrooke.fgen.api.business.machine_template_surface">
         SELECT
-            type_de_machine.manufacturier_type_m
-            type_de_machine.model_type_m
+            type_de_machine.manufacturier_type_m,
+            type_de_machine.model_type_m,
             machine.id_machine
         FROM
             projet.machine
