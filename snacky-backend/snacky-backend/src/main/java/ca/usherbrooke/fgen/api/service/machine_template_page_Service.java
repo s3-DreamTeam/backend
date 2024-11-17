@@ -92,7 +92,7 @@ public class machine_template_page_Service {
 
 //    @Path("MachineTemplate/New")
     @POST
-    @Path("test")
+    @Path("MachineTemplate/New")
     public void createMachineTemplate(String jsonString)
     {
         ObjectMapper objectMapper = new ObjectMapper();
