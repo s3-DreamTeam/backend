@@ -40,15 +40,26 @@ public class machine_template_page_Service {
         return Mapper.getImageMachine(new authentificationService.User(identity).getUserID());
     }
 
-    @GET
-    @Path("MachineTemplate/Get/Surface")
-    public machine_template_surface getMachinesSpecificsSurface(Integer ID)
+//    @Path("MachineTemplate/Get/Surface")
+    @POST
+    @Path("test")
+    public String getMachinesSpecificsSurface(Integer ID)
     {
 //        usagerMachine id_usagerMachine = new usagerMachine();
 //        id_usagerMachine.id_machine = ID;
 //        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-        return Mapper.getMachineSurfaceTemplate(1);
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(Mapper.getMachineSurfaceTemplate(1));
+            return jsonString;
+        } catch (Exception e) {
+
+            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
+        }
+
+
+        //return Mapper.getMachineSurfaceTemplate(1);
     }
 
     @GET
