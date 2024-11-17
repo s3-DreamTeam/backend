@@ -55,4 +55,15 @@
         WHERE projet.machine.id_machine = #{id_machine};
     </select>
 
+    <delete id="deleteMachineTemplate" parameterType="Integer">
+        DELETE
+        FROM projet.usager_x_machines
+        WHERE id_machine = #{id_machine};
+
+        DELETE
+        FROM projet.machine
+        WHERE id_machine = #{id_machine};
+    </delete>
+
+
 </mapper>

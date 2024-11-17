@@ -15,5 +15,5 @@ public interface machine_template_page_Mapper {
     machine_template_surface getMachineSurfaceTemplate(@Param("id_machine") Integer id_machine);
     List<Integer> getTemplateMachinesAllID(@Param("name_usager") String name_usager);
     void createMachineTemplate(@Param("machine_template") machine_template machineTemplate);
-    void deleteMachineTemplate(@Param("id_machine") String id_machine);
+    void deleteMachineTemplate(@Param("id_machine") Integer id_machine);
 }
