@@ -1,6 +1,5 @@
 package ca.usherbrooke.fgen.api.mapper;
 
-import ca.usherbrooke.fgen.api.business.usagerMachine;
 import ca.usherbrooke.fgen.api.business.machine_template;
 import ca.usherbrooke.fgen.api.business.machine_template_surface;
 import org.apache.ibatis.annotations.Mapper;

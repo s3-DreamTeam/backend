@@ -7,16 +7,16 @@ public class machine_template {
     public String id_usager;
 
     @JsonProperty("Machine's Image")
-    @JsonAlias({"machineImage_machine"})
-    public String machineImage_machine;
+    @JsonAlias({"image_machine"})
+    public String image_machine;
 
     @JsonProperty("Manufacturer")
-    @JsonAlias({"manufacturer_machine"})
-    public String manufacturer_machine;
+    @JsonAlias({"manufacturier_type_m"})
+    public String manufacturier_type_m;
 
     @JsonProperty("Model")
-    @JsonAlias({"model_machine"})
-    public String model_machine;
+    @JsonAlias({"model_type_m"})
+    public String model_type_m;
 
     @JsonProperty("Climate")
     @JsonAlias({"climate_machine"})
@@ -35,16 +35,16 @@ public class machine_template {
     public boolean seeThroughWindow_machine;
 
     @JsonProperty("Row Count")
-    @JsonAlias({"rowCount_machine"})
-    public Integer rowCount_machine;
+    @JsonAlias({"row_type_m"})
+    public Integer row_type_m;
 
     @JsonProperty("Column Count")
-    @JsonAlias({"columnCount_machine"})
-    public Integer columnCount_machine;
+    @JsonAlias({"column_type_m"})
+    public Integer column_type_m;
 
     @JsonProperty("Quantity Per Slots")
-    @JsonAlias({"quantityPerSlots_machine"})
-    public Integer quantityPerSlots_machine;
+    @JsonAlias({"quantity_type_m"})
+    public Integer quantity_type_m;
 
     @JsonProperty("Has internet connection")
     @JsonAlias({"hasInternetConnection_machine"})
