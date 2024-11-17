@@ -1,7 +1,9 @@
 package ca.usherbrooke.fgen.api.business;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class machine_template_surface {
 

@@ -108,7 +108,6 @@ public class machine_template_page_Service {
         }
     }
 
-//    @Path("MachineTemplate/New")
     @POST
     @Path("MachineTemplate/New")
     public void createMachineTemplate(String jsonString)
