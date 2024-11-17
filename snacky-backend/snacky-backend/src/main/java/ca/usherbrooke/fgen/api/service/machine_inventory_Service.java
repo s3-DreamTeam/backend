@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine;
+import ca.usherbrooke.fgen.api.business.machine_inventory_surface;
 import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
 import ca.usherbrooke.fgen.api.business.machine_surface;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,9 +25,9 @@ public class machine_inventory_Service {
 
     @GET
     @Path("MachineInventory/Get/Full")
-    public List<machine> getMachinesSpecifics()
+    public machine getMachinesSpecifics()
     {
-        return machine_inventory_specificMapper.getAllMachine(new authentificationService.User(identity).getUserID());
+        return machine_inventory_specificMapper.getMachine(new authentificationService.User(identity).getUserID());
     }
 
     @GET
@@ -39,7 +40,7 @@ public class machine_inventory_Service {
 
     @GET
     @Path("MachineInventory/Get/Surface")
-    public machine_surface getMachinesSurface(Integer machineID)
+    public machine_inventory_surface getMachinesSurface(Integer machineID)
     {
         return machine_inventory_specificMapper.getMachinesSurface(machineID);
     }
@@ -69,10 +70,10 @@ public class machine_inventory_Service {
         }
     }
 
-    @GET
+    @POST
     @Path("MachineInventory/Delete")
-    public boolean deleteMachineSpecifics(Integer machineID)
+    public void deleteMachineSpecifics(Integer machineID)
     {
-        return machine_inventory_specificMapper.deleteMachineSpecifics(machineID);
+        machine_inventory_specificMapper.deleteMachineSpecifics(machineID);
     }
 }

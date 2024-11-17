@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface machine_template_page_Mapper {
-    List<machine_template> getTemplateMachine(@Param("id_machine") Integer name_usager);
+    machine_template getTemplateMachine(@Param("id_machine") Integer name_usager);
     String getImageMachine(@Param("name_usager") String name_usager);
     machine_template_surface getMachineSurfaceTemplate(@Param("id_machine") Integer id_machine);
     List<Integer> getTemplateMachinesAllID(@Param("name_usager") String name_usager);
