@@ -51,7 +51,7 @@ public class machine_template_page_Service {
 
     }
 
-    @GET
+    @POST
     @Path("MachineTemplate/Get/Image")
     public String getMachinesSpecificsImage(Integer ID)
     {

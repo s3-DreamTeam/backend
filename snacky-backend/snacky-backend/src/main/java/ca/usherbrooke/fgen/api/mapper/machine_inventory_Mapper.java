@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface machine_inventory_Mapper {
-    machine getMachine(@Param("id_usager") String id_usager); //done
+    machine getMachine(@Param("id_machine") Integer id_machine); //done
     String getMachinesImage(@Param("id_machine") Integer id_machine); //
     machine_inventory_surface getMachinesSurface(@Param("id_machine") Integer id_machine);
     List<Integer> getAllMachinesID(@Param("id_usager") String id_usager);

@@ -1,5 +1,6 @@
 package ca.usherbrooke.fgen.api.service;
 
+import ca.usherbrooke.fgen.api.business.product_template;
 import ca.usherbrooke.fgen.api.business.product_template_page;
 import ca.usherbrooke.fgen.api.mapper.product_template_page_Mapper;
 import io.quarkus.security.identity.SecurityIdentity;
@@ -23,21 +24,11 @@ public class product_template_Service {
 
     @GET
     @Path("ProductTemplate/Get/Full")
-    public List<product_template_page> getCompactProductTemplate()
+    public product_template getCompactProductTemplate(Integer ID)
     {
-        return Mapper.getProductTemplate(new authentificationService.User(identity).getUserID());
+        return Mapper.getProductTemplate(ID);
     }
 
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //tout est a modifier, c fait pour shawn qu'il a pas l'erreur 404
-
-    //
     @GET
     @Path("ProductTemplate/Get/Image")
     public String getProductImage(String id_machine)
@@ -46,7 +37,7 @@ public class product_template_Service {
     }
 
 
-    @GET
+    @POST
     @Path("ProductTemplate/Get/Surface")
     public List<Integer> getCompactProductSurface()
     {
@@ -64,25 +55,25 @@ public class product_template_Service {
         return listInt;
     }
 
-    @GET
-    @Path("ProductTemplate/New/{id_usager}")
-    public product_template_page setCompactProduct(@PathParam("id_usager") Integer id_usager)
+    @POST
+    @Path("ProductTemplate/New")
+    public product_template_page setCompactProduct()
     {
         product_template_page product = new product_template_page();
         return product;
     }
 
-    @GET
-    @Path("ProductTemplate/Modify/{id_usager}")
-    public product_template_page modifyCompactProduct(@PathParam("id_usager") Integer id_usager)
+    @POST
+    @Path("ProductTemplate/Modify")
+    public product_template_page modifyCompactProduct()
     {
         product_template_page product = new product_template_page();
         return product;
     }
 
-    @GET
-    @Path("ProductTemplate/Delete/{id_usager}")
-    public product_template_page deleteCompactProduct(@PathParam("id_usager") Integer id_usager)
+    @POST
+    @Path("ProductTemplate/Delete")
+    public product_template_page deleteCompactProduct()
     {
         product_template_page product = new product_template_page();
         return product;

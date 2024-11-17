@@ -25,9 +25,9 @@ public class machine_inventory_Service {
 
     @GET
     @Path("MachineInventory/Get/Full")
-    public machine getMachinesSpecifics()
+    public machine getMachinesSpecifics(Integer ID)
     {
-        return machine_inventory_specificMapper.getMachine(new authentificationService.User(identity).getUserID());
+        return machine_inventory_specificMapper.getMachine(ID);
     }
 
     @GET
@@ -35,10 +35,9 @@ public class machine_inventory_Service {
     public String getMachinesImage(Integer machineID)
     {
         return machine_inventory_specificMapper.getMachinesImage(machineID);
-        //return "";
     }
 
-    @GET
+    @POST
     @Path("MachineInventory/Get/Surface")
     public machine_inventory_surface getMachinesSurface(Integer machineID)
     {
@@ -50,7 +49,6 @@ public class machine_inventory_Service {
     public List<Integer> getAllMachinesID()
     {
         List<Integer> listInt = machine_inventory_specificMapper.getAllMachinesID(new authentificationService.User(identity).getUserID());
-        //List<Integer> listInt = new ArrayList<Integer>();
         return listInt;
     }
 
