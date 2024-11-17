@@ -61,7 +61,7 @@ public class machine_template_page_Service {
 
         try
         {
-            return Mapper.getMachineSurfaceTemplate(1);
+            return new machine_template_surface();
         }catch (Exception e)
         {
             return new machine_template_surface();
