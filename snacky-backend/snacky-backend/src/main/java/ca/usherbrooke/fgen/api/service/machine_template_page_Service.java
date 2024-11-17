@@ -29,14 +29,40 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Get/Full")
     public machine_template getTemplateMachine(Integer ID)
     {
-        return Mapper.getTemplateMachine(ID);
+        System.out.println("MachineTemplate/Get/Full\nRaw data received (ID):");
+        System.out.println(ID);
+
+        machine_template val = new machine_template();
+
+        try
+        {
+            val = Mapper.getTemplateMachine(ID);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(val);
+
+            System.out.println("MachineTemplate/Get/Image\nData received from DB:");
+            System.out.println(jsonString);
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+        }
+
+        return val;
+
     }
 
     @GET
     @Path("MachineTemplate/Get/Image")
-    public String getMachinesSpecificsImage()
+    public String getMachinesSpecificsImage(Integer ID)
     {
-        return Mapper.getImageMachine(new authentificationService.User(identity).getUserID());
+        System.out.println("MachineTemplate/Get/Image\nRaw data received (ID):");
+        System.out.println(ID);
+
+        String val = Mapper.getImageMachine(ID);
+
+        System.out.println("MachineTemplate/Get/Image\nData received from DB:");
+        System.out.println(val);
+        return val;
     }
 
 //    @Path("MachineTemplate/Get/Surface")
@@ -44,31 +70,7 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Get/Surface")
     public machine_template_surface getMachinesSpecificsSurface(Integer ID)
     {
-//        usagerMachine id_usagerMachine = new usagerMachine();
-//        id_usagerMachine.id_machine = ID;
-//        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
-
-//        try {
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            String jsonString = objectMapper.writeValueAsString(Mapper.getMachineSurfaceTemplate(1));
-//            return jsonString;
-//        } catch (Exception e) {
-//
-//            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
-//        }
-
-//        try
-//        {
-//            machine_template_surface ma = new machine_template_surface();
-//            ma.id_machine = 1;
-//            ma.manufacturer_machine = "asd";
-//            ma.model_machine = "asd";
-//            return ma;
-//        }catch (Exception e)
-//        {
-//            return new machine_template_surface();
-//        }
-        System.out.println("Raw data received (ID):");
+        System.out.println("MachineTemplate/Get/Surface\nRaw data received (ID):");
         System.out.println(ID);
 
         machine_template_surface variable = new machine_template_surface();
@@ -117,14 +119,6 @@ public class machine_template_page_Service {
         System.out.println(jsonString);
 
         try {
-//            testdefou machineTemplate = objectMapper.readValue(jsonString, testdefou.class);
-//
-//            System.out.println("machine template:");
-//            System.out.println(objectMapper.writeValueAsString(machineTemplate.machineTemplateObject));
-//
-//            machineTemplate.machineTemplateObject.id_usager = new authentificationService.User(identity).getUserID();
-//            Mapper.createMachineTemplate(machineTemplate.machineTemplateObject);
-
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
 
             System.out.println("machine template:");
@@ -136,15 +130,6 @@ public class machine_template_page_Service {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        //            JsonNode rootNode = objectMapper.readTree(jsonString);
-//            JsonNode machineTemplateNode = rootNode.get("machineTemplateObject");
-//            machine_template machineTemplate = objectMapper.treeToValue(machineTemplateNode, machine_template.class);
-
-//            machine_template machineTemplate = new machine_template();
-//            machineTemplate.cash_machine = true;
-//            machineTemplate.model_machine = "allo charles";
-//            machineTemplate.manufacturer_machine = "Hardcoding for life";
     }
 
     @GET
