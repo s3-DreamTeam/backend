@@ -1,14 +1,12 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.product_inventory_specific;
-import ca.usherbrooke.fgen.api.business.product_template_page;
-import ca.usherbrooke.fgen.api.mapper.product_inventory_specific_Mapper;
+import ca.usherbrooke.fgen.api.mapper.product_inventory_Mapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("/api")
@@ -17,7 +15,7 @@ import java.util.List;
 public class product_inventory_Service {
 
     @Inject
-    product_inventory_specific_Mapper Mapper;
+    product_inventory_Mapper Mapper;
 
     @Inject
     SecurityIdentity identity;
