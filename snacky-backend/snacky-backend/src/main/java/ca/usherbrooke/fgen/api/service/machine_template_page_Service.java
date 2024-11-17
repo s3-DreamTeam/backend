@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_template;
+import ca.usherbrooke.fgen.api.business.usagerMachine;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
 import ca.usherbrooke.fgen.api.business.machine_template_surface;
 import io.quarkus.security.identity.SecurityIdentity;
@@ -43,7 +44,11 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Get/Surface")
     public machine_template_surface getMachinesSpecificsSurface(Integer ID)
     {
-        return Mapper.getMachineSurfaceTemplate(new authentificationService.User(identity).getUserID(), ID);
+        usagerMachine id_usagerMachine = new usagerMachine();
+        id_usagerMachine.id_machine = ID;
+        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
+
+        return Mapper.getMachineSurfaceTemplate(id_usagerMachine);
     }
 
     @GET
@@ -67,9 +72,9 @@ public class machine_template_page_Service {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-//            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-            machine_template machineTemplate = new machine_template();
-            machineTemplate.cash_machine = true;
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+//            machine_template machineTemplate = new machine_template();
+//            machineTemplate.cash_machine = true;
 
 
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();

@@ -6,14 +6,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class machine_template_surface {
 
     @JsonProperty("Manufacturer")
-    @JsonAlias({"manufacturer_produit"})
-    public String manufacturer_produit;
+    @JsonAlias({"manufacturer_machine"})
+    public String manufacturer_machine;
 
     @JsonProperty("Model")
-    @JsonAlias({"model_produit"})
-    public String model_produit;
+    @JsonAlias({"model_machine"})
+    public String model_machinet;
 
     @JsonProperty("id")
-    @JsonAlias({"id_produit"})
-    public Integer id_produit;
+    @JsonAlias({"id_machine"})
+    public Integer id_machine;
 }
