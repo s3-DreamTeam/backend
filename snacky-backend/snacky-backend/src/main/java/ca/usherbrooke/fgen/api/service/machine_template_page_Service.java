@@ -96,11 +96,11 @@ public class machine_template_page_Service {
     public List<Integer> getMachinesSpecificsAllID()
     {
         try{
-            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
+            //return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
             //return Mapper.getTemplateMachinesAllID("graf2102");
-//            List<Integer> inte = new ArrayList<Integer>();
-//            inte.add(9);
-//            return inte;
+            List<Integer> inte = new ArrayList<Integer>();
+            inte.add(10);
+            return inte;
         }
         catch (Exception exception)
         {
