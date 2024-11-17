@@ -68,7 +68,25 @@ public class machine_template_page_Service {
 //        {
 //            return new machine_template_surface();
 //        }
-        return Mapper.getMachineSurfaceTemplate(ID);
+        System.out.println("Raw data received (ID):");
+        System.out.println(ID);
+
+        machine_template_surface variable = new machine_template_surface();
+
+        try
+        {
+            variable = Mapper.getMachineSurfaceTemplate(ID);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(variable);
+
+            System.out.println("Data from DB:");
+            System.out.println(jsonString);
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+        }
+
+        return variable;
     }
 
     @GET
