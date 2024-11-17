@@ -146,7 +146,7 @@ public class machine_template_page_Service {
 
     @GET
     @Path("MachineTemplate/Delete")
-    public void deleteMachinesSpecifics(String id_machine)
+    public void deleteMachinesSpecifics(Integer id_machine)
     {
         Mapper.deleteMachineTemplate(id_machine);
     }
