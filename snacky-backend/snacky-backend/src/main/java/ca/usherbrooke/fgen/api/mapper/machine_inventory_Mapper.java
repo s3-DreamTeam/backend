@@ -11,9 +11,9 @@ import java.util.List;
 @Mapper
 public interface machine_inventory_Mapper {
     machine getMachine(@Param("id_machine") Integer id_machine); //done
-    String getMachinesImage(@Param("id_machine") Integer id_machine); //
-    machine_inventory_surface getMachinesSurface(@Param("id_machine") Integer id_machine);
-    List<Integer> getAllMachinesID(@Param("id_usager") String id_usager);
+    String getMachinesImage(@Param("id_machine") Integer id_machine); //done
+    machine_inventory_surface getMachinesSurface(@Param("id_machine") Integer id_machine); //done
+    List<Integer> getAllMachinesID(@Param("id_usager") String id_usager); //done
     void newMachineSpecifics(@Param("newMachine") machine newMachine);
     void deleteMachineSpecifics(@Param("id_machine") Integer id_machine);
 }
