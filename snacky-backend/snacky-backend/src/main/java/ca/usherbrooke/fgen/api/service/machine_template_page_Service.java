@@ -1,9 +1,8 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.machine_template;
-import ca.usherbrooke.fgen.api.business.usagerMachine;
+import ca.usherbrooke.fgen.api.business.*;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
-import ca.usherbrooke.fgen.api.business.machine_template_surface;
+import com.fasterxml.jackson.databind.JsonNode;
 import io.quarkus.security.identity.SecurityIdentity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -40,6 +39,7 @@ public class machine_template_page_Service {
         return Mapper.getImageMachine(new authentificationService.User(identity).getUserID());
     }
 
+//    @Path("MachineTemplate/Get/Surface")
     @GET
     @Path("MachineTemplate/Get/Surface")
     public machine_template_surface getMachinesSpecificsSurface(Integer ID)
@@ -48,7 +48,27 @@ public class machine_template_page_Service {
 //        id_usagerMachine.id_machine = ID;
 //        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-        return Mapper.getMachineSurfaceTemplate(1);
+//        try {
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            String jsonString = objectMapper.writeValueAsString(Mapper.getMachineSurfaceTemplate(1));
+//            return jsonString;
+//        } catch (Exception e) {
+//
+//            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
+//        }
+
+//        try
+//        {
+//            machine_template_surface ma = new machine_template_surface();
+//            ma.id_machine = 1;
+//            ma.manufacturer_machine = "asd";
+//            ma.model_machine = "asd";
+//            return ma;
+//        }catch (Exception e)
+//        {
+//            return new machine_template_surface();
+//        }
+        return Mapper.getMachineSurfaceTemplate(ID);
     }
 
     @GET
@@ -56,10 +76,11 @@ public class machine_template_page_Service {
     public List<Integer> getMachinesSpecificsAllID()
     {
         try{
-            //return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
-            List<Integer> inte = new ArrayList<Integer>();
-            inte.add(1);
-            return inte;
+            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
+            //return Mapper.getTemplateMachinesAllID("graf2102");
+//            List<Integer> inte = new ArrayList<Integer>();
+//            inte.add(1);
+//            return inte;
         }
         catch (Exception exception)
         {
@@ -70,23 +91,42 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/New")
     @POST
     @Path("MachineTemplate/New")
-    public String createMachineTemplate(String jsonString)
+    public void createMachineTemplate(String jsonString)
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        try {
-            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-//            machine_template machineTemplate = new machine_template();
-//            machineTemplate.cash_machine = true;
+        System.out.println("Raw data received:");
+        System.out.println(jsonString);
 
+        try {
+//            testdefou machineTemplate = objectMapper.readValue(jsonString, testdefou.class);
+//
+//            System.out.println("machine template:");
+//            System.out.println(objectMapper.writeValueAsString(machineTemplate.machineTemplateObject));
+//
+//            machineTemplate.machineTemplateObject.id_usager = new authentificationService.User(identity).getUserID();
+//            Mapper.createMachineTemplate(machineTemplate.machineTemplateObject);
+
+            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+
+            System.out.println("machine template:");
+            System.out.println(objectMapper.writeValueAsString(machineTemplate));
 
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
             Mapper.createMachineTemplate(machineTemplate);
-            return "Finished request";
+
         } catch (Exception e) {
-//            e.printStackTrace();
-            return "erreur: " + e.getMessage();
+            e.printStackTrace();
         }
+
+        //            JsonNode rootNode = objectMapper.readTree(jsonString);
+//            JsonNode machineTemplateNode = rootNode.get("machineTemplateObject");
+//            machine_template machineTemplate = objectMapper.treeToValue(machineTemplateNode, machine_template.class);
+
+//            machine_template machineTemplate = new machine_template();
+//            machineTemplate.cash_machine = true;
+//            machineTemplate.model_machine = "allo charles";
+//            machineTemplate.manufacturer_machine = "Hardcoding for life";
     }
 
     @GET
