@@ -43,24 +43,24 @@ public class machine_template_page_Service {
 
 //    @Path("MachineTemplate/Get/Surface")
     @POST
-    @Path("test")
-    public String getMachinesSpecificsSurface(receive_ID jsonStringRe)
+    @Path("MachineTemplate/Get/Surface")
+    public machine_template_surface getMachinesSpecificsSurface(receive_ID jsonStringRe)
     {
 //        usagerMachine id_usagerMachine = new usagerMachine();
 //        id_usagerMachine.id_machine = ID;
 //        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            String jsonString = objectMapper.writeValueAsString(Mapper.getMachineSurfaceTemplate(1));
-            return jsonString;
-        } catch (Exception e) {
+//        try {
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            String jsonString = objectMapper.writeValueAsString(Mapper.getMachineSurfaceTemplate(1));
+//            return jsonString;
+//        } catch (Exception e) {
+//
+//            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
+//        }
 
-            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
-        }
 
-
-        //return Mapper.getMachineSurfaceTemplate(1);
+        return Mapper.getMachineSurfaceTemplate(jsonStringRe.ID);
     }
 
     @GET
