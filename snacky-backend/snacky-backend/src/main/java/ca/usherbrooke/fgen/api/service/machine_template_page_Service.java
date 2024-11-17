@@ -59,8 +59,14 @@ public class machine_template_page_Service {
 //            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
 //        }
 
+        try
+        {
+            return Mapper.getMachineSurfaceTemplate(1);
+        }catch (Exception e)
+        {
+            return new machine_template_surface();
+        }
 
-        return Mapper.getMachineSurfaceTemplate(1);
     }
 
     @GET
