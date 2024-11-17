@@ -7,78 +7,79 @@ public class machine {
     public String id_usager;
 
     @JsonProperty("Machine's Image")
-    @JsonAlias({"machineImage_produit"})
-    public String machineImage_produit;
+    @JsonAlias({"machineImage_machine"})
+    public String machineImage_machine;
 
     @JsonProperty("Name")
-    @JsonAlias({"name_produit"})
-    public String name_produit;
+    @JsonAlias({"name_machine"})
+    public String name_machine;
 
     @JsonProperty("Location")
-    @JsonAlias({"location_produit"})
-    public String location_produit;
+    @JsonAlias({"location_machine"})
+    public String location_machine;
 
     @JsonProperty("Serial ID")
-    @JsonAlias({"serialId_produit"})
-    public String serialId_produit;
+    @JsonAlias({"serialId_machine"})
+    public String serialId_machine;
 
     @JsonProperty("Machine's Color")
-    @JsonAlias({"machineColor_produit"})
-    public String machineColor_produit;
+    @JsonAlias({"machineColor_machine"})
+    public String machineColor_machine;
 
     @JsonProperty("Activated")
-    @JsonAlias({"activated_produit"})
-    public boolean activated_produit;
+    @JsonAlias({"activated_machine"})
+    public boolean activated_machine;
 
     @JsonProperty("Min temperature")
-    @JsonAlias({"minTemperature_produit"})
-    public Integer minTemperature_produit;
+    @JsonAlias({"minTemperature_machine"})
+    public Integer minTemperature_machine;
 
     @JsonProperty("Set temperature")
-    @JsonAlias({"setTemperature_produit"})
-    public Integer setTemperature_produit;
+    @JsonAlias({"setTemperature_machine"})
+    public Integer setTemperature_machine;
 
     @JsonProperty("Max temperature")
-    @JsonAlias({"maxTemperature_produit"})
-    public Integer maxTemperature_produit;
+    @JsonAlias({"maxTemperature_machine"})
+    public Integer maxTemperature_machine;
 
     @JsonProperty("Network SSID")
-    @JsonAlias({"networkSSID_produit"})
-    public String networkSSID_produit;
+    @JsonAlias({"networkSSID_machine"})
+    public String networkSSID_machine;
 
     @JsonProperty("Network Password")
-    @JsonAlias({"networkPassword_produit"})
-    public String networkPassword_produit;
+    @JsonAlias({"networkPassword_machine"})
+    public String networkPassword_machine;
 
     @JsonProperty("Bluetooth SSID")
-    @JsonAlias({"bluetoothSSID_produit"})
-    public String bluetoothSSID_produit;
+    @JsonAlias({"bluetoothSSID_machine"})
+    public String bluetoothSSID_machine;
 
     @JsonProperty("Bluetooth Password")
-    @JsonAlias({"bluetoothPassword_produit"})
-    public String bluetoothPassword_produit;
+    @JsonAlias({"bluetoothPassword_machine"})
+    public String bluetoothPassword_machine;
 
     @JsonProperty("Physical Connector")
-    @JsonAlias({"physicalConnector_produit"})
-    public String physicalConnector_produit;
+    @JsonAlias({"physicalConnector_machine"})
+    public String physicalConnector_machine;
 
     @JsonProperty("Online Store URL")
-    @JsonAlias({"onlineStoreUrl_produit"})
-    public String onlineStoreUrl_produit;
+    @JsonAlias({"onlineStoreUrl_machine"})
+    public String onlineStoreUrl_machine;
 
     @JsonProperty("Debit Providers")
-    @JsonAlias({"debitProviders_produit"})
-    public String debitProviders_produit;
+    @JsonAlias({"debitProviders_machine"})
+    public String debitProviders_machine;
 
     @JsonProperty("Credit Providers")
-    @JsonAlias({"creditProviders_produit"})
-    public String creditProviders_produit;
+    @JsonAlias({"creditProviders_machine"})
+    public String creditProviders_machine;
 
     @JsonProperty("Accepted Currencies")
-    @JsonAlias({"acceptedCurrencies_produit"})
-    public String acceptedCurrencies_produit;
+    @JsonAlias({"acceptedCurrencies_machine"})
+    public String acceptedCurrencies_machine;
 
     @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_produit"})
-    public Integer templateId_produit;
+    @JsonAlias({"templateId_machine"})
+    public Integer templateId_machine;
 }
+

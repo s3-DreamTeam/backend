@@ -22,7 +22,7 @@ public class machine_template_page_Service {
     @Inject
     SecurityIdentity identity;
 
-    @GET
+    @POST
     @Path("MachineTemplate/Get/Full")
     public machine_template getTemplateMachine(Integer ID)
     {
@@ -157,8 +157,7 @@ public class machine_template_page_Service {
 
     @POST
     @Path("MachineTemplate/Delete")
-    public void deleteMachinesSpecifics(Integer ID)
-    {
+    public void deleteMachinesSpecifics(Integer ID) throws Exception {
         System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
         System.out.println(ID);
 
@@ -170,6 +169,7 @@ public class machine_template_page_Service {
         catch (Exception e)
         {
             System.out.println("failed to delete:");
+            throw new Exception("This is a general exception");
         }
     }
 }

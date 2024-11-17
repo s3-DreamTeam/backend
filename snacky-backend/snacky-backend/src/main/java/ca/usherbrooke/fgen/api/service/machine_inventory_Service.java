@@ -23,14 +23,14 @@ public class machine_inventory_Service {
     @Inject
     SecurityIdentity identity;
 
-    @GET
+    @POST
     @Path("MachineInventory/Get/Full")
     public machine getMachinesSpecifics(Integer ID)
     {
         return machine_inventory_specificMapper.getMachine(ID);
     }
 
-    @GET
+    @POST
     @Path("MachineInventory/Get/Image")
     public String getMachinesImage(Integer machineID)
     {
@@ -54,8 +54,7 @@ public class machine_inventory_Service {
 
     @POST
     @Path("MachineInventory/New")
-    public void newMachineSpecifics(String jsonString)
-    {
+    public void newMachineSpecifics(String jsonString) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -65,13 +64,23 @@ public class machine_inventory_Service {
             machine_inventory_specificMapper.newMachineSpecifics(newMachine);
         } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception("This is a general exception");
         }
     }
 
     @POST
     @Path("MachineInventory/Delete")
-    public void deleteMachineSpecifics(Integer machineID)
-    {
-        machine_inventory_specificMapper.deleteMachineSpecifics(machineID);
+    public void deleteMachineSpecifics(Integer ID) throws Exception {
+        try
+        {
+            machine_inventory_specificMapper.deleteMachineSpecifics(ID);
+            System.out.println("Finished deleting: " + ID);
+        }
+        catch (Exception e)
+        {
+            System.out.println("failed to delete:");
+            throw new Exception("This is a general exception");
+        }
+
     }
 }
