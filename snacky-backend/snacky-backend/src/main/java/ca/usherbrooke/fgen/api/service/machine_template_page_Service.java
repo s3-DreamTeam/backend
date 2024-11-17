@@ -56,7 +56,10 @@ public class machine_template_page_Service {
     public List<Integer> getMachinesSpecificsAllID()
     {
         try{
-            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
+            //return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
+            List<Integer> inte = new ArrayList<Integer>();
+            inte.add(1);
+            return inte;
         }
         catch (Exception exception)
         {
