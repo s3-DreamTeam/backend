@@ -14,6 +14,6 @@ public interface machine_inventory_Mapper {
     String getMachinesImage(@Param("id_machine") Integer id_machine); //done
     machine_inventory_surface getMachinesSurface(@Param("id_machine") Integer id_machine); //done
     List<Integer> getAllMachinesID(@Param("id_usager") String id_usager); //done
-    void newMachineSpecifics(@Param("newMachine") machine newMachine);
-    void deleteMachineSpecifics(@Param("id_machine") Integer id_machine);
+    void newMachineSpecifics(@Param("newMachine") machine newMachine); //done
+    void deleteMachineSpecifics(@Param("id_machine") Integer id_machine); //done
 }
