@@ -113,8 +113,7 @@ public class machine_template_page_Service {
 
     @POST
     @Path("MachineTemplate/New")
-    public void createMachineTemplate(String jsonString)
-    {
+    public void createMachineTemplate(String jsonString) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
         System.out.println("Raw data received:");
@@ -132,6 +131,7 @@ public class machine_template_page_Service {
         } catch (Exception e) {
             System.out.println("erreur new machine template:\n" + e.getMessage());
 
+            throw new Exception("This is a general exception");
             //throw new WebApplicationException("Image is to big", Response.Status.BAD_REQUEST);
         }
     }
