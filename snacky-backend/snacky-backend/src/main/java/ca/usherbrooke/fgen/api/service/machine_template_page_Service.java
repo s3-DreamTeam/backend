@@ -44,11 +44,11 @@ public class machine_template_page_Service {
     @Path("MachineTemplate/Get/Surface")
     public machine_template_surface getMachinesSpecificsSurface(Integer ID)
     {
-        usagerMachine id_usagerMachine = new usagerMachine();
-        id_usagerMachine.id_machine = ID;
-        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
+//        usagerMachine id_usagerMachine = new usagerMachine();
+//        id_usagerMachine.id_machine = ID;
+//        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-        return Mapper.getMachineSurfaceTemplate(id_usagerMachine);
+        return Mapper.getMachineSurfaceTemplate(ID);
     }
 
     @GET
