@@ -11,7 +11,7 @@ public class machine_template_surface {
 
     @JsonProperty("Model")
     @JsonAlias({"model_machine"})
-    public String model_machinet;
+    public String model_machine;
 
     @JsonProperty("id")
     @JsonAlias({"id_machine"})
