@@ -97,7 +97,7 @@ public class machine_template_page_Service {
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        System.console().writer().println("jsonString");
+        System.out.println(jsonString);
 
         try {
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
