@@ -48,7 +48,7 @@ public class machine_template_page_Service {
 //        id_usagerMachine.id_machine = ID;
 //        id_usagerMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-        return Mapper.getMachineSurfaceTemplate(ID);
+        return Mapper.getMachineSurfaceTemplate(1);
     }
 
     @GET

@@ -29,7 +29,7 @@
         FROM
             projet.machine
         JOIN projet.usager_x_machines ON usager_x_machines.id_machine = machine.id_machine
-        WHERE projet.usager_x_machines.id_usager = #{name_usager.id_usager};
+        WHERE projet.usager_x_machines.id_usager = #{name_usager};
 
     </select>
 
@@ -44,9 +44,15 @@
         VALUES (#{machine_template.id_usager}, (SELECT MAX(id_machine) FROM projet.machine));
     </insert>
 
-    <select id="getMachineSurfaceTemplate" parameterType="ca.usherbrooke.fgen.api.business.usagerMachine" resultType="Integer">
-
-
+    <select id="getMachineSurfaceTemplate" parameterType="Integer" resultType="ca.usherbrooke.fgen.api.business.machine_template_surface">
+        SELECT
+            type_de_machine.manufacturier_type_m,
+            type_de_machine.model_type_m,
+            machine.id_machine
+        FROM
+            projet.machine
+        JOIN projet.type_de_machine ON type_de_machine.id_type_m = machine.id_type_m
+        WHERE projet.machine.id_machine = #{id_machine};
     </select>
 
 </mapper>

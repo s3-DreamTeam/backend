@@ -64,4 +64,8 @@ public class product {
     @JsonProperty("TemplateID")
     @JsonAlias({"templateId_produit"})
     public Integer templateId_produit;
+
+    @JsonProperty("Quantity")
+    @JsonAlias({"quantity_produit"})
+    public Integer quantity_produit;
 }

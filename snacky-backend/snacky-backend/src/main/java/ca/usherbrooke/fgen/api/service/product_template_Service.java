@@ -2,6 +2,7 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.product_template_page;
 import ca.usherbrooke.fgen.api.mapper.product_template_page_Mapper;
+import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -17,11 +18,14 @@ public class product_template_Service {
     @Inject
     product_template_page_Mapper Mapper;
 
+    @Inject
+    SecurityIdentity identity;
+
     @GET
-    @Path("ProductTemplate/Get/Full/{id_usager}")
-    public List<product_template_page> getCompactProductTemplate(@PathParam("id_usager") Integer id_usager)
+    @Path("ProductTemplate/Get/Full")
+    public List<product_template_page> getCompactProductTemplate()
     {
-        return Mapper.getCompactProductTemplate(id_usager);
+        return Mapper.getProductTemplate(new authentificationService.User(identity).getUserID());
     }
 
 
@@ -35,16 +39,16 @@ public class product_template_Service {
 
     //
     @GET
-    @Path("ProductTemplate/Get/Image/{id_usager}")
-    public List<product_template_page> getCompactProductImage(@PathParam("id_usager") Integer id_usager)
+    @Path("ProductTemplate/Get/Image")
+    public String getProductImage(String id_machine)
     {
-        return Mapper.getCompactProductTemplate(id_usager);
+        return Mapper.getProductTemplateImage(id_machine);
     }
 
 
     @GET
-    @Path("ProductTemplate/Get/Surface/{id_usager}")
-    public List<Integer> getCompactProductSurface(@PathParam("id_usager") Integer id_usager)
+    @Path("ProductTemplate/Get/Surface")
+    public List<Integer> getCompactProductSurface()
     {
         List<Integer> listInt = new ArrayList<>();
 
