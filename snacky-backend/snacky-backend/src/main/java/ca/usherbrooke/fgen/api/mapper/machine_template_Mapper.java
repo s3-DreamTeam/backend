@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface machine_template_page_Mapper {
+public interface machine_template_Mapper {
     machine_template getTemplateMachine(@Param("id_machine") Integer name_usager); //done
     String getImageMachine(@Param("id_machine") Integer id_machine); //done
     machine_template_surface getMachineSurfaceTemplate(@Param("id_machine") Integer id_machine); //done
