@@ -2,18 +2,13 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
-import com.fasterxml.jackson.databind.JsonNode;
 import io.quarkus.security.identity.SecurityIdentity;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.core.Response;
 
 import javax.inject.Inject;
-import javax.validation.constraints.Null;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Path("/api")
@@ -55,16 +50,25 @@ public class machine_template_page_Service {
 
     @POST
     @Path("MachineTemplate/Get/Image")
-    public String getMachinesSpecificsImage(Integer ID)
-    {
+    public String getMachinesSpecificsImage(Integer ID) throws Exception {
         System.out.println("MachineTemplate/Get/Image\nRaw data received (ID):");
         System.out.println(ID);
 
-        String val = Mapper.getImageMachine(ID);
+        MakeImage ima = new MakeImage();
+        ima.image = Mapper.getImageMachine(ID);
+        try
+        {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jsonString = objectMapper.writeValueAsString(ima);
 
-        System.out.println("MachineTemplate/Get/Image\nData received from DB:");
-        System.out.println(val);
-        return val;
+            System.out.println("MachineTemplate/Get/Image\nData received from DB:");
+            System.out.println(jsonString);
+            return jsonString;
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
+        }
     }
 
 //    @Path("MachineTemplate/Get/Surface")
