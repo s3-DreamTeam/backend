@@ -44,7 +44,7 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/Get/Surface")
     @POST
     @Path("test")
-    public String getMachinesSpecificsSurface()
+    public String getMachinesSpecificsSurface(receive_ID jsonStringRe)
     {
 //        usagerMachine id_usagerMachine = new usagerMachine();
 //        id_usagerMachine.id_machine = ID;
