@@ -74,8 +74,7 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/Get/Surface")
     @POST
     @Path("MachineTemplate/Get/Surface")
-    public String getMachinesSpecificsSurface(Integer ID)
-    {
+    public String getMachinesSpecificsSurface(Integer ID) throws Exception {
         System.out.println("MachineTemplate/Get/Surface\nRaw data received (ID):");
         System.out.println(ID);
 
@@ -93,9 +92,8 @@ public class machine_template_page_Service {
 
         } catch (Exception e) {
             System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
         }
-
-        return "variable";
     }
 
     @GET
