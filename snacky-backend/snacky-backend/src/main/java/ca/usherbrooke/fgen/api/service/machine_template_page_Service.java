@@ -101,6 +101,8 @@ public class machine_template_page_Service {
             //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
             machine_template machineTemplate = new machine_template();
             machineTemplate.cash_machine = true;
+            machineTemplate.model_machine = "allo charles";
+            machineTemplate.manufacturer_machine = "Hardcoding for life";
 
 
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
