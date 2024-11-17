@@ -44,7 +44,7 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/Get/Surface")
     @GET
     @Path("MachineTemplate/Get/Surface")
-    public machine_template_surface getMachinesSpecificsSurface()
+    public machine_template_surface getMachinesSpecificsSurface(Integer ID)
     {
 //        usagerMachine id_usagerMachine = new usagerMachine();
 //        id_usagerMachine.id_machine = ID;
@@ -59,18 +59,18 @@ public class machine_template_page_Service {
 //            return "il faut que sa update un jour, big pls update idk\nerreur du message:\n" + e.getMessage();
 //        }
 
-        try
-        {
-            machine_template_surface ma = new machine_template_surface();
-            ma.id_machine = 1;
-            ma.manufacturer_machine = "asd";
-            ma.model_machine = "asd";
-            return ma;
-        }catch (Exception e)
-        {
-            return new machine_template_surface();
-        }
-
+//        try
+//        {
+//            machine_template_surface ma = new machine_template_surface();
+//            ma.id_machine = 1;
+//            ma.manufacturer_machine = "asd";
+//            ma.model_machine = "asd";
+//            return ma;
+//        }catch (Exception e)
+//        {
+//            return new machine_template_surface();
+//        }
+        return Mapper.getMachineSurfaceTemplate(ID);
     }
 
     @GET
@@ -78,8 +78,8 @@ public class machine_template_page_Service {
     public List<Integer> getMachinesSpecificsAllID()
     {
         try{
-//            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
-            return Mapper.getTemplateMachinesAllID("graf2102");
+            return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
+            //return Mapper.getTemplateMachinesAllID("graf2102");
 //            List<Integer> inte = new ArrayList<Integer>();
 //            inte.add(1);
 //            return inte;
@@ -92,23 +92,21 @@ public class machine_template_page_Service {
 
 //    @Path("MachineTemplate/New")
     @POST
-    @Path("MachineTemplate/New")
-    public String createMachineTemplate(String jsonString)
+    @Path("test")
+    public void createMachineTemplate(String jsonString)
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
-//            machine_template machineTemplate = new machine_template();
-//            machineTemplate.cash_machine = true;
+            //machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            machine_template machineTemplate = new machine_template();
+            machineTemplate.cash_machine = true;
 
 
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
             Mapper.createMachineTemplate(machineTemplate);
-            return "Finished request";
         } catch (Exception e) {
-//            e.printStackTrace();
-            return "erreur: " + e.getMessage();
+            e.printStackTrace();
         }
     }
 
