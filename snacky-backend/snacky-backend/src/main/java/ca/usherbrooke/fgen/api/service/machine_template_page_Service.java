@@ -99,7 +99,7 @@ public class machine_template_page_Service {
             //return Mapper.getTemplateMachinesAllID(new authentificationService.User(identity).getUserID());
             //return Mapper.getTemplateMachinesAllID("graf2102");
             List<Integer> inte = new ArrayList<Integer>();
-            inte.add(10);
+            inte.add(2);
             return inte;
         }
         catch (Exception exception)
