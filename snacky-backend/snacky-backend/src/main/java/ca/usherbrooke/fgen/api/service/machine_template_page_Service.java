@@ -132,7 +132,7 @@ public class machine_template_page_Service {
         } catch (Exception e) {
             System.out.println("erreur new machine template:\n" + e.getMessage());
 
-            throw new WebApplicationException("Image is to big", Response.Status.BAD_REQUEST);
+            //throw new WebApplicationException("Image is to big", Response.Status.BAD_REQUEST);
         }
     }
 
