@@ -54,8 +54,8 @@ public class machine_template_page_Service {
         System.out.println("MachineTemplate/Get/Image\nRaw data received (ID):");
         System.out.println(ID);
 
-        MakeImage ima = new MakeImage();
-        ima.image = Mapper.getImageMachine(ID);
+        machine_template ima = new machine_template();
+        ima.image_machine = Mapper.getImageMachine(ID);
         try
         {
             ObjectMapper objectMapper = new ObjectMapper();
