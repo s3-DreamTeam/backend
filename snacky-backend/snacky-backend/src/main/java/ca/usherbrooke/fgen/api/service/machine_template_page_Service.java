@@ -44,7 +44,7 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/Get/Surface")
     @POST
     @Path("MachineTemplate/Get/Surface")
-    public machine_template_surface getMachinesSpecificsSurface(receive_ID jsonStringRe)
+    public machine_template_surface getMachinesSpecificsSurface()
     {
 //        usagerMachine id_usagerMachine = new usagerMachine();
 //        id_usagerMachine.id_machine = ID;
@@ -60,7 +60,7 @@ public class machine_template_page_Service {
 //        }
 
 
-        return Mapper.getMachineSurfaceTemplate(jsonStringRe.ID);
+        return Mapper.getMachineSurfaceTemplate(1);
     }
 
     @GET
