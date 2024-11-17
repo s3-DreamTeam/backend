@@ -23,7 +23,7 @@
 
 
 
-    <select id="getTemplateMachinesAllID" parameterType="Integer" resultType="Integer">
+    <select id="getTemplateMachinesAllID" parameterType="String" resultType="Integer">
         SELECT
             machine.id_machine
         FROM
