@@ -6,22 +6,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class machine_inventory_surface {
 
     @JsonProperty("Name")
-    @JsonAlias({"name_produit"})
-    public String name_produit;
+    @JsonAlias({"name_machine"})
+    public String name_machine;
 
     @JsonProperty("Location")
-    @JsonAlias({"location_produit"})
-    public String location_produit;
+    @JsonAlias({"location_machine"})
+    public String location_machine;
 
     @JsonProperty("Lowest product count")
-    @JsonAlias({"lowestProductCount_produit"})
-    public Integer lowestProductCount_produit;
+    @JsonAlias({"lowestProductCount_machine"})
+    public Integer lowestProductCount_machine;
 
     @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_produit"})
-    public Integer templateId_produit;
+    @JsonAlias({"templateId_machine"})
+    public Integer templateId_machine;
 
     @JsonProperty("id")
-    @JsonAlias({"id_produit"})
-    public Integer id_produit;
+    @JsonAlias({"id_machine"})
+    public Integer id_machine;
 }
+
