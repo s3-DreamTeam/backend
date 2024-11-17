@@ -128,7 +128,7 @@ public class machine_template_page_Service {
             Mapper.createMachineTemplate(machineTemplate);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("erreur new machine template:\n" + e.getMessage());
         }
     }
 
