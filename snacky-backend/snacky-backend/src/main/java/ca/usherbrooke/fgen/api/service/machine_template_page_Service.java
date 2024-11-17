@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_template;
+import ca.usherbrooke.fgen.api.business.receive_ID;
 import ca.usherbrooke.fgen.api.business.usagerMachine;
 import ca.usherbrooke.fgen.api.mapper.machine_template_page_Mapper;
 import ca.usherbrooke.fgen.api.business.machine_template_surface;
@@ -43,7 +44,7 @@ public class machine_template_page_Service {
 //    @Path("MachineTemplate/Get/Surface")
     @POST
     @Path("test")
-    public String getMachinesSpecificsSurface(Integer ID)
+    public String getMachinesSpecificsSurface()
     {
 //        usagerMachine id_usagerMachine = new usagerMachine();
 //        id_usagerMachine.id_machine = ID;
