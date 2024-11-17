@@ -61,7 +61,11 @@ public class machine_template_page_Service {
 
         try
         {
-            return new machine_template_surface();
+            machine_template_surface ma = new machine_template_surface();
+            ma.id_machine = 1;
+            ma.manufacturer_machine = "asd";
+            ma.model_machine = "asd";
+            return ma;
         }catch (Exception e)
         {
             return new machine_template_surface();
