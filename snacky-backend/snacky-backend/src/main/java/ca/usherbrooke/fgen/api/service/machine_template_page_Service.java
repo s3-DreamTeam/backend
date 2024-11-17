@@ -40,7 +40,7 @@ public class machine_template_page_Service {
     }
 
 //    @Path("MachineTemplate/Get/Surface")
-    @GET
+    @POST
     @Path("MachineTemplate/Get/Surface")
     public machine_template_surface getMachinesSpecificsSurface(Integer ID)
     {
