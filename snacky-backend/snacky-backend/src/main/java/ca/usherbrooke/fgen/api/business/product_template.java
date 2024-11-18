@@ -17,8 +17,8 @@ public class product_template {
     public String image_type_p;
 
     @JsonProperty("Manufacturer")
-    @JsonAlias({"manufacturer_type_p"})
-    public String manufacturer_type_p;
+    @JsonAlias({"manufacturier_type_p"})
+    public String manufacturier_type_p;
 
     @JsonProperty("Model")
     @JsonAlias({"model_type_p"})
