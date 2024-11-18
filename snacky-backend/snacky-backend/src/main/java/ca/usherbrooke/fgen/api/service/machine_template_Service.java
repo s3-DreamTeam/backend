@@ -136,11 +136,12 @@ public class machine_template_Service {
 
         try {
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
+            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
 
             System.out.println("machine template:");
             System.out.println(objectMapper.writeValueAsString(machineTemplate));
 
-            machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
+
             Mapper.createMachineTemplate(machineTemplate);
 
         } catch (Exception e) {
@@ -169,14 +170,16 @@ public class machine_template_Service {
     @POST
     @Path("MachineTemplate/Delete")
     public void deleteMachinesSpecifics(Integer ID) throws Exception {
-        System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
-        System.out.println(ID);
+
 
         try
         {
             information info = new information();
             info.id_template = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
+
+            System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
+            System.out.println(ID);
 
             Mapper.deleteMachineTemplate(info);
             System.out.println("Finished deleting: " + ID);
