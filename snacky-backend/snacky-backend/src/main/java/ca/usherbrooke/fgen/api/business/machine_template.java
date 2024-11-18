@@ -9,6 +9,9 @@ import io.quarkus.runtime.annotations.IgnoreProperty;
 public class machine_template {
     public String id_usager;
 
+    @JsonProperty("id")
+    public Integer id_type_m;
+
     @JsonProperty("Machine's Image")
     @JsonAlias({"image_machine"})
     public String image_machine;
