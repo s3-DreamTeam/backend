@@ -30,19 +30,19 @@ public class product_template_Service {
     @Path("ProductTemplate/Get/Full")
     public product_template getCompactProductTemplate(Integer ID) throws JsonProcessingException
     {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        information info = new information();
-//        info.id_machine = ID;
-//        info.id_usager = new authentificationService.User(identity).getUserID();
-//
-//        System.out.println("This is what i am sending to Clovis");
-//        System.out.println(objectMapper.writeValueAsString(info));
-//        product_template mach = Mapper.getTemplateProduct(info);
-//
-//        String jsonString = objectMapper.writeValueAsString(mach);
-//
-//        System.out.println("MachineInventory/Get/Full\nData received from DB:");
-//        System.out.println(jsonString);
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_machine = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        System.out.println("This is what i am sending to Clovis");
+        System.out.println(objectMapper.writeValueAsString(info));
+        product_template mach = Mapper.getTemplateProduct(info);
+
+        String jsonString = objectMapper.writeValueAsString(mach);
+
+        System.out.println("MachineInventory/Get/Full\nData received from DB:");
+        System.out.println(jsonString);
 
         return Mapper.getProductTemplate(ID);
     }
