@@ -169,8 +169,7 @@ public class machine_template_Service {
     @POST
     @Path("MachineTemplate/Delete")
     public void deleteMachinesSpecifics(Integer ID) throws Exception {
-        System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
-        System.out.println(ID);
+
 
         try
         {
@@ -178,6 +177,9 @@ public class machine_template_Service {
             info.id_template = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
+            System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
+            System.out.println(ID);
+            
             Mapper.deleteMachineTemplate(info);
             System.out.println("Finished deleting: " + ID);
         }
