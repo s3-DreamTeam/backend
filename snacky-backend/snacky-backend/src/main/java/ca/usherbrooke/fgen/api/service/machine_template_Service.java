@@ -24,32 +24,32 @@ public class machine_template_Service {
 
     @POST
     @Path("MachineTemplate/Get/Full")
-    public machine_template getTemplateMachine(String jsonStringreceived)
-    {
-        System.out.println("MachineTemplate/Get/Full\nRaw data received (ID):");
-        System.out.println(jsonStringreceived);
-
-        machine_template val = new machine_template();
-
+    public machine_template getTemplateMachine(machine_template machineTemplate) throws Exception {
         try
         {
+            ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("MachineTemplate/Get/Full\nRaw data received (machine_template):");
+            System.out.println(objectMapper.writeValueAsString(machineTemplate));
+
+            machine_template newMachineTemplate = new machine_template();
+
             information info = new information();
             info.id_template = 3;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
-            val = Mapper.getTemplateMachine(info);
-            ObjectMapper objectMapper = new ObjectMapper();
-            String jsonString = objectMapper.writeValueAsString(val);
+            newMachineTemplate = Mapper.getTemplateMachine(info);
+
+            String jsonString = objectMapper.writeValueAsString(newMachineTemplate);
 
             System.out.println("MachineTemplate/Get/Full\nData received from DB:");
             System.out.println(jsonString);
 
+            return newMachineTemplate;
+
         } catch (Exception e) {
             System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
         }
-
-        return val;
-
     }
 
     @POST
