@@ -9,16 +9,16 @@ public class machine {
     public String id_usager;
 
     @JsonProperty("Machine's Image")
-    @JsonAlias({"machineImage_machine"})
-    public String machineImage_machine;
+    @JsonAlias({"image_machine"})
+    public String image_machine;
 
     @JsonProperty("Name")
-    @JsonAlias({"name_machine"})
-    public String name_machine;
+    @JsonAlias({"nom_machine"})
+    public String nom_machine;
 
     @JsonProperty("Location")
-    @JsonAlias({"location_machine"})
-    public String location_machine;
+    @JsonAlias({"emplacement_machine"})
+    public String emplacement_machine;
 
     @JsonProperty("Serial ID")
     @JsonAlias({"serialId_machine"})
