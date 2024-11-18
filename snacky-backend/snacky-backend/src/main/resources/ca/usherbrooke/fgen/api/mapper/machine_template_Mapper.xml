@@ -26,14 +26,14 @@
             NULL
         FROM
             projet.type_de_machine
-        WHERE type_de_machine = #{id_machine};
+        WHERE type_de_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
     </select>
 
     <select id="getImageMachine" resultType="String">
         SELECT
             image_type_m
         FROM projet.type_de_machine
-        WHERE id_type_m = #{id_machine}
+        WHERE id_type_m = #{info.id_machine} AND id_usager = #{info.id_usager}
     </select>
 
     <select id="getMachineSurfaceTemplate" parameterType="Integer" resultType="ca.usherbrooke.fgen.api.business.machine_template_surface">
@@ -43,7 +43,7 @@
             id_type_m
         FROM
             projet.type_de_machine
-        WHERE id_type_m = #{id_machine};
+        WHERE id_type_m = #{info.id_machine} AND id_usager = #{info.id_usager};
     </select>
 
 
@@ -52,6 +52,7 @@
             id_type_m
         FROM
             projet.type_de_machine
+        WHERE id_usager = #{id_usager};
 
     </select>
 
@@ -69,7 +70,7 @@
     <delete id="deleteMachineTemplate" parameterType="Integer">
         DELETE
         FROM projet.type_de_machine
-        WHERE id_type_m = #{id_machine};
+        WHERE id_type_m = #{info.id_template} AND id_usager = #{info.id_usager};
     </delete>
 
 
