@@ -1,10 +1,8 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.MachineTemplateImage;
-import ca.usherbrooke.fgen.api.business.machine;
-import ca.usherbrooke.fgen.api.business.machine_inventory_surface;
+import ca.usherbrooke.fgen.api.business.*;
 import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
-import ca.usherbrooke.fgen.api.business.machine_surface;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
@@ -26,9 +24,15 @@ public class machine_inventory_Service {
 
     @POST
     @Path("MachineInventory/Get/Full")
-    public machine getMachinesSpecifics(Integer ID)
-    {
-        return machine_inventory_specificMapper.getMachine(ID);
+    public machine getMachinesSpecifics(Integer ID) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_template = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        System.out.println("This is what i am sending to Clovis");
+        System.out.println(objectMapper.writeValueAsString(info));
+        return machine_inventory_specificMapper.getMachine(info);
     }
 
     @POST
@@ -38,10 +42,20 @@ public class machine_inventory_Service {
         System.out.println(ID);
 
         MachineTemplateImage ima = new MachineTemplateImage();
-        ima.image = machine_inventory_specificMapper.getMachinesImage(ID);
+
         try
         {
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
             ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("This is what i am sending to Clovis");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            ima.image = machine_inventory_specificMapper.getMachinesImage(info);
+
+
             String jsonString = objectMapper.writeValueAsString(ima);
 
             System.out.println("MachineInventory/Get/Image\nData received from DB:");
@@ -59,8 +73,15 @@ public class machine_inventory_Service {
     public String getMachinesSurface(Integer ID) throws Exception {
         try
         {
-            machine_inventory_surface variable = machine_inventory_specificMapper.getMachinesSurface(ID);
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
             ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("This is what i am sending to Clovis");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            machine_inventory_surface variable = machine_inventory_specificMapper.getMachinesSurface(info);
             String jsonString = objectMapper.writeValueAsString(variable);
 
             System.out.println("Data from DB:");
@@ -90,6 +111,9 @@ public class machine_inventory_Service {
             machine newMachine = objectMapper.readValue(jsonString, machine.class);
             newMachine.id_usager = new authentificationService.User(identity).getUserID();
 
+            System.out.println("This is what i am sending to Clovis");
+            System.out.println(objectMapper.writeValueAsString(newMachine));
+
             machine_inventory_specificMapper.newMachineSpecifics(newMachine);
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,7 +126,16 @@ public class machine_inventory_Service {
     public void deleteMachineSpecifics(Integer ID) throws Exception {
         try
         {
-            machine_inventory_specificMapper.deleteMachineSpecifics(ID);
+            ObjectMapper objectMapper = new ObjectMapper();
+            
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            System.out.println("This is what i am sending to Clovis");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            machine_inventory_specificMapper.deleteMachineSpecifics(info);
             System.out.println("Finished deleting: " + ID);
         }
         catch (Exception e)
