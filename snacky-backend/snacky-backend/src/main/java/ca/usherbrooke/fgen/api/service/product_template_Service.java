@@ -25,23 +25,23 @@ public class product_template_Service {
 
     @POST
     @Path("ProductTemplate/Get/Full")
-    public product_template getCompactProductTemplate(Integer ID) throws JsonProcessingException
+    public String getCompactProductTemplate(Integer ID) throws JsonProcessingException
     {
         ObjectMapper objectMapper = new ObjectMapper();
         information info = new information();
-        info.id_machine = ID;
+        info.id_produit_template = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Full:");
         System.out.println(objectMapper.writeValueAsString(info));
         product_template prodTemp = Mapper.getProductTemplate(info);
 
-        String jsonString = objectMapper.writeValueAsString(prodTemp);
+        String returnString = objectMapper.writeValueAsString(prodTemp);
 
         System.out.println("ProductTemplate/Get/Full\nData received from DB:");
-        System.out.println(jsonString);
+        System.out.println(returnString);
 
-        return prodTemp;
+        return returnString;
     }
 
     @POST
@@ -50,7 +50,7 @@ public class product_template_Service {
 
         ObjectMapper objectMapper = new ObjectMapper();
         information info = new information();
-        info.id_machine = ID;
+        info.id_produit_template = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
@@ -72,17 +72,17 @@ public class product_template_Service {
         try
         {
             information info = new information();
-            info.id_machine = ID;
+            info.id_produit_template = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             ObjectMapper objectMapper = new ObjectMapper();
-            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
+            System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Surface");
             System.out.println(objectMapper.writeValueAsString(info));
 
             product_template_surface productTemplateSurface = Mapper.getProductSurfaceTemplate(info);
             String returnString = objectMapper.writeValueAsString(productTemplateSurface);
 
-            System.out.println("Data from DB: MachineInventory/Get/Surface:");
+            System.out.println("Data from DB: ProductTemplate/Get/Surface:");
             System.out.println(returnString);
             return returnString;
 
@@ -110,22 +110,22 @@ public class product_template_Service {
             product_template newProductTemplate = objectMapper.readValue(jsonString, product_template.class);
             newProductTemplate.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: MachineInventory/New");
+            System.out.println("This is what i am sending to Clovis: ProductTemplate/New");
             System.out.println(objectMapper.writeValueAsString(newProductTemplate));
 
             Mapper.createProductTemplate(newProductTemplate);
         } catch (Exception e) {
-            throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
+            throw new Exception("This is a general exception: ProductTemplate/New:\n" + e.getMessage());
         }
     }
 
-    @POST
-    @Path("ProductTemplate/Modify")
-    public product_template_page modifyCompactProduct()
-    {
-        product_template_page product = new product_template_page();
-        return product;
-    }
+//    @POST
+//    @Path("ProductTemplate/Modify")
+//    public product_template_page modifyCompactProduct()
+//    {
+//        product_template_page product = new product_template_page();
+//        return product;
+//    }
 
     @POST
     @Path("ProductTemplate/Delete")
@@ -136,10 +136,10 @@ public class product_template_Service {
             ObjectMapper objectMapper = new ObjectMapper();
 
             information info = new information();
-            info.id_machine = ID;
+            info.id_produit_template = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
+            System.out.println("This is what i am sending to Clovis: ProductTemplate/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
             Mapper.deleteProductTemplate(info);

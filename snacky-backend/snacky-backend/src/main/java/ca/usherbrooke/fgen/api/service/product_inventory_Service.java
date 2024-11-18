@@ -1,7 +1,9 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.product_inventory_specific;
+import ca.usherbrooke.fgen.api.business.*;
 import ca.usherbrooke.fgen.api.mapper.product_inventory_Mapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
@@ -20,12 +22,124 @@ public class product_inventory_Service {
     @Inject
     SecurityIdentity identity;
 
-    @GET
-    @Path("getAllProduct/{id_usager}")
-    public List<product_inventory_specific> getAllProduct(@PathParam("id_usager") Integer id_usager)
+    @POST
+    @Path("ProductInventory/Get/Full")
+    public String getCompactProductTemplate(Integer ID) throws JsonProcessingException
     {
-        return Mapper.getAllProduct(id_usager);
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_produit = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        System.out.println("This is what i am sending to Clovis: ProductInventory/Get/Full:");
+        System.out.println(objectMapper.writeValueAsString(info));
+        product productInventory = Mapper.getProductInventory(info);
+
+        String returnString = objectMapper.writeValueAsString(productInventory);
+
+        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println(returnString);
+
+        return returnString;
+    }
+
+    @POST
+    @Path("ProductInventory/Get/Image")
+    public String getProductImage(Integer ID) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_produit = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
+        System.out.println(objectMapper.writeValueAsString(info));
+        String image = Mapper.getProductTemplateImage(info);
+
+        String jsonString = objectMapper.writeValueAsString(image);
+
+        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println(jsonString);
+
+        return image;
     }
 
 
+    @POST
+    @Path("ProductInventory/Get/Surface")
+    public String getProductSurface(Integer ID) throws Exception {
+        try
+        {
+            information info = new information();
+            info.id_produit = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Surface");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            product_template_surface productTemplateSurface = Mapper.getProductSurface(info);
+            String returnString = objectMapper.writeValueAsString(productTemplateSurface);
+
+            System.out.println("Data from DB: ProductTemplate/Get/Surface:");
+            System.out.println(returnString);
+            return returnString;
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
+        }
+    }
+
+    @GET
+    @Path("ProductInventory/Get/AllID")
+    public List<Integer> getCompactProductAllID()
+    {
+        List<Integer> listInt = Mapper.getProductAllID(new authentificationService.User(identity).getUserID());
+        return listInt;
+    }
+
+    @POST
+    @Path("ProductInventory/New")
+    public void createProductTemplate(String jsonString) throws Exception
+    {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            product newProduct = objectMapper.readValue(jsonString, product.class);
+            newProduct.id_usager = new authentificationService.User(identity).getUserID();
+
+            System.out.println("This is what i am sending to Clovis: ProductTemplate/New");
+            System.out.println(objectMapper.writeValueAsString(newProduct));
+
+            Mapper.createProduct(newProduct);
+        } catch (Exception e) {
+            throw new Exception("This is a general exception: ProductTemplate/New:\n" + e.getMessage());
+        }
+    }
+
+    @POST
+    @Path("ProductInventory/Delete")
+    public void deleteCompactProduct(Integer ID) throws Exception
+    {
+        try
+        {
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            information info = new information();
+            info.id_produit = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            System.out.println("This is what i am sending to Clovis: ProductTemplate/Delete");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            Mapper.deleteProduct(info);
+            System.out.println("Finished deleting: " + ID);
+        }
+        catch (Exception e)
+        {
+            System.out.println("failed to delete:");
+            throw new Exception("This is a general exception " + e.getMessage());
+        }
+    }
 }

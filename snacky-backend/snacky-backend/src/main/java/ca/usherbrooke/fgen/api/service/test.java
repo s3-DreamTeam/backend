@@ -1,14 +1,11 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.machine_template;
-import ca.usherbrooke.fgen.api.business.testClass;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -23,16 +20,6 @@ public class test {
 //        responseDTO.message = "Message.exe ";
 //        return Response.ok(responseDTO).build();
         return "Ta mere";
-    }
-
-    @POST
-    @Path("testPost")
-    public Response postMessage() {
-
-        testClass responseDTO = new testClass();
-        responseDTO.message = "Message.exe ";
-        return Response.ok(responseDTO).build();
-        //return responseDTO;
     }
 
     @POST
@@ -55,16 +42,6 @@ public class test {
 
             return "uptade tbk, update mon enfant erreur du message:\n" + e.getMessage();
         }
-    }
-
-    @POST
-    @Path("testPostPara")
-    public Response postMessagePara(String val) {
-
-        testClass responseDTO = new testClass();
-        responseDTO.message = "Message.exe ";
-        return Response.ok(responseDTO).build();
-        //return responseDTO;
     }
 }
 
