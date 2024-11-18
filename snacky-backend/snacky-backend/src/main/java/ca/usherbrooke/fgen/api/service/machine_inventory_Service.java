@@ -30,7 +30,7 @@ public class machine_inventory_Service {
         info.id_machine = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
-        System.out.println("This is what i am sending to Clovis");
+        System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Full");
         System.out.println(objectMapper.writeValueAsString(info));
         machine mach = machine_inventory_specificMapper.getMachine(info);
 
@@ -56,7 +56,7 @@ public class machine_inventory_Service {
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             ObjectMapper objectMapper = new ObjectMapper();
-            System.out.println("This is what i am sending to Clovis");
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Image");
             System.out.println(objectMapper.writeValueAsString(info));
 
             ima.image = machine_inventory_specificMapper.getMachinesImage(info);
@@ -84,13 +84,13 @@ public class machine_inventory_Service {
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             ObjectMapper objectMapper = new ObjectMapper();
-            System.out.println("This is what i am sending to Clovis");
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
             System.out.println(objectMapper.writeValueAsString(info));
 
             machine_inventory_surface variable = machine_inventory_specificMapper.getMachinesSurface(info);
             String jsonString = objectMapper.writeValueAsString(variable);
 
-            System.out.println("Data from DB:");
+            System.out.println("Data from DB: MachineInventory/Get/Surface:");
             System.out.println(jsonString);
             return jsonString;
 
@@ -117,12 +117,12 @@ public class machine_inventory_Service {
             machine newMachine = objectMapper.readValue(jsonString, machine.class);
             newMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis");
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
             System.out.println(objectMapper.writeValueAsString(newMachine));
 
             machine_inventory_specificMapper.newMachineSpecifics(newMachine);
         } catch (Exception e) {
-            throw new Exception("This is a general exception: " + e.getMessage());
+            throw new Exception("This is a general exception: MachineInventory/Get/Surface:\n" + e.getMessage());
         }
     }
 
@@ -137,7 +137,7 @@ public class machine_inventory_Service {
             info.id_machine = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis");
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
             System.out.println(objectMapper.writeValueAsString(info));
 
             machine_inventory_specificMapper.deleteMachineSpecifics(info);
