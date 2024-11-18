@@ -12,8 +12,8 @@ public class machine_inventory_surface {
     public String name_machine;
 
     @JsonProperty("Location")
-    @JsonAlias({"location_machine"})
-    public String location_machine;
+    @JsonAlias({"emplacement_machine"})
+    public String emplacement_machine;
 
     @JsonProperty("Lowest product count")
     @JsonAlias({"lowestProductCount_machine"})
