@@ -117,12 +117,12 @@ public class machine_inventory_Service {
             machine newMachine = objectMapper.readValue(jsonString, machine.class);
             newMachine.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
+            System.out.println("This is what i am sending to Clovis: MachineInventory/New");
             System.out.println(objectMapper.writeValueAsString(newMachine));
 
             machine_inventory_specificMapper.newMachineSpecifics(newMachine);
         } catch (Exception e) {
-            throw new Exception("This is a general exception: MachineInventory/Get/Surface:\n" + e.getMessage());
+            throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
         }
     }
 
@@ -137,7 +137,7 @@ public class machine_inventory_Service {
             info.id_machine = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
             machine_inventory_specificMapper.deleteMachineSpecifics(info);
