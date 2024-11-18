@@ -61,7 +61,8 @@
                 #{machine_template.image_machine},
                 #{machine_template.row_type_m},
                 #{machine_template.column_type_m},
-                #{machine_template.quantity_type_m});
+                #{machine_template.quantity_type_m},
+                #{machine_template.id_usager});
     </insert>
 
     <delete id="deleteMachineTemplate" parameterType="Integer">
