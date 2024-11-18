@@ -7,20 +7,20 @@ public class product_template {
     public String id_usager;
 
     @JsonProperty("id")
-    @JsonAlias({"id_template_produit"})
-    public Integer id_template_produit;
+    @JsonAlias({"id_type_p"})
+    public Integer id_type_p;
 
     @JsonProperty("Product's Image")
-    @JsonAlias({"productImage_produit"})
-    public String productImage_produit;
+    @JsonAlias({"image_type_p"})
+    public String image_type_p;
 
     @JsonProperty("Manufacturer")
-    @JsonAlias({"manufacturer_produit"})
-    public String manufacturer_produit;
+    @JsonAlias({"manufacturer_type_p"})
+    public String manufacturer_type_p;
 
     @JsonProperty("Model")
-    @JsonAlias({"model_produit"})
-    public String model_produit;
+    @JsonAlias({"model_type_p"})
+    public String model_type_p;
 
     @JsonProperty("Consistency")
     @JsonAlias({"consistency_produit"})
@@ -51,34 +51,30 @@ public class product_template {
     public boolean flavorVaries_produit;
 
     @JsonProperty("Is packaged")
-    @JsonAlias({"isPackaged_produit"})
-    public boolean isPackaged_produit;
+    @JsonAlias({"est_emballe_dimension"})
+    public boolean est_emballe_dimension;
 
     @JsonProperty("Can expire")
     @JsonAlias({"canExpire_produit"})
     public boolean canExpire_produit;
 
     @JsonProperty("Shape")
-    @JsonAlias({"shape_produit"})
-    public String shape_produit;
+    @JsonAlias({"forme_dimension"})
+    public String forme_dimension;
 
     @JsonProperty("Width")
-    @JsonAlias({"width_produit"})
-    public Integer width_produit;
+    @JsonAlias({"largeur_dimension"})
+    public Integer largeur_dimension;
 
     @JsonProperty("Height")
-    @JsonAlias({"height_produit"})
-    public Integer height_produit;
+    @JsonAlias({"hauteur_dimension"})
+    public Integer hauteur_dimension;
 
     @JsonProperty("Length")
-    @JsonAlias({"length_produit"})
-    public Integer length_produit;
+    @JsonAlias({"longueur_dimension"})
+    public Integer longueur_dimension;
 
     @JsonProperty("Weight")
     @JsonAlias({"weight_produit"})
     public Integer weight_produit;
-
-    @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_produit"})
-    public Integer templateId_produit;
 }
