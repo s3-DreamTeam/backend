@@ -52,7 +52,7 @@
             id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit_template};
     </select>
 
-    <select id="getProductTemplateAllID" resultType="Integer">
+    <select id="getProductTemplatesAllID" resultType="Integer">
         SELECT
             id_type_p
         FROM
