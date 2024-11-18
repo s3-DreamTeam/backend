@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class product_template {
+    public String id_usager;
 
     @JsonProperty("id")
     @JsonAlias({"id_template_produit"})
