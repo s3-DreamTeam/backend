@@ -27,7 +27,7 @@ public class machine_inventory_Service {
     public machine getMachinesSpecifics(Integer ID) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         information info = new information();
-        info.id_template = ID;
+        info.id_machine = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis");
@@ -46,7 +46,7 @@ public class machine_inventory_Service {
         try
         {
             information info = new information();
-            info.id_template = ID;
+            info.id_machine = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             ObjectMapper objectMapper = new ObjectMapper();
@@ -74,7 +74,7 @@ public class machine_inventory_Service {
         try
         {
             information info = new information();
-            info.id_template = ID;
+            info.id_machine = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             ObjectMapper objectMapper = new ObjectMapper();
@@ -127,9 +127,9 @@ public class machine_inventory_Service {
         try
         {
             ObjectMapper objectMapper = new ObjectMapper();
-            
+
             information info = new information();
-            info.id_template = ID;
+            info.id_machine = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             System.out.println("This is what i am sending to Clovis");
