@@ -120,7 +120,7 @@ public class machine_inventory_Service {
             System.out.println("This is what i am sending to Clovis: MachineInventory/New");
             System.out.println(objectMapper.writeValueAsString(newMachine));
 
-            machine_inventory_specificMapper.newMachineSpecifics(newMachine);
+            machine_inventory_specificMapper.newMachineInventaire(newMachine);
         } catch (Exception e) {
             throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
         }
@@ -140,7 +140,7 @@ public class machine_inventory_Service {
             System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
-            machine_inventory_specificMapper.deleteMachineSpecifics(info);
+            machine_inventory_specificMapper.deleteMachineInventaire(info);
             System.out.println("Finished deleting: " + ID);
         }
         catch (Exception e)
