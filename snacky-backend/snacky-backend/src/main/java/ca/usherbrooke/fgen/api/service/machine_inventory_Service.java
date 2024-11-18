@@ -146,7 +146,7 @@ public class machine_inventory_Service {
         catch (Exception e)
         {
             System.out.println("failed to delete:");
-            throw new Exception("This is a general exception");
+            throw new Exception("This is a general exception: " + e.getMessage());
         }
 
     }
