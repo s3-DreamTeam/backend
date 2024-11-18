@@ -14,5 +14,5 @@ public class machine_template_surface {
     public String model_type_m;
 
     @JsonProperty("id")
-    public Integer id_machine;
+    public Integer id_type_m;
 }
