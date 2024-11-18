@@ -1,9 +1,6 @@
 package ca.usherbrooke.fgen.api.service;
 
-import ca.usherbrooke.fgen.api.business.information;
-import ca.usherbrooke.fgen.api.business.machine;
-import ca.usherbrooke.fgen.api.business.product_template;
-import ca.usherbrooke.fgen.api.business.product_template_page;
+import ca.usherbrooke.fgen.api.business.*;
 import ca.usherbrooke.fgen.api.mapper.product_template_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,55 +27,96 @@ public class product_template_Service {
     @Path("ProductTemplate/Get/Full")
     public product_template getCompactProductTemplate(Integer ID) throws JsonProcessingException
     {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        information info = new information();
-//        info.id_machine = ID;
-//        info.id_usager = new authentificationService.User(identity).getUserID();
-//
-//        System.out.println("This is what i am sending to Clovis");
-//        System.out.println(objectMapper.writeValueAsString(info));
-//        product_template mach = Mapper.getTemplateProduct(info);
-//
-//        String jsonString = objectMapper.writeValueAsString(mach);
-//
-//        System.out.println("MachineInventory/Get/Full\nData received from DB:");
-//        System.out.println(jsonString);
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_machine = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
 
-        return Mapper.getProductTemplate(ID);
+        System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Full:");
+        System.out.println(objectMapper.writeValueAsString(info));
+        product_template prodTemp = Mapper.getProductTemplate(info);
+
+        String jsonString = objectMapper.writeValueAsString(prodTemp);
+
+        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println(jsonString);
+
+        return prodTemp;
     }
 
-    @GET
+    @POST
     @Path("ProductTemplate/Get/Image")
     public String getProductImage(Integer ID) throws JsonProcessingException {
 
-        return Mapper.getProductTemplateImage(ID);
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_machine = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
+        System.out.println(objectMapper.writeValueAsString(info));
+        String image = Mapper.getProductTemplateImage(info);
+
+        String jsonString = objectMapper.writeValueAsString(image);
+
+        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println(jsonString);
+
+        return image;
     }
 
 
     @POST
     @Path("ProductTemplate/Get/Surface")
-    public List<Integer> getCompactProductSurface()
-    {
-        List<Integer> listInt = new ArrayList<>();
+    public String getProductSurface(Integer ID) throws Exception {
+        try
+        {
+            information info = new information();
+            info.id_machine = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
 
-        return listInt;
+            ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Surface");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            product_template_surface productTemplateSurface = Mapper.getProductSurfaceTemplate(info);
+            String returnString = objectMapper.writeValueAsString(productTemplateSurface);
+
+            System.out.println("Data from DB: MachineInventory/Get/Surface:");
+            System.out.println(returnString);
+            return returnString;
+
+        } catch (Exception e) {
+            System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
+        }
     }
 
     @GET
     @Path("ProductTemplate/Get/AllID")
-    public List<String> getCompactProductAllID()
+    public List<Integer> getCompactProductAllID()
     {
-        List<String> listInt = new ArrayList<>();
-
+        List<Integer> listInt = Mapper.getProductTemplatesAllID(new authentificationService.User(identity).getUserID());
         return listInt;
     }
 
     @POST
     @Path("ProductTemplate/New")
-    public product_template_page setCompactProduct()
+    public void createProductTemplate(String jsonString) throws Exception
     {
-        product_template_page product = new product_template_page();
-        return product;
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            product_template newProductTemplate = objectMapper.readValue(jsonString, product_template.class);
+            newProductTemplate.id_usager = new authentificationService.User(identity).getUserID();
+
+            System.out.println("This is what i am sending to Clovis: MachineInventory/New");
+            System.out.println(objectMapper.writeValueAsString(newProductTemplate));
+
+            Mapper.createProductTemplate(newProductTemplate);
+        } catch (Exception e) {
+            throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
+        }
     }
 
     @POST
@@ -91,9 +129,26 @@ public class product_template_Service {
 
     @POST
     @Path("ProductTemplate/Delete")
-    public product_template_page deleteCompactProduct()
+    public void deleteCompactProduct(Integer ID) throws Exception
     {
-        product_template_page product = new product_template_page();
-        return product;
+        try
+        {
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            information info = new information();
+            info.id_machine = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
+            System.out.println(objectMapper.writeValueAsString(info));
+
+            Mapper.deleteProductTemplate(info);
+            System.out.println("Finished deleting: " + ID);
+        }
+        catch (Exception e)
+        {
+            System.out.println("failed to delete:");
+            throw new Exception("This is a general exception");
+        }
     }
 }
