@@ -6,6 +6,7 @@
 
     <select id="getTemplateMachine" resultType="ca.usherbrooke.fgen.api.business.machine_template">
         SELECT
+            id_usager,
             image_type_m,
             manufacturier_type_m,
             model_type_m,
@@ -55,7 +56,7 @@
     </select>
 
     <insert id="createMachineTemplate" parameterType="ca.usherbrooke.fgen.api.business.machine_template">
-        INSERT INTO projet.type_de_machine (model_type_m, manufacturier_type_m, image_type_m, row_type_m, column_type_m,quantity_type_m)
+        INSERT INTO projet.type_de_machine (model_type_m, manufacturier_type_m, image_type_m, row_type_m, column_type_m,quantity_type_m, id_usager)
         VALUES (#{machine_template.model_type_m},
                 #{machine_template.manufacturier_type_m},
                 #{machine_template.image_machine},
