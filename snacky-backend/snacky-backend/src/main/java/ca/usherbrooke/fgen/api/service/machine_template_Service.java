@@ -24,17 +24,17 @@ public class machine_template_Service {
 
     @POST
     @Path("MachineTemplate/Get/Full")
-    public machine_template getTemplateMachine(Integer ID)
+    public machine_template getTemplateMachine(String jsonStringreceived)
     {
         System.out.println("MachineTemplate/Get/Full\nRaw data received (ID):");
-        System.out.println(ID);
+        System.out.println(jsonStringreceived);
 
         machine_template val = new machine_template();
 
         try
         {
             information info = new information();
-            info.id_template = ID;
+            info.id_template = 3;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             val = Mapper.getTemplateMachine(info);
