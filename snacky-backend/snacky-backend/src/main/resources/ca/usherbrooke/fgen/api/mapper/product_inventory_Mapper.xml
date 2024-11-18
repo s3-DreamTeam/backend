@@ -3,7 +3,74 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ca.usherbrooke.fgen.api.mapper.product_inventory_Mapper">
+    <select id="getProductIncentory" resultType="ca.usherbrooke.fgen.api.business.product">
+        SELECT
+            id_usager,
+            id_produit,
+            image_produit,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            id_type_p,
+            quantite_produit
+        FROM
+            projet.produit
+        WHERE
+            id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit};
+    </select>
 
+    <select id="getProductImage" resultType="String">
+        SELECT
+            image_produit
+        FROM
+            projet.produit
+        WHERE
+            id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit};
+    </select>
+
+    <select id="getProductSurface" resultType="ca.usherbrooke.fgen.api.business.product_inventory_surface">
+        SELECT
+            NULL,
+            id_type_p,
+            quantite_produit,
+            id_produit
+        FROM
+            projet.produit
+        WHERE
+            id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit};
+    </select>
+
+    <select id="getProductAllID" resultType="Integer">
+        SELECT
+            id_produit
+        FROM
+            projet.produit
+        WHERE
+            id_usager = #{info.id_usager};
+    </select>
+
+    <insert id="createProduct" parameterType="ca.usherbrooke.fgen.api.business.product">
+        INSERT INTO projet.produit (quantite_produit, image_produit, id_usager, id_type_p)
+        VALUES (#{product.quantite_produit},
+                #{product.image_produit},
+                #{product.id_usager},
+                #{product.id_type_p});
+    </insert>
+
+    <delete id="deleteProduct" parameterType="ca.usherbrooke.fgen.api.business.information">
+        DELETE
+        FROM projet.produit
+        WHERE id_produit = #{info.id_produit_template} AND id_usager = #{info.id_usager};
+    </delete>
 
 
 </mapper>

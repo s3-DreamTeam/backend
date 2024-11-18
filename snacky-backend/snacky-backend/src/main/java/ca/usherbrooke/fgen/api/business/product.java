@@ -13,8 +13,8 @@ public class product {
     public Integer id_produit;
 
     @JsonProperty("Product's Image")
-    @JsonAlias({"productImage_produit"})
-    public String productImage_produit;
+    @JsonAlias({"image_produit"})
+    public String image_produit;
 
     @JsonProperty("Variant")
     @JsonAlias({"variant_produit"})
@@ -65,10 +65,10 @@ public class product {
     public String ingredients_produit;
 
     @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_produit"})
-    public Integer templateId_produit;
+    @JsonAlias({"id_type_p"})
+    public Integer id_type_p;
 
     @JsonProperty("Quantity")
-    @JsonAlias({"quantity_produit"})
-    public Integer quantity_produit;
+    @JsonAlias({"quantite_produit"})
+    public Integer quantite_produit;
 }
