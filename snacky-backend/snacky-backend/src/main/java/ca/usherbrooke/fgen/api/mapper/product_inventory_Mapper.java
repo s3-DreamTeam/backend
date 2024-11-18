@@ -11,10 +11,10 @@ import java.util.List;
 @Mapper
 public interface product_inventory_Mapper {
     product getProductInventory(@Param("info") information info);
-    String getProductTemplateImage(@Param("info") information info);
+    String getProductImage(@Param("info") information info);
     product_template_surface getProductSurface(@Param("info") information info);
     List<Integer> getProductAllID(@Param("id_usager") String name_usager);
-    void createProduct(@Param("product_template") product productTemplate);
+    void createProduct(@Param("product") product product);
     void deleteProduct(@Param("info") information info);
 
 }

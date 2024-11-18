@@ -1,8 +1,10 @@
 package ca.usherbrooke.fgen.api.business;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class product_inventory_surface {
 
     @JsonProperty("Variant")

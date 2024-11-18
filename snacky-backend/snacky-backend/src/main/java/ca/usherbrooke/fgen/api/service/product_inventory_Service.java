@@ -48,20 +48,21 @@ public class product_inventory_Service {
     public String getProductImage(Integer ID) throws JsonProcessingException {
 
         ObjectMapper objectMapper = new ObjectMapper();
+        productImage ima = new productImage();
         information info = new information();
         info.id_produit = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
         System.out.println(objectMapper.writeValueAsString(info));
-        String image = Mapper.getProductTemplateImage(info);
+        ima.image = Mapper.getProductTemplateImage(info);
 
-        String jsonString = objectMapper.writeValueAsString(image);
+        String jsonString = objectMapper.writeValueAsString(ima.image);
 
         System.out.println("ProductTemplate/Get/Full\nData received from DB:");
         System.out.println(jsonString);
 
-        return image;
+        return ima.image;
     }
 
 

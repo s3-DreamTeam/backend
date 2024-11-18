@@ -50,19 +50,20 @@ public class product_template_Service {
 
         ObjectMapper objectMapper = new ObjectMapper();
         information info = new information();
+        productImage ima = new productImage();
         info.id_produit_template = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
         System.out.println(objectMapper.writeValueAsString(info));
-        String image = Mapper.getProductTemplateImage(info);
+        ima.image = Mapper.getProductTemplateImage(info);
 
-        String jsonString = objectMapper.writeValueAsString(image);
+        String jsonString = objectMapper.writeValueAsString(ima.image);
 
         System.out.println("ProductTemplate/Get/Full\nData received from DB:");
         System.out.println(jsonString);
 
-        return image;
+        return ima.image;
     }
 
 
@@ -115,7 +116,7 @@ public class product_template_Service {
 
             Mapper.createProductTemplate(newProductTemplate);
         } catch (Exception e) {
-            throw new Exception("This is a general exception: ProductTemplate/New:\n" + e.getMessage());
+            throw new Exception("This is a general exception\n: ProductTemplate/New:\n" + e.getMessage());
         }
     }
 
