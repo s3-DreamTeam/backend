@@ -32,7 +32,13 @@ public class machine_inventory_Service {
 
         System.out.println("This is what i am sending to Clovis");
         System.out.println(objectMapper.writeValueAsString(info));
-        return machine_inventory_specificMapper.getMachine(info);
+        machine mach = machine_inventory_specificMapper.getMachine(info);
+
+        String jsonString = objectMapper.writeValueAsString(mach);
+
+        System.out.println("MachineInventory/Get/Full\nData received from DB:");
+        System.out.println(jsonString);
+        return mach;
     }
 
     @POST
