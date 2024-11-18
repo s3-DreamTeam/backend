@@ -28,7 +28,8 @@ public class product_template_Service {
 
     @POST
     @Path("ProductTemplate/Get/Full")
-    public product_template getCompactProductTemplate(Integer ID) throws JsonProcessingException {
+    public product_template getCompactProductTemplate(Integer ID) throws JsonProcessingException
+    {
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        information info = new information();
 //        info.id_machine = ID;
@@ -36,7 +37,7 @@ public class product_template_Service {
 //
 //        System.out.println("This is what i am sending to Clovis");
 //        System.out.println(objectMapper.writeValueAsString(info));
-//        machine mach = Mapper.getTemplateProduct(info);
+//        product_template mach = Mapper.getTemplateProduct(info);
 //
 //        String jsonString = objectMapper.writeValueAsString(mach);
 //
