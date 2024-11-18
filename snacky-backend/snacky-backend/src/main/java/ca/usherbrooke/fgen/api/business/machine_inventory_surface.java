@@ -20,8 +20,8 @@ public class machine_inventory_surface {
     public Integer lowestProductCount_machine;
 
     @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_machine"})
-    public Integer templateId_machine;
+    @JsonAlias({"id_type_m"})
+    public Integer id_type_m;
 
     @JsonProperty("id")
     @JsonAlias({"id_machine"})
