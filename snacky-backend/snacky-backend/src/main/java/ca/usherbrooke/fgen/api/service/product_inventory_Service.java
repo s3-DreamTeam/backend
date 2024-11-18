@@ -55,7 +55,7 @@ public class product_inventory_Service {
 
         System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
         System.out.println(objectMapper.writeValueAsString(info));
-        ima.image = Mapper.getProductTemplateImage(info);
+        ima.image = Mapper.getProductImage(info);
 
         String jsonString = objectMapper.writeValueAsString(ima.image);
 
