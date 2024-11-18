@@ -13,8 +13,8 @@ public class machine {
     public String image_machine;
 
     @JsonProperty("Name")
-    @JsonAlias({"nom_machine"})
-    public String nom_machine;
+    @JsonAlias({"name_machine"})
+    public String name_machine;
 
     @JsonProperty("Location")
     @JsonAlias({"emplacement_machine"})
