@@ -72,7 +72,7 @@
     <insert id="newMachineSpecifics" parameterType="ca.usherbrooke.fgen.api.business.machine">
         INSERT INTO projet.machine (image_machine, nom_machine, emplacement_machine,no_serie, id_type_m)
         VALUES (#{newMachine.image_machine},
-                #{newMachine.nom_machine},
+                #{newMachine.name_machine},
                 #{newMachine.emplacement_machine},
                 #{newMachine.serialId_machine},
                 #{newMachine.templateId_machine});
