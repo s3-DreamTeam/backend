@@ -91,12 +91,15 @@ public class machine_template_Service {
 
         try
         {
+            ObjectMapper objectMapper = new ObjectMapper();
             information info = new information();
             info.id_template = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
+            System.out.println("This is what i am sending to Clovis");
+            System.out.println(objectMapper.writeValueAsString(info));
             variable = Mapper.getMachineSurfaceTemplate(info);
-            ObjectMapper objectMapper = new ObjectMapper();
+
             String jsonString = objectMapper.writeValueAsString(variable);
 
             System.out.println("Data from DB:");
