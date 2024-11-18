@@ -79,7 +79,7 @@ public class product_inventory_Service {
             System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Surface");
             System.out.println(objectMapper.writeValueAsString(info));
 
-            product_template_surface productTemplateSurface = Mapper.getProductSurface(info);
+            product_inventory_surface productTemplateSurface = Mapper.getProductSurface(info);
             String returnString = objectMapper.writeValueAsString(productTemplateSurface);
 
             System.out.println("Data from DB: ProductTemplate/Get/Surface:");
