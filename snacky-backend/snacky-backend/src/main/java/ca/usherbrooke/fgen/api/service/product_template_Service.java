@@ -1,8 +1,12 @@
 package ca.usherbrooke.fgen.api.service;
 
+import ca.usherbrooke.fgen.api.business.information;
+import ca.usherbrooke.fgen.api.business.machine;
 import ca.usherbrooke.fgen.api.business.product_template;
 import ca.usherbrooke.fgen.api.business.product_template_page;
 import ca.usherbrooke.fgen.api.mapper.product_template_Mapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
 
 import javax.inject.Inject;
@@ -22,17 +26,30 @@ public class product_template_Service {
     @Inject
     SecurityIdentity identity;
 
-    @GET
+    @POST
     @Path("ProductTemplate/Get/Full")
-    public product_template getCompactProductTemplate(Integer ID)
-    {
+    public product_template getCompactProductTemplate(Integer ID) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        information info = new information();
+        info.id_machine = ID;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        System.out.println("This is what i am sending to Clovis");
+        System.out.println(objectMapper.writeValueAsString(info));
+        machine mach = Mapper.getTemplateProduct(info);
+
+        String jsonString = objectMapper.writeValueAsString(mach);
+
+        System.out.println("MachineInventory/Get/Full\nData received from DB:");
+        System.out.println(jsonString);
+
         return Mapper.getProductTemplate(ID);
     }
 
     @GET
     @Path("ProductTemplate/Get/Image")
-    public String getProductImage(Integer ID)
-    {
+    public String getProductImage(Integer ID) throws JsonProcessingException {
+
         return Mapper.getProductTemplateImage(ID);
     }
 

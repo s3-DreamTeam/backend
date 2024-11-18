@@ -102,7 +102,7 @@ public class machine_template_Service {
 
             String jsonString = objectMapper.writeValueAsString(variable);
 
-            System.out.println("Data from DB:");
+            System.out.println("Data from DB Check ici:");
             System.out.println(jsonString);
             return jsonString;
 
