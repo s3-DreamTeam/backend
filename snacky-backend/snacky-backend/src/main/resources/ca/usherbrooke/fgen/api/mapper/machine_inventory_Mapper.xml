@@ -6,6 +6,7 @@
 
     <select id="getMachine" resultType="ca.usherbrooke.fgen.api.business.machine">
         SELECT
+            id_usager,
             image_machine,
             nom_machine,
             emplacement_machine,
