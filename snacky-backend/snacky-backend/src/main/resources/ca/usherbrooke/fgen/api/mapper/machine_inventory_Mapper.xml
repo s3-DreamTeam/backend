@@ -6,6 +6,7 @@
 
     <select id="getMachine" resultType="ca.usherbrooke.fgen.api.business.machine">
         SELECT
+            id_usager,
             image_machine,
             nom_machine,
             emplacement_machine,
@@ -28,8 +29,9 @@
 
         FROM
             projet.machine
+        JOIN projet.usager_x_machines uxm on machine.id_machine = uxm.id_machine
         WHERE
-            id_machine = #{id_machine};
+            machine.id_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
     </select>
 
 
@@ -38,8 +40,9 @@
             image_machine
         FROM
             projet.machine
+        JOIN projet.usager_x_machines uxm on machine.id_machine = uxm.id_machine
         WHERE
-            id_machine = #{id_machine};
+            machine.id_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
     </select>
 
     <select id="getMachinesSurface" resultType="ca.usherbrooke.fgen.api.business.machine_inventory_surface">
@@ -48,11 +51,12 @@
             emplacement_machine,
             NULL,
             id_type_m,
-            id_machine
+            machine.id_machine
         FROM
             projet.machine
+        JOIN projet.usager_x_machines uxm on machine.id_machine = uxm.id_machine
         WHERE
-            id_machine = #{id_machine};
+            machine.id_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
     </select>
 
     <select id="getAllMachinesID" resultType="Integer">
@@ -72,12 +76,22 @@
                 #{newMachine.location_machine},
                 #{newMachine.serialId_machine},
                 #{newMachine.templateId_machine});
+        INSERT INTO projet.usager_x_machines (id_usager, id_machine)
+        VALUES (#{newMachine.id_usager},
+                (SELECT MAX(id_machine) FROM projet.machine));
     </insert>
 
-    <delete id="deleteMachineTemplate" parameterType="Integer">
+    <delete id="deleteMachineTemplate" parameterType="ca.usherbrooke.fgen.api.business.information">
         DELETE
         FROM projet.machine
-        WHERE id_machine = #{id_machine};
+        WHERE id_machine = #{info.id_machine} AND id_machine IN (
+            SELECT
+                id_machine
+            FROM
+                projet.usager_x_machines
+            WHERE
+                id_usager = #{info.id_usager}
+            );
     </delete>
 
 
