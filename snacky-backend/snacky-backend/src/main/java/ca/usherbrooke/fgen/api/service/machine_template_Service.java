@@ -24,8 +24,7 @@ public class machine_template_Service {
 
     @POST
     @Path("MachineTemplate/Get/Full")
-    public machine_template getTemplateMachine(Integer ID)
-    {
+    public String getTemplateMachine(Integer ID) throws Exception {
         System.out.println("MachineTemplate/Get/Full\nRaw data received (ID):");
         System.out.println(ID);
 
@@ -43,13 +42,12 @@ public class machine_template_Service {
 
             System.out.println("MachineTemplate/Get/Full\nData received from DB:");
             System.out.println(jsonString);
+            return jsonString;
 
         } catch (Exception e) {
             System.out.println("failed to get or convert data from DB:");
+            throw new Exception("This is a general exception");
         }
-
-        return val;
-
     }
 
     @POST
