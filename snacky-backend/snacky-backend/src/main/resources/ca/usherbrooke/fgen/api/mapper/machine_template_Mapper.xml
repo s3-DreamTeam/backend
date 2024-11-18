@@ -23,7 +23,7 @@
             NULL,
             NULL,
             NULL,
-            NULL
+            id_type_m
         FROM
             projet.type_de_machine
         WHERE type_de_machine = #{info.id_template} AND id_usager = #{info.id_usager};
