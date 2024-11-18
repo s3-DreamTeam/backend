@@ -122,8 +122,7 @@ public class machine_inventory_Service {
 
             machine_inventory_specificMapper.newMachineSpecifics(newMachine);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("This is a general exception");
+            throw new Exception("This is a general exception: " + e.getMessage());
         }
     }
 
