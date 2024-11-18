@@ -33,7 +33,11 @@ public class machine_template_Service {
 
         try
         {
-            val = Mapper.getTemplateMachine(ID);
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            val = Mapper.getTemplateMachine(info);
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonString = objectMapper.writeValueAsString(val);
 
@@ -55,9 +59,14 @@ public class machine_template_Service {
         System.out.println(ID);
 
         MachineTemplateImage ima = new MachineTemplateImage();
-        ima.image = Mapper.getImageMachine(ID);
+
         try
         {
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            ima.image = Mapper.getImageMachine(info);
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonString = objectMapper.writeValueAsString(ima);
 
@@ -82,7 +91,11 @@ public class machine_template_Service {
 
         try
         {
-            variable = Mapper.getMachineSurfaceTemplate(ID);
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            variable = Mapper.getMachineSurfaceTemplate(info);
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonString = objectMapper.writeValueAsString(variable);
 
@@ -161,7 +174,11 @@ public class machine_template_Service {
 
         try
         {
-            Mapper.deleteMachineTemplate(ID);
+            information info = new information();
+            info.id_template = ID;
+            info.id_usager = new authentificationService.User(identity).getUserID();
+
+            Mapper.deleteMachineTemplate(info);
             System.out.println("Finished deleting: " + ID);
         }
         catch (Exception e)
