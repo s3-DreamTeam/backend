@@ -69,7 +69,7 @@
     <delete id="deleteProduct" parameterType="ca.usherbrooke.fgen.api.business.information">
         DELETE
         FROM projet.produit
-        WHERE id_produit = #{info.id_produit_template} AND id_usager = #{info.id_usager};
+        WHERE id_produit = #{info.id_produit} AND id_usager = #{info.id_usager};
     </delete>
 
 
