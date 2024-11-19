@@ -69,6 +69,10 @@
 
     <delete id="deleteMachineTemplate" parameterType="ca.usherbrooke.fgen.api.business.information">
         DELETE
+        FROM projet.machine
+        WHERE id_type_m = #{info.id_template};
+
+        DELETE
         FROM projet.type_de_machine
         WHERE id_type_m = #{info.id_template} AND id_usager = #{info.id_usager};
     </delete>
