@@ -63,7 +63,7 @@ public class product_template_Service {
         System.out.println("ProductTemplate/Get/Image\nData received from DB:");
         System.out.println(jsonString);
 
-        return ima.image;
+        return jsonString;
     }
 
 

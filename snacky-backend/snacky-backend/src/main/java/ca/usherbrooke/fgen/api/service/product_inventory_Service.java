@@ -62,7 +62,7 @@ public class product_inventory_Service {
         System.out.println("ProductInventory/Get/Full\nData received from DB:");
         System.out.println(jsonString);
 
-        return ima.image;
+        return jsonString;
     }
 
 
