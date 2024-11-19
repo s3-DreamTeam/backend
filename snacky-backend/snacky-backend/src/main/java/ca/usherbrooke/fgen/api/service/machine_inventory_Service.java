@@ -5,6 +5,7 @@ import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
+import org.apache.ibatis.annotations.Mapper;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -120,7 +121,11 @@ public class machine_inventory_Service {
             System.out.println("This is what i am sending to Clovis: MachineInventory/New");
             System.out.println(objectMapper.writeValueAsString(newMachine));
 
-            machine_inventory_specificMapper.newMachineInventaire(newMachine);
+            Integer id_machine = machine_inventory_specificMapper.newMachineInventaire(newMachine);
+
+            System.out.println("New machine has been created");
+            createSlots(newMachine, id_machine);
+
         } catch (Exception e) {
             throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
         }
@@ -148,6 +153,44 @@ public class machine_inventory_Service {
             System.out.println("failed to delete:");
             throw new Exception("This is a general exception: " + e.getMessage());
         }
+    }
 
+    private void createSlots(machine newMachine, Integer id_machine)
+    {
+        information info = new information();
+        info.id_machine = id_machine;
+        info.id_usager = new authentificationService.User(identity).getUserID();
+
+        row_column r_c = machine_inventory_specificMapper.getRowColumn(info);
+
+        for (Integer row = 1; row <= r_c.row; row++) {
+            for (Integer column = 1; column <= r_c.column; column++) {
+                info.slot = getSlot(row, column);
+                machine_inventory_specificMapper.createSlot(info);
+            }
+        }
+    }
+
+    public static String getSlot(Integer row, Integer column) {
+        if (row < 1 || column < 1) {
+            throw new IllegalArgumentException("Row and column must be greater than or equal to 1");
+        }
+
+        // Convert the row number to a letter (e.g., 1 -> A, 27 -> AA)
+        String rowLabel = getRowLabel(row);
+
+        return rowLabel + column;
+    }
+
+    private static String getRowLabel(Integer row) {
+        StringBuilder label = new StringBuilder();
+
+        while (row > 0) {
+            row--; // Adjust for 0-based indexing
+            label.insert(0, (char) ('A' + (row % 26)));
+            row /= 26;
+        }
+
+        return label.toString();
     }
 }

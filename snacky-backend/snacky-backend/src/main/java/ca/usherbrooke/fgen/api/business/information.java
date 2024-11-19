@@ -6,4 +6,7 @@ public class information {
     public Integer id_machine;
     public Integer id_produit_template;
     public Integer id_produit;
+    public String slot;
+    public Integer quantite;
+    public float prix;
 }

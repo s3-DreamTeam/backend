@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ca.usherbrooke.fgen.api.mapper.inventory_Mapper">
+<mapper namespace="ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper">
 
-    <select id="getInventory" resultType="ca.usherbrooke.fgen.api.business.inventory">
+    <select id="getAllSlots" resultType="ca.usherbrooke.fgen.api.business.information">
         SELECT
             slot_inventaire,
             inventaire.id_produit,
@@ -17,23 +17,24 @@
             inventaire.id_machine = #{id_machine};
     </select>
 
-    <insert id="newProduit" parameterType="ca.usherbrooke.fgen.api.business.machine">
+    <insert id="setSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.inventaire
         SET id_produit = (#{id_produit})
         WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
     </insert>
 
-    <update id="newProduitQuantity" parameterType="ca.usherbrooke.fgen.api.business.machine">
+    <update id="addProductToSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.inventaire
         SET id_produit = (#{id_produit}), quantite_inventaire = (#{quantite_inventaire})
         WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
 
         UPDATE projet.produit
-        SET quantite_produit = quantite_produit - #{quantite_produit}
+        SET quantite_produit = quantite_produit + #{quantite_produit}
         WHERE id_produit = #{id_produit};
     </update>
 
-    <update id="newProduitQuantity" parameterType="ca.usherbrooke.fgen.api.business.machine">
+
+    <update id="removeProductFromSlot" parameterType="ca.usherbrooke.fgen.api.business.machine">
         UPDATE projet.inventaire
         SET quantite_inventaire = quantite_inventaire - #{quantite_produit}
         WHERE id_produit = #{id_produit};
@@ -43,7 +44,7 @@
         WHERE id_produit = #{id_produit};
     </update>
 
-    <update id="restProduit">
+    <update id="resetSlot">
         UPDATE projet.inventaire
         SET id_produit = 1
         WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
