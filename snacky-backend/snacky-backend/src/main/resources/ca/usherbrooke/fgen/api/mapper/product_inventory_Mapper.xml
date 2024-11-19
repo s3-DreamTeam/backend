@@ -25,7 +25,7 @@
         FROM
             projet.produit
         WHERE
-            id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit};
+            id_usager = #{info.id_usager} AND id_produit = #{info.id_produit};
     </select>
 
     <select id="getProductImage" resultType="String">
@@ -46,7 +46,7 @@
         FROM
             projet.produit
         WHERE
-            id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit};
+            id_usager = #{info.id_usager} AND id_produit = #{info.id_produit};
     </select>
 
     <select id="getProductAllID" resultType="Integer">
