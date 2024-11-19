@@ -60,7 +60,7 @@ public class product_template_Service {
 
         String jsonString = objectMapper.writeValueAsString(ima.image);
 
-        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println("ProductTemplate/Get/Image\nData received from DB:");
         System.out.println(jsonString);
 
         return ima.image;

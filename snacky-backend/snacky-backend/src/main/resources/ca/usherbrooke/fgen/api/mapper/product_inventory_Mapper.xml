@@ -34,7 +34,7 @@
         FROM
             projet.produit
         WHERE
-            id_usager = #{info.id_usager} AND id_type_p = #{info.id_produit};
+            id_usager = #{info.id_usager} AND id_produit = #{info.id_produit};
     </select>
 
     <select id="getProductSurface" resultType="ca.usherbrooke.fgen.api.business.product_inventory_surface">
