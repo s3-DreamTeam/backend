@@ -64,7 +64,7 @@
                 #{product.image_produit},
                 #{product.id_usager},
                 #{product.id_type_p},
-                #{produit.nom_produit});
+                #{product.nom_produit});
     </insert>
 
     <delete id="deleteProduct" parameterType="ca.usherbrooke.fgen.api.business.information">
