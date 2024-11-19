@@ -8,16 +8,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class product_inventory_surface {
 
     @JsonProperty("Variant")
-    @JsonAlias({"variant_produit"})
-    public String variant_produit;
+    @JsonAlias({"nom_produit"})
+    public String nom_produit;
 
     @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_produit"})
-    public Integer templateId_produit;
+    @JsonAlias({"id_type_p"})
+    public Integer id_type_p;
 
     @JsonProperty("Quantity")
-    @JsonAlias({"quantity_produit"})
-    public Integer quantity_produit;
+    @JsonAlias({"quantite_produit"})
+    public Integer quantite_produit;
 
     @JsonProperty("id")
     @JsonAlias({"id_produit"})
