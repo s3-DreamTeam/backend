@@ -27,11 +27,19 @@
         UPDATE projet.inventaire
         SET id_produit = (#{id_produit}), quantite_inventaire = (#{quantite_inventaire})
         WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
+
+        UPDATE projet.produit
+        SET quantite_produit = quantite_produit - #{quantite_produit}
+        WHERE id_produit = #{id_produit};
     </update>
 
     <update id="newProduitQuantity" parameterType="ca.usherbrooke.fgen.api.business.machine">
         UPDATE projet.inventaire
-        SET quantite_inventaire = #{quantite_produit}
+        SET quantite_inventaire = quantite_inventaire - #{quantite_produit}
+        WHERE id_produit = #{id_produit};
+
+        UPDATE projet.produit
+        SET quantite_produit = quantite_produit + #{quantite_produit}
         WHERE id_produit = #{id_produit};
     </update>
 
