@@ -17,8 +17,8 @@ public class product {
     public String image_produit;
 
     @JsonProperty("Variant")
-    @JsonAlias({"variant_produit"})
-    public String variant_produit;
+    @JsonAlias({"nom_produit"})
+    public String nom_produit;
 
     @JsonProperty("Profit Margin")
     @JsonAlias({"profitMargin_produit"})

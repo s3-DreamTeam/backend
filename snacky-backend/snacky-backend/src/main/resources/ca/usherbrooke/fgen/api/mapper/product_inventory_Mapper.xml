@@ -8,7 +8,7 @@
             id_usager,
             id_produit,
             image_produit,
-            NULL,
+            nom_produit,
             NULL,
             NULL,
             NULL,
@@ -59,11 +59,12 @@
     </select>
 
     <insert id="createProduct" parameterType="ca.usherbrooke.fgen.api.business.product">
-        INSERT INTO projet.produit (quantite_produit, image_produit, id_usager, id_type_p)
+        INSERT INTO projet.produit (quantite_produit, image_produit, id_usager, id_type_p, nom_produit)
         VALUES (#{product.quantite_produit},
                 #{product.image_produit},
                 #{product.id_usager},
-                #{product.id_type_p});
+                #{product.id_type_p},
+                #{produit.nom_produit});
     </insert>
 
     <delete id="deleteProduct" parameterType="ca.usherbrooke.fgen.api.business.information">
