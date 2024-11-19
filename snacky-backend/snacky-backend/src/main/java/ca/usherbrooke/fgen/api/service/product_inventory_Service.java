@@ -37,7 +37,7 @@ public class product_inventory_Service {
 
         String returnString = objectMapper.writeValueAsString(productInventory);
 
-        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println("ProductInventory/Get/Full\nData received from DB:");
         System.out.println(returnString);
 
         return returnString;
@@ -53,13 +53,13 @@ public class product_inventory_Service {
         info.id_produit = ID;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
-        System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Image:");
+        System.out.println("This is what i am sending to Clovis: ProductInventory/Get/Image:");
         System.out.println(objectMapper.writeValueAsString(info));
         ima.image = Mapper.getProductImage(info);
 
         String jsonString = objectMapper.writeValueAsString(ima.image);
 
-        System.out.println("ProductTemplate/Get/Full\nData received from DB:");
+        System.out.println("ProductInventory/Get/Full\nData received from DB:");
         System.out.println(jsonString);
 
         return ima.image;
@@ -76,13 +76,13 @@ public class product_inventory_Service {
             info.id_usager = new authentificationService.User(identity).getUserID();
 
             ObjectMapper objectMapper = new ObjectMapper();
-            System.out.println("This is what i am sending to Clovis: ProductTemplate/Get/Surface");
+            System.out.println("This is what i am sending to Clovis: ProductInventory/Get/Surface");
             System.out.println(objectMapper.writeValueAsString(info));
 
             product_inventory_surface productTemplateSurface = Mapper.getProductSurface(info);
             String returnString = objectMapper.writeValueAsString(productTemplateSurface);
 
-            System.out.println("Data from DB: ProductTemplate/Get/Surface:");
+            System.out.println("Data from DB: ProductInventory/Get/Surface:");
             System.out.println(returnString);
             return returnString;
 
@@ -110,12 +110,12 @@ public class product_inventory_Service {
             product newProduct = objectMapper.readValue(jsonString, product.class);
             newProduct.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: ProductTemplate/New");
+            System.out.println("This is what i am sending to Clovis: ProductInventory/New");
             System.out.println(objectMapper.writeValueAsString(newProduct));
 
             Mapper.createProduct(newProduct);
         } catch (Exception e) {
-            throw new Exception("This is a general exception: ProductTemplate/New:\n" + e.getMessage());
+            throw new Exception("This is a general exception: ProductInventory/New:\n" + e.getMessage());
         }
     }
 
@@ -131,7 +131,7 @@ public class product_inventory_Service {
             info.id_produit = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: ProductTemplate/Delete");
+            System.out.println("This is what i am sending to Clovis: ProductInventory/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
             Mapper.deleteProduct(info);
