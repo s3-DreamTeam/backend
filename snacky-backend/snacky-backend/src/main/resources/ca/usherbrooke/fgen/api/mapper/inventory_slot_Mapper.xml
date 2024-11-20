@@ -8,45 +8,48 @@
         SELECT
             slot_inventaire,
             inventaire.id_produit,
-            quantite_produit,
+            quantite_inventaire,
             prix_achat_produit
         FROM
             projet.inventaire
                 JOIN projet.produit p ON p.id_produit = inventaire.id_produit
         WHERE
-            inventaire.id_machine = #{id_machine};
+            inventaire.id_machine = #{info.id_machine} AND p.id_usager = #{info.id_usager};
     </select>
 
-    <insert id="setSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
+
+    <update id="removeProductFromSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.inventaire
-        SET id_produit = (#{id_produit})
-        WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
-    </insert>
+        SET quantite_inventaire = quantite_inventaire - #{info.quantite}
+        WHERE id_produit = #{id_produit};
+
+        UPDATE projet.produit
+        SET quantite_produit = quantite_produit + #{info.quantite}
+        WHERE id_produit = #{info.id_produit};
+    </update>
 
     <update id="addProductToSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.inventaire
-        SET id_produit = (#{id_produit}), quantite_inventaire = (#{quantite_inventaire})
-        WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
+        SET id_produit = (#{info.id_produit}), quantite_inventaire = (#{info.quantite})
+        WHERE id_machine = #{info.id_machine} AND slot_inventaire = #{info.slot};
 
         UPDATE projet.produit
-        SET quantite_produit = quantite_produit + #{quantite_produit}
-        WHERE id_produit = #{id_produit};
+        SET quantite_produit = quantite_produit - #{info.quantite}
+        WHERE id_produit = #{info.id_produit};
     </update>
 
-
-    <update id="removeProductFromSlot" parameterType="ca.usherbrooke.fgen.api.business.machine">
+    <insert id="setSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.inventaire
-        SET quantite_inventaire = quantite_inventaire - #{quantite_produit}
-        WHERE id_produit = #{id_produit};
+        SET id_produit = (#{info.id_produit}), quantite_inventaire = 0
+        WHERE id_machine = #{info.id_machine} AND slot_inventaire = #{info.slot};
+    </insert>
 
+    <update id="resetSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.produit
-        SET quantite_produit = quantite_produit + #{quantite_produit}
-        WHERE id_produit = #{id_produit};
-    </update>
-
-    <update id="resetSlot">
+        SET quantite_produit = quantite_produit + inventaire.quantite_inventaire
+        FROM inventaire
         UPDATE projet.inventaire
-        SET id_produit = 1
-        WHERE id_machine = #{id_machine} AND slot_inventaire = #{slot_inventaire};
+        SET id_produit = 1, quantite_inventaire = 0
+        WHERE id_machine = #{info.id_machine} AND slot_inventaire = #{info.slot};
     </update>
 </mapper>
