@@ -155,8 +155,9 @@ public class machine_inventory_Service {
         }
     }
 
-    private void createSlots(machine newMachine, Integer id_machine)
-    {
+    private void createSlots(machine newMachine, Integer id_machine) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println("Creating Slots");
         information info = new information();
         info.id_machine = id_machine;
         info.id_usager = new authentificationService.User(identity).getUserID();
@@ -166,6 +167,7 @@ public class machine_inventory_Service {
         for (Integer row = 1; row <= r_c.row; row++) {
             for (Integer column = 1; column <= r_c.column; column++) {
                 info.slot = getSlot(row, column);
+                System.out.println("Slot: " + objectMapper.writeValueAsString(info));
                 machine_inventory_specificMapper.createSlot(info);
             }
         }
