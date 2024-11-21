@@ -5,7 +5,6 @@ import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
-import org.apache.ibatis.annotations.Mapper;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -123,7 +122,7 @@ public class machine_inventory_Service {
 
             Integer id_machine = machine_inventory_specificMapper.newMachineInventaire(newMachine);
 
-            System.out.println("New machine has been created");
+            System.out.println("New machine has been created: " +id_machine);
             createSlots(newMachine, id_machine);
 
         } catch (Exception e) {
@@ -162,10 +161,11 @@ public class machine_inventory_Service {
         info.id_machine = id_machine;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
+        System.out.println("Slots sending to clovis: \n"+objectMapper.writeValueAsString(info));
         row_column r_c = machine_inventory_specificMapper.getRowColumn(info);
 
-        for (Integer row = 1; row <= r_c.row; row++) {
-            for (Integer column = 1; column <= r_c.column; column++) {
+        for (Integer row = 1; row <= r_c.row_type_m; row++) {
+            for (Integer column = 1; column <= r_c.column_type_m; column++) {
                 info.slot = getSlot(row, column);
                 System.out.println("Slot: " + objectMapper.writeValueAsString(info));
                 machine_inventory_specificMapper.createSlot(info);
