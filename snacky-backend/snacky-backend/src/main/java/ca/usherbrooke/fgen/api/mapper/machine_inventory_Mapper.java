@@ -18,7 +18,9 @@ public interface machine_inventory_Mapper {
 
     void deleteMachineInventaire(@Param("info") information info); //done
 
-    Integer newMachineInventaire(@Param("newMachine") machine newMachine); //Changed to int (je veux le ID de la machine que tu viens de lui donner)
+    void newMachineInventaire(@Param("newMachine") machine newMachine); //Changed to int (je veux le ID de la machine que tu viens de lui donner)
     row_column getRowColumn(@Param("info") information info);//je veux le nombre de row et column
     void createSlot(@Param("info") information info);//Create slot avec les info et l'affaire de base qu'on parlait
+
+    Integer getLastID(@Param("newMachine") machine newMachine);
 }

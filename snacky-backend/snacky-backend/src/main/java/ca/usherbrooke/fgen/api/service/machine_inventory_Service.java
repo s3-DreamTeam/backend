@@ -120,10 +120,11 @@ public class machine_inventory_Service {
             System.out.println("This is what i am sending to Clovis: MachineInventory/New");
             System.out.println(objectMapper.writeValueAsString(newMachine));
 
-            Integer id_machine = machine_inventory_specificMapper.newMachineInventaire(newMachine);
+            machine_inventory_specificMapper.newMachineInventaire(newMachine);
+            Integer id_machine = machine_inventory_specificMapper.getLastID(newMachine);
 
-            System.out.println("New machine has been created: " +id_machine);
-            createSlots(newMachine, id_machine);
+            System.out.println("New machine has been created: " +machineSurface.id_machine);
+            createSlots(newMachine, machineSurface.id_machine);
 
         } catch (Exception e) {
             throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
