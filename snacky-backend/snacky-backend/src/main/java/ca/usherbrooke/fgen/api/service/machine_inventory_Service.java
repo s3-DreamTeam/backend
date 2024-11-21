@@ -122,7 +122,7 @@ public class machine_inventory_Service {
 
             Integer id_machine = machine_inventory_specificMapper.newMachineInventaire(newMachine);
 
-            System.out.println("New machine has been created");
+            System.out.println("New machine has been created: " +id_machine);
             createSlots(newMachine, id_machine);
 
         } catch (Exception e) {
@@ -161,6 +161,7 @@ public class machine_inventory_Service {
         info.id_machine = id_machine;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
+        System.out.println("Slots sending to clovis: \n"+objectMapper.writeValueAsString(info));
         row_column r_c = machine_inventory_specificMapper.getRowColumn(info);
 
         for (Integer row = 1; row <= r_c.row_type_m; row++) {
