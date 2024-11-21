@@ -124,7 +124,7 @@ public class machine_inventory_Service {
             Integer id_machine = machine_inventory_specificMapper.newMachineInventaire(newMachine);
 
             System.out.println("New machine has been created");
-            //createSlots(newMachine, id_machine);
+            createSlots(newMachine, id_machine);
 
         } catch (Exception e) {
             throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
