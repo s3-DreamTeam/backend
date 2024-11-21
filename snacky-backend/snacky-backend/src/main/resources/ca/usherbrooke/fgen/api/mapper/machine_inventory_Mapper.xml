@@ -76,8 +76,8 @@
         VALUES (#{newMachine.image_machine},
                 #{newMachine.nom_machine},
                 #{newMachine.emplacement_machine},
-                #{newMachine.serialId_machine},
-                #{newMachine.templateId_machine},
+                #{newMachine.no_serie},
+                #{newMachine.id_type_m},
                 #{newMachine.id_usager})
         RETURNING id_machine;
     </insert>
