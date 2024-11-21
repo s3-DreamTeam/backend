@@ -71,15 +71,18 @@
         WHERE id_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
     </delete>
 
-    <insert id="newMachineInventaire" parameterType="ca.usherbrooke.fgen.api.business.machine" useGeneratedKeys="true" keyProperty="id_machine">
+    <insert id="newMachineInventaire" parameterType="ca.usherbrooke.fgen.api.business.machine">
         INSERT INTO projet.machine (image_machine, nom_machine, emplacement_machine,no_serie, id_type_m, id_usager)
         VALUES (#{newMachine.image_machine},
                 #{newMachine.nom_machine},
                 #{newMachine.emplacement_machine},
                 #{newMachine.no_serie},
                 #{newMachine.id_type_m},
-                #{newMachine.id_usager})
-        RETURNING machine.id_machine;
+                #{newMachine.id_usager});
+
+        SELECT
+            MAX(id_machine)
+        FROM projet.machine;
     </insert>
 
     <select id="getRowColumn" parameterType="ca.usherbrooke.fgen.api.business.information" resultType="ca.usherbrooke.fgen.api.business.row_column">
