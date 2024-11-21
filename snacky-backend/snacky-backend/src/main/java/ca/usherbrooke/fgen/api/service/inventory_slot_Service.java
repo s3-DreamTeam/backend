@@ -108,7 +108,7 @@ public class inventory_slot_Service {
 
     @POST
     @Path("MachineInventory/Manage/Get")
-    public List<inventorySlot> addQuantity(Integer ID) throws JsonProcessingException {
+    public String addQuantity(Integer ID) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         information info = new information();
@@ -120,8 +120,11 @@ public class inventory_slot_Service {
 
         List<inventorySlot> inventSlot = Mapper.getAllSlots(info);
         System.out.println("MachineInventory/Manage/Get\nData received from DB:");
-//        System.out.println(jsonString);
-        return inventSlot;
+
+
+        String jsonString = objectMapper.writeValueAsString(inventSlot);
+        System.out.println(jsonString);
+        return jsonString;
     }
 
 }
