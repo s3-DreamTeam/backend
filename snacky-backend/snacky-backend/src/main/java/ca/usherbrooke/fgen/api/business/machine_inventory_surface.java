@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class machine_inventory_surface {
 
     @JsonProperty("Name")
-    @JsonAlias({"name_machine"})
-    public String name_machine;
+    @JsonAlias({"nom_machine"})
+    public String nom_machine;
 
     @JsonProperty("Location")
     @JsonAlias({"emplacement_machine"})
