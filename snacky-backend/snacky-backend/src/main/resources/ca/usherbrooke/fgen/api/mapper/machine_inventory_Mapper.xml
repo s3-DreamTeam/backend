@@ -81,8 +81,9 @@
                 #{newMachine.id_usager});
 
         SELECT
-            MAX(id_machine)
-        FROM projet.machine;
+            id_machine
+        FROM projet.machine
+        WHERE id_machine = (SELECT MAX(id_machine) FROM projet.machine);
     </insert>
 
     <select id="getRowColumn" parameterType="ca.usherbrooke.fgen.api.business.information" resultType="ca.usherbrooke.fgen.api.business.row_column">
