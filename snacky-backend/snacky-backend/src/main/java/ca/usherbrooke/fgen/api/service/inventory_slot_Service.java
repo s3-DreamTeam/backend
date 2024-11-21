@@ -122,9 +122,11 @@ public class inventory_slot_Service {
         System.out.println("MachineInventory/Manage/Get\nData received from DB:");
 
         for (inventorySlot slot : inventSlot) {
-            if(slot.id_produit == -1)
-                slot.id_produit = Integer.parseInt(null);
+            if (slot.id_produit != null && slot.id_produit == -1) {
+                slot.id_produit = null; // Assign null directly
+            }
         }
+
 
 
         String jsonString = objectMapper.writeValueAsString(inventSlot);
