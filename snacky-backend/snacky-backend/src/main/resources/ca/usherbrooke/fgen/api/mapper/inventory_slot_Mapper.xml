@@ -8,7 +8,7 @@
         SELECT
             slot_inventaire,
             CASE
-                WHEN inventaire.id_produit = 1 THEN NULL
+                WHEN inventaire.id_produit = 1 THEN -1
                 ELSE  inventaire.id_produit
                 END AS  id_produit,
             quantite_inventaire,
