@@ -121,6 +121,11 @@ public class inventory_slot_Service {
         List<inventorySlot> inventSlot = Mapper.getAllSlots(info);
         System.out.println("MachineInventory/Manage/Get\nData received from DB:");
 
+        for (inventorySlot slot : inventSlot) {
+            if(slot.id_produit == -1)
+                slot.id_produit = Integer.parseInt(null);
+        }
+
 
         String jsonString = objectMapper.writeValueAsString(inventSlot);
         System.out.println(jsonString);
