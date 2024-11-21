@@ -25,7 +25,7 @@ public class machine_inventory_Service {
 
     @POST
     @Path("MachineInventory/Get/Full")
-    public machine getMachinesSpecifics(Integer ID) throws JsonProcessingException {
+    public String getMachinesSpecifics(Integer ID) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         information info = new information();
         info.id_machine = ID;
@@ -39,7 +39,7 @@ public class machine_inventory_Service {
 
         System.out.println("MachineInventory/Get/Full\nData received from DB:");
         System.out.println(jsonString);
-        return mach;
+        return jsonString;
     }
 
     @POST
