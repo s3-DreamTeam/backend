@@ -7,7 +7,10 @@
     <select id="getAllSlots" resultType="ca.usherbrooke.fgen.api.business.inventorySlot">
         SELECT
             slot_inventaire,
-            inventaire.id_produit,
+            CASE
+                WHEN inventaire.id_produit = 1 THEN NULL
+                ELSE  inventaire.id_produit
+                END AS  id_produit,
             quantite_inventaire,
             prix_achat_produit
         FROM
