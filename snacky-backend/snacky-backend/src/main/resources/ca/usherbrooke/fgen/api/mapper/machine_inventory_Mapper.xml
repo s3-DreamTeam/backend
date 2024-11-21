@@ -97,7 +97,7 @@
                 #{info.id_machine});
     </insert>
 
-    <select id="getLastID" parameterType="ca.usherbrooke.fgen.api.business.information">
+    <select id="getLastID" parameterType="ca.usherbrooke.fgen.api.business.machine">
         SELECT
             id_machine
         FROM projet.machine
