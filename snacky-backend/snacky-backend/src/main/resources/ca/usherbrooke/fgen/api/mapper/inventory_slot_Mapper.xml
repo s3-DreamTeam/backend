@@ -14,7 +14,7 @@
             projet.inventaire
                 JOIN projet.produit p ON p.id_produit = inventaire.id_produit
         WHERE
-            inventaire.id_machine = #{info.id_machine} AND p.id_usager = #{info.id_usager};
+            inventaire.id_machine = #{info.id_machine};
     </select>
 
 
