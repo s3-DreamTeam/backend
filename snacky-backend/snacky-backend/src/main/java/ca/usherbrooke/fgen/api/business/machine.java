@@ -13,16 +13,16 @@ public class machine {
     public String image_machine;
 
     @JsonProperty("Name")
-    @JsonAlias({"name_machine"})
-    public String name_machine;
+    @JsonAlias({"nom_machine"})
+    public String nom_machine;
 
     @JsonProperty("Location")
     @JsonAlias({"emplacement_machine"})
     public String emplacement_machine;
 
     @JsonProperty("Serial ID")
-    @JsonAlias({"serialId_machine"})
-    public String serialId_machine;
+    @JsonAlias({"no_serie"})
+    public String no_serie;
 
     @JsonProperty("Machine's Color")
     @JsonAlias({"machineColor_machine"})
@@ -81,7 +81,7 @@ public class machine {
     public String acceptedCurrencies_machine;
 
     @JsonProperty("TemplateID")
-    @JsonAlias({"templateId_machine"})
-    public Integer templateId_machine;
+    @JsonAlias({"id_type_m"})
+    public Integer id_type_m;
 }
 
