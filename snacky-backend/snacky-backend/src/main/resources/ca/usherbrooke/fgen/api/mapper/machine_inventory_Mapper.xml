@@ -65,6 +65,11 @@
             id_usager = #{id_usager}
     </select>
 
+    <delete id="deleteMachineInventaire" parameterType="ca.usherbrooke.fgen.api.business.information">
+        DELETE
+        FROM projet.machine
+        WHERE id_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
+    </delete>
 
     <insert id="newMachineInventaire" parameterType="ca.usherbrooke.fgen.api.business.machine">
         INSERT INTO projet.machine (image_machine, nom_machine, emplacement_machine,no_serie, id_type_m, id_usager)
@@ -73,14 +78,27 @@
                 #{newMachine.emplacement_machine},
                 #{newMachine.serialId_machine},
                 #{newMachine.templateId_machine},
-                #{newMachine.id_usager});
+                #{newMachine.id_usager})
+        RETURNING id_machine;
     </insert>
 
-    <delete id="deleteMachineInventaire" parameterType="ca.usherbrooke.fgen.api.business.information">
-        DELETE
-        FROM projet.machine
-        WHERE id_machine = #{info.id_machine} AND id_usager = #{info.id_usager};
-    </delete>
+    <select id="getRowColumn" parameterType="ca.usherbrooke.fgen.api.business.information">
+        SELECT
+            row_type_m,
+            column_type_m
+        FROM projet.type_de_machine
+        JOIN projet.machine m on type_de_machine.id_type_m = m.id_type_m
+        WHERE m.id_machine = #{info.id_machine} AND m.id_usager = #{info.id_usager};
+    </select>
+
+    <insert id="createSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
+        INSERT INTO projet.inventaire (slot_inventaire, id_produit, id_machine)
+        VALUES (#{info.slot},
+                1,
+                #{info.id_machine});
+    </insert>
+
+
 
 
     <!--

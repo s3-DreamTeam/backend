@@ -21,7 +21,7 @@
     <update id="removeProductFromSlot" parameterType="ca.usherbrooke.fgen.api.business.information">
         UPDATE projet.inventaire
         SET quantite_inventaire = quantite_inventaire - #{info.quantite}
-        WHERE id_produit = #{id_produit};
+        WHERE id_produit = #{id_produit} AND slot_inventaire = #{info.slot};
 
         UPDATE projet.produit
         SET quantite_produit = quantite_produit + #{info.quantite}
