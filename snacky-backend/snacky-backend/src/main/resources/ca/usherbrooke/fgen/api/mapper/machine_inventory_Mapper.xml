@@ -79,7 +79,7 @@
                 #{newMachine.no_serie},
                 #{newMachine.id_type_m},
                 #{newMachine.id_usager})
-        RETURNING id_machine;
+        RETURNING machine.id_machine;
     </insert>
 
     <select id="getRowColumn" parameterType="ca.usherbrooke.fgen.api.business.information" resultType="ca.usherbrooke.fgen.api.business.row_column">
