@@ -27,15 +27,15 @@ public class entrepot_Service {
 
     @POST
     @Path("ProductInventory/Manage/Add")
-    public void reset(entrepot_ajout newProduct) throws JsonProcessingException {
+    public void reset(String s) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-
-        newProduct.id_usager = new authentificationService.User(identity).getUserID();
-
-        System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Add");
-        System.out.println(objectMapper.writeValueAsString(newProduct));
-
-        Mapper.ajoutProduitInventaire(newProduct);
+        System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Add\n" +s);
+//        newProduct.id_usager = new authentificationService.User(identity).getUserID();
+//
+//        System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Add");
+//        System.out.println(objectMapper.writeValueAsString(newProduct));
+//
+//        Mapper.ajoutProduitInventaire(newProduct);
     }
 
     @POST
