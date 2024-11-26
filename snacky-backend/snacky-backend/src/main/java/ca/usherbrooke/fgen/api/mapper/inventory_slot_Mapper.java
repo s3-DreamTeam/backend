@@ -22,11 +22,8 @@ public interface inventory_slot_Mapper {
     void resetSlot(@Param("info") information info);
 
 
-    Integer getInventoryQuantity(@Param("info") information info);//get la quantiter du produit dans l'inventaire
+    Integer getInventoryQuantity(@Param("info") information info);//Done
 
-    Integer getMaxQuantity(@Param("info") information info);// get le nombre d'espace dans le slot
+    Integer getMaxQuantity(@Param("info") information info);//Done    Integer getQuantity(@Param("info") information info);// get la quantiter presentement dans le slot
 
-    Integer getQuantity(@Param("info") information info);// get la quantiter presentement dans le slot
-
-    boolean isProductUsed(@Param("info") information info);//is it used???
-}
+    boolean isProductUsed(@Param("info") information info);//Done

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ca.usherbrooke.fgen.api.mapper.entrepot_manage_Mapper">
+    <update id="ajoutProduitInventaire" parameterType="ca.usherbrooke.fgen.api.business.entrepot_ajout">
+        UPDATE projet.produit
+        SET quantite_produit = quantite_produit + (#{quantite_ajout.gainedQuantity_product})
+        WHERE projet.produit.id_produit = #{quantite_ajout.id_produit} AND id_usager = #{quantite_ajout.id_usager};
+    </update>
+
+    <update id="perduProduitInventaire" parameterType="ca.usherbrooke.fgen.api.business.entrepot_perdu">
+        UPDATE projet.produit
+        SET quantite_produit = quantite_produit - (#{quantite_perdu.lostQuantity_product})
+        WHERE id_produit = #{quantite_perdu.id_produit} AND id_usager = #{quantite_perdu.id_usager};
+    </update>
+
+    <select id="getQuantityWarehouseProduct" parameterType="ca.usherbrooke.fgen.api.business.entrepot_perdu">
+        SELECT
+            quantite_produit
+        FROM projet.produit
+        WHERE id_produit = #{product.id_produit} AND id_usager = #{product.id_usager};
+    </select>
+
+
+    <select id="isProductUsed" resultType="boolean">
+        SELECT
+            EXISTS (
+                SELECT 1
+                FROM projet.produit
+                WHERE projet.produit.id_produit = #{info.id_produit} AND projet.produit.id_usager = #{info.id_usager}
+            ) AS result;
+    </select>
+
+</mapper>

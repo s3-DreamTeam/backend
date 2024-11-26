@@ -77,5 +77,14 @@
         WHERE id_type_m = #{info.id_template} AND id_usager = #{info.id_usager};
     </delete>
 
+    <select id="isTemplateUsed" resultType="boolean">
+        SELECT
+            EXISTS (
+                SELECT 1
+                FROM projet.machine
+                WHERE machine.id_type_m = #{info.id_type_m} AND machine.id_usager = #{info.id_usager}
+            ) AS result;
+    </select>
+
 
 </mapper>

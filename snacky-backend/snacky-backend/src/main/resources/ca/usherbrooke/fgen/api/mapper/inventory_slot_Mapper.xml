@@ -59,11 +59,11 @@
 
     <select id="getInventoryQuantity" resultType= "Integer">
         SELECT
-            quantite_produit
+            quantite_inventaire
         FROM
-            projet.produit
+            projet.inventaire
         WHERE
-            id_produit = #{info.id_produit} AND id_usager = #{info.id_usager};
+            inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
     </select>
 
     <select id="getMaxQuantity" resultType= "Integer">
@@ -74,15 +74,6 @@
                 JOIN projet.machine m ON m.id_type_m = type_de_machine.id_type_m
         WHERE
             machine.id_machine = #{info.id_machine};
-    </select>
-
-    <select id="getQuantity" resultType= "Integer">
-        SELECT
-            quantite_inventaire
-        FROM
-            projet.inventaire
-        WHERE
-            inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
     </select>
 
     <select id="isProductUsed" resultType="boolean">

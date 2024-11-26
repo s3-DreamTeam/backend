@@ -107,18 +107,4 @@
         WHERE id_machine = (SELECT MAX(id_machine) FROM projet.machine);
     </select>
 
-
-
-
-    <!--
-    Ce qui est a faire
-
-    machine_surface getMachinesSurface(id_usager, id_machine)
-
-
-    void newMachineSpecifics(machine_inventory_specific) //ca pourrait etre un bool
-    bool deleteMachineSpecifics(id_usager, id_machine)
-
-
-     -->
 </mapper>
