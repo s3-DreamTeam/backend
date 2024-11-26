@@ -65,8 +65,9 @@ public class inventory_slot_Service {
 
     @POST
     @Path("MachineInventory/Manage/Add")
-    public void addQuantity(inventorySlot slot) throws Exception {
+    public void addQuantity(String jsonString) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
+        inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
         information info = new information();
         info.slot = slot.slot_inventaire;
