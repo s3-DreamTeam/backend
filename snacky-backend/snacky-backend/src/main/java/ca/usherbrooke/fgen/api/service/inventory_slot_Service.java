@@ -48,6 +48,8 @@ public class inventory_slot_Service {
     @Path("MachineInventory/Manage/Set")
     public void setProduct(String jsonString) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println("MachineInventory/Manage/Set: is being called\nThis is the start of the function");
+
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
         information info = new information();
