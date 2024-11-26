@@ -85,5 +85,14 @@
             inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
     </select>
 
+    <select id="isProductUsed" resultType="boolean">
+        SELECT
+            EXISTS (
+                SELECT 1
+                FROM projet.inventaire
+                WHERE projet.inventaire.id_produit = #{info.id_produit} AND projet.inventaire.id_machine = #{info.id_machine}
+            ) AS result;
+    </select>
+
 
 </mapper>

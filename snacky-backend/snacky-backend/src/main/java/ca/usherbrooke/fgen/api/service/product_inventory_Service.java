@@ -142,7 +142,7 @@ public class product_inventory_Service {
             System.out.println("This is what i am sending to Clovis: ProductInventory/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
-            if(MapperInventorySlot.isProductUsed(info) && MapperEntrepotManage.isProducUsed(info))
+            if(!MapperInventorySlot.isProductUsed(info) && !MapperEntrepotManage.isProducUsed(info))
             {
                 Mapper.deleteProduct(info);
                 System.out.println("Finished deleting: " + ID);
