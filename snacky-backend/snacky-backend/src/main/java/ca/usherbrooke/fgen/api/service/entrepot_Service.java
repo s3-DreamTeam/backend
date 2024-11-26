@@ -27,9 +27,9 @@ public class entrepot_Service {
 
     @POST
     @Path("ProductInventory/Manage/Add")
-    public void reset(entrepot_ajout newProduct) throws JsonProcessingException {
+    public void reset(String jsonString) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-
+        entrepot_ajout newProduct = objectMapper.readValue(jsonString, entrepot_ajout.class);
         newProduct.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Add");
@@ -40,9 +40,9 @@ public class entrepot_Service {
 
     @POST
     @Path("ProductInventory/Manage/Loss")
-    public void setProduct(entrepot_perdu lostProduct) throws JsonProcessingException {
+    public void setProduct(String jsonString) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-
+        entrepot_perdu lostProduct = objectMapper.readValue(jsonString, entrepot_perdu.class);
         lostProduct.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Loss");
