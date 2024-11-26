@@ -32,7 +32,7 @@ public class inventory_slot_Service {
         ObjectMapper objectMapper = new ObjectMapper();
 
         information info = new information();
-        info.id_machine = slot.ID;
+        info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
@@ -76,7 +76,7 @@ public class inventory_slot_Service {
         info.slot = slot.slot_inventaire;
         info.quantite = slot.quantite_produit;
         info.prix = slot.prix_achat_produit;
-        info.id_machine = slot.ID;
+        info.id_machine = slot.id_machine;
         info.id_produit = slot.id_produit;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
@@ -109,7 +109,7 @@ public class inventory_slot_Service {
         ObjectMapper objectMapper = new ObjectMapper();
 
         information info = new information();
-        info.id_machine = slot.ID;
+        info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
         info.quantite = slot.quantite_produit;
         info.id_usager = new authentificationService.User(identity).getUserID();
