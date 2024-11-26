@@ -55,4 +55,33 @@
         SET id_produit = 1, quantite_inventaire = 0
         WHERE id_machine = #{info.id_machine} AND slot_inventaire = #{info.slot};
     </update>
+
+
+    <select id="getInventoryQuantity" resultType= "Interger">
+        SELECT
+            quantite_produit
+        FROM
+            projet.produit
+        WHERE
+            id_produit = #{info.id_produit} AND id_usager = #{info.id_usager};
+    </select>
+
+    <select id="getMaxQuantity" resultType= "Interger">
+        SELECT
+            quantity_type_m
+        FROM
+            projet.type_de_machine
+                JOIN projet.machine m ON m.id_type_m = type_de_machine.id_type_m
+        WHERE
+            machine.id_machine = #{info.id_machine};
+    </select>
+
+    <select id="getQuantity" resultType= "Interger">
+        SELECT
+            quantite_inventaire
+        FROM
+            projet.inventaire
+        WHERE
+            inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
+    </select>
 </mapper>
