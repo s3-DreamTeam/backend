@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class inventorySlot {
 
-    @JsonProperty("ID")
+    @JsonProperty("id")
     @JsonAlias({"id_machine"})
     public Integer id_machine;
 
