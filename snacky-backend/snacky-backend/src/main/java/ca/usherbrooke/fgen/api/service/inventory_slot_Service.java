@@ -46,8 +46,9 @@ public class inventory_slot_Service {
 
     @POST
     @Path("MachineInventory/Manage/Set")
-    public void setProduct(inventorySlot slot) throws JsonProcessingException {
+    public void setProduct(String jsonString) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
+        inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
         information info = new information();
         info.id_machine = slot.id_produit;
