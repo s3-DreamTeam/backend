@@ -57,7 +57,7 @@
     </update>
 
 
-    <select id="getInventoryQuantity" resultType= "Interger">
+    <select id="getInventoryQuantity" resultType= "Integer">
         SELECT
             quantite_produit
         FROM
@@ -66,7 +66,7 @@
             id_produit = #{info.id_produit} AND id_usager = #{info.id_usager};
     </select>
 
-    <select id="getMaxQuantity" resultType= "Interger">
+    <select id="getMaxQuantity" resultType= "Integer">
         SELECT
             quantity_type_m
         FROM
@@ -76,7 +76,7 @@
             machine.id_machine = #{info.id_machine};
     </select>
 
-    <select id="getQuantity" resultType= "Interger">
+    <select id="getQuantity" resultType= "Integer">
         SELECT
             quantite_inventaire
         FROM
@@ -84,4 +84,6 @@
         WHERE
             inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
     </select>
+
+
 </mapper>
