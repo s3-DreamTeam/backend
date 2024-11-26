@@ -15,7 +15,7 @@
         WHERE id_produit = #{quantite_perdu.id_produit} AND id_usager = #{quantite_perdu.id_usager};
     </update>
 
-    <select id="getQuantityWarehouseProduct" parameterType="ca.usherbrooke.fgen.api.business.entrepot_perdu">
+    <select id="getQuantityWarehouseProduct" parameterType="ca.usherbrooke.fgen.api.business.entrepot_perdu" resultType="Integer">
         SELECT
             quantite_produit
         FROM projet.produit
