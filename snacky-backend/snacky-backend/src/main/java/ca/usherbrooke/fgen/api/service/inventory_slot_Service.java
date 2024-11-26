@@ -53,7 +53,7 @@ public class inventory_slot_Service {
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
         information info = new information();
-        info.id_machine = slot.id_produit;
+        info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
         info.id_produit = slot.id_produit;
         info.id_usager = new authentificationService.User(identity).getUserID();
