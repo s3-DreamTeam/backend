@@ -21,5 +21,5 @@ public class inventorySlot {
 
     @JsonProperty("Price")
     @JsonAlias({"prix_achat_produit"})
-    public Integer prix_achat_produit;
+    public float prix_achat_produit;
 }

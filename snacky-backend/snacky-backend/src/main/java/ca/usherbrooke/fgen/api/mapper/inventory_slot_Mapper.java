@@ -20,4 +20,13 @@ public interface inventory_slot_Mapper {
     void setSlot(@Param("info") information info);
 
     void resetSlot(@Param("info") information info);
+
+
+    Integer getInventoryQuantity(@Param("info") information info);//get la quantiter du produit dans l'inventaire
+
+    Integer getMaxQuantity(@Param("info") information info);// get le nombre d'espace dans le slot
+
+    Integer getQuantity(@Param("info") information info);// get la quantiter presentement dans le slot
+
+    boolean isProductUsed(@Param("info") information info);//is it used???
 }

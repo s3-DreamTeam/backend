@@ -34,15 +34,15 @@ public class machine {
 
     @JsonProperty("Min temperature")
     @JsonAlias({"minTemperature_machine"})
-    public Integer minTemperature_machine;
+    public float minTemperature_machine;
 
     @JsonProperty("Set temperature")
     @JsonAlias({"setTemperature_machine"})
-    public Integer setTemperature_machine;
+    public float setTemperature_machine;
 
     @JsonProperty("Max temperature")
     @JsonAlias({"maxTemperature_machine"})
-    public Integer maxTemperature_machine;
+    public float maxTemperature_machine;
 
     @JsonProperty("Network SSID")
     @JsonAlias({"networkSSID_machine"})

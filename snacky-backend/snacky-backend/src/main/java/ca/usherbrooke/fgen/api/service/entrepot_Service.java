@@ -2,10 +2,7 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.entrepot_ajout;
 import ca.usherbrooke.fgen.api.business.entrepot_perdu;
-import ca.usherbrooke.fgen.api.business.information;
-import ca.usherbrooke.fgen.api.business.inventorySlot;
 import ca.usherbrooke.fgen.api.mapper.entrepot_manage_Mapper;
-import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
@@ -16,7 +13,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -52,6 +48,11 @@ public class entrepot_Service {
         System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Loss");
         System.out.println(objectMapper.writeValueAsString(lostProduct));
 
-        Mapper.perduProduitInventaire(lostProduct);
+        Integer productQuantity = Mapper.getQuantityWarehouseProduct(lostProduct);
+
+        if(productQuantity >= lostProduct.lostQuantity)
+        {
+            Mapper.perduProduitInventaire(lostProduct);
+        }
     }
 }

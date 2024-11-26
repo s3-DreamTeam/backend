@@ -8,13 +8,13 @@ public class entrepot_ajout {
 
     @JsonProperty("Gained Quantity")
     @JsonAlias({"gainedQuantity_product"})
-    public String gainedQuantity;
+    public int gainedQuantity;
 
     @JsonProperty("Paid Price")
     @JsonAlias({"paidPrice_product"})
-    public String paidPrice;
+    public float paidPrice;
 
     @JsonProperty("id")
     @JsonAlias({"id_produit"})
-    public int id_produit;
+    public Integer id_produit;
 }

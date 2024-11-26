@@ -142,7 +142,6 @@ public class machine_template_Service {
             System.out.println("machine template:");
             System.out.println(objectMapper.writeValueAsString(machineTemplate));
 
-
             Mapper.createMachineTemplate(machineTemplate);
 
         } catch (Exception e) {
@@ -172,7 +171,6 @@ public class machine_template_Service {
     @Path("MachineTemplate/Delete")
     public void deleteMachinesSpecifics(Integer ID) throws Exception {
 
-
         try
         {
             information info = new information();
@@ -182,8 +180,15 @@ public class machine_template_Service {
             System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
             System.out.println(ID);
 
-            Mapper.deleteMachineTemplate(info);
-            System.out.println("Finished deleting: " + ID);
+            if(Mapper.isTemplateUsed(info))
+            {
+                Mapper.deleteMachineTemplate(info);
+                System.out.println("Finished deleting: " + ID);
+            }
+            else
+            {
+                throw new Exception("Template is used, you cannot delete this template");
+            }
         }
         catch (Exception e)
         {

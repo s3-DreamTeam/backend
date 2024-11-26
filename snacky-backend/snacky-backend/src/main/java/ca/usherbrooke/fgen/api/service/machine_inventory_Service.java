@@ -1,6 +1,8 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
+import ca.usherbrooke.fgen.api.mapper.entrepot_manage_Mapper;
+import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
 import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +20,9 @@ public class machine_inventory_Service {
 
     @Inject
     machine_inventory_Mapper machine_inventory_specificMapper;
+
+    @Inject
+    inventory_slot_Mapper MapperInventorySlot;
 
     @Inject
     SecurityIdentity identity;
@@ -144,6 +149,27 @@ public class machine_inventory_Service {
 
             System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
+
+            List<inventorySlot> inventSlot = MapperInventorySlot.getAllSlots(info);
+
+            for (inventorySlot slot: inventSlot) {
+                Integer currentQuantity = MapperInventorySlot.getQuantity(info);
+                info.id_machine = slot.ID;
+                info.slot = slot.slot_inventaire;
+                info.quantite = slot.quantite_produit;
+
+                if(slot.quantite_produit <=0)
+                    continue;
+
+                if(currentQuantity >= slot.quantite_produit)
+                {
+                    MapperInventorySlot.removeProductFromSlot(info);//remove fom slot and add to warehouse
+                }
+                else
+                {
+                    throw new Exception("Not enough quantity in slot");
+                }
+            }
 
             machine_inventory_specificMapper.deleteMachineInventaire(info);
             System.out.println("Finished deleting: " + ID);

@@ -1,6 +1,8 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
+import ca.usherbrooke.fgen.api.mapper.entrepot_manage_Mapper;
+import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
 import ca.usherbrooke.fgen.api.mapper.product_inventory_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,6 +23,12 @@ public class product_inventory_Service {
 
     @Inject
     SecurityIdentity identity;
+
+    @Inject
+    entrepot_manage_Mapper MapperEntrepotManage;
+
+    @Inject
+    inventory_slot_Mapper MapperInventorySlot;
 
     @POST
     @Path("ProductInventory/Get/Full")
@@ -134,8 +142,11 @@ public class product_inventory_Service {
             System.out.println("This is what i am sending to Clovis: ProductInventory/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
-            Mapper.deleteProduct(info);
-            System.out.println("Finished deleting: " + ID);
+            if(MapperInventorySlot.isProductUsed(info) && MapperEntrepotManage.isProducUsed(info))
+            {
+                Mapper.deleteProduct(info);
+                System.out.println("Finished deleting: " + ID);
+            }
         }
         catch (Exception e)
         {

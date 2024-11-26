@@ -22,7 +22,7 @@ public class product {
 
     @JsonProperty("Profit Margin")
     @JsonAlias({"profitMargin_produit"})
-    public Integer profitMargin_produit;
+    public float profitMargin_produit;
 
     @JsonProperty("Color")
     @JsonAlias({"color_produit"})
@@ -42,15 +42,15 @@ public class product {
 
     @JsonProperty("Min temperature")
     @JsonAlias({"minTemperature_produit"})
-    public Integer minTemperature_produit;
+    public float minTemperature_produit;
 
     @JsonProperty("Prefered")
     @JsonAlias({"preferredTemperature_produit"})
-    public Integer preferredTemperature_produit;
+    public float preferredTemperature_produit;
 
     @JsonProperty("Max temperature")
     @JsonAlias({"maxTemperature_produit"})
-    public Integer maxTemperature_produit;
+    public float maxTemperature_produit;
 
     @JsonProperty("Allergies")
     @JsonAlias({"allergies_produit"})

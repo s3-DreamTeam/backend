@@ -16,4 +16,6 @@ public interface product_template_Mapper {
     List<Integer> getProductTemplatesAllID(@Param("id_usager") String name_usager);
     void createProductTemplate(@Param("product_template") product_template productTemplate);
     void deleteProductTemplate(@Param("info") information info);
+
+    boolean isTemplateUsed(@Param("info") information info);//Check si le templateID est utiliser par un produit
 }

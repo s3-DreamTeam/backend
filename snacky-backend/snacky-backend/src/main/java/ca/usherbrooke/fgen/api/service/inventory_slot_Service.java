@@ -2,10 +2,7 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.information;
 import ca.usherbrooke.fgen.api.business.inventorySlot;
-import ca.usherbrooke.fgen.api.business.machine;
 import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
-import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
-import com.arjuna.ats.internal.jdbc.drivers.modifiers.list;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.security.identity.SecurityIdentity;
@@ -45,7 +42,6 @@ public class inventory_slot_Service {
         Mapper.resetSlot(info);
 
         System.out.println("MachineInventory/Manage/Reset\nData received from DB:");
-//        System.out.println(jsonString);
     }
 
     @POST
@@ -65,18 +61,17 @@ public class inventory_slot_Service {
         Mapper.setSlot(info);
 
         System.out.println("MachineInventory/Manage/Set\nData received from DB:");
-//        System.out.println(jsonString);
     }
 
     @POST
     @Path("MachineInventory/Manage/Add")
-    public void addQuantity(inventorySlot slot) throws JsonProcessingException {
+    public void addQuantity(inventorySlot slot) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
         information info = new information();
         info.slot = slot.slot_inventaire;
         info.quantite = slot.quantite_produit;
-        info.prix = info.prix;
+        info.prix = slot.prix_achat_produit;
         info.id_machine = slot.ID;
         info.id_produit = slot.id_produit;
         info.id_usager = new authentificationService.User(identity).getUserID();
@@ -84,12 +79,29 @@ public class inventory_slot_Service {
         System.out.println("This is what i am sending to Clovis: MachineInventory/Manage/Add");
         System.out.println(objectMapper.writeValueAsString(info));
 
-        Mapper.addProductToSlot(info);
+        Integer inventaireQuantity = Mapper.getInventoryQuantity(info);
+        Integer maxQuantity = Mapper.getMaxQuantity(info);
+        Integer currentQuantity = Mapper.getQuantity(info);
+
+        if(maxQuantity - currentQuantity + slot.quantite_produit > 0){
+            if(inventaireQuantity >= slot.quantite_produit)
+            {
+                Mapper.addProductToSlot(info);
+            }
+            else
+            {
+                throw new Exception("Not enough quantity in stock");
+            }
+        }
+        else
+        {
+            throw new Exception("Not enough room for slot");
+        }
     }
 
     @POST
     @Path("MachineInventory/Manage/Remove")
-    public void removeQuantity(inventorySlot slot) throws JsonProcessingException {
+    public void removeQuantity(inventorySlot slot) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
 
         information info = new information();
@@ -101,14 +113,21 @@ public class inventory_slot_Service {
         System.out.println("This is what i am sending to Clovis: MachineInventory/Manage/Remove");
         System.out.println(objectMapper.writeValueAsString(info));
 
-        Mapper.removeProductFromSlot(info);
+        Integer currentQuantity = Mapper.getQuantity(info);
 
-//        System.out.println(jsonString);
+        if(currentQuantity >= slot.quantite_produit)
+        {
+            Mapper.removeProductFromSlot(info);
+        }
+        else
+        {
+            throw new Exception("Not enough quantity in slot")    ;
+        }
     }
 
     @POST
     @Path("MachineInventory/Manage/Get")
-    public String addQuantity(Integer ID) throws JsonProcessingException {
+    public String getManage(Integer ID) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
         information info = new information();
@@ -126,8 +145,6 @@ public class inventory_slot_Service {
                 slot.id_produit = null; // Assign null directly
             }
         }
-
-
 
         String jsonString = objectMapper.writeValueAsString(inventSlot);
         System.out.println(jsonString);
