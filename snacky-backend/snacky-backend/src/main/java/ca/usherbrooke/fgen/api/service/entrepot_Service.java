@@ -50,7 +50,7 @@ public class entrepot_Service {
 
         Integer productQuantity = Mapper.getQuantityWarehouseProduct(lostProduct);
 
-        if(productQuantity >= lostProduct.lostQuantity)
+        if(productQuantity >= lostProduct.lostQuantity_product)
         {
             Mapper.perduProduitInventaire(lostProduct);
         }

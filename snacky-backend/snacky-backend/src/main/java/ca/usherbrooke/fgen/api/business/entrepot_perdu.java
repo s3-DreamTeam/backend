@@ -8,11 +8,11 @@ public class entrepot_perdu {
 
     @JsonProperty("Lost Quantity")
     @JsonAlias({"lostQuantity_product"})
-    public Integer lostQuantity;
+    public Integer lostQuantity_product;
 
     @JsonProperty("Reason")
     @JsonAlias({"reason_product"})
-    public String reason;
+    public String reason_product;
 
     @JsonProperty("id")
     @JsonAlias({"id_produit"})
