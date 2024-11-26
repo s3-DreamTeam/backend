@@ -26,4 +26,9 @@ public interface inventory_slot_Mapper {
 
     Integer getMaxQuantity(@Param("info") information info);//Done    Integer getQuantity(@Param("info") information info);// get la quantiter presentement dans le slot
 
+    Integer getQuantity(@Param("info")information info);
+
     boolean isProductUsed(@Param("info") information info);//Done
+
+
+}

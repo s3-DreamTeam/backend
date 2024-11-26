@@ -59,11 +59,11 @@
 
     <select id="getInventoryQuantity" resultType= "Integer">
         SELECT
-            quantite_inventaire
+            quantite_produit
         FROM
-            projet.inventaire
+            projet.produit
         WHERE
-            inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
+            id_produit = #{info.id_produit} AND id_usager = #{info.id_usager};
     </select>
 
     <select id="getMaxQuantity" resultType= "Integer">
@@ -76,6 +76,14 @@
             machine.id_machine = #{info.id_machine};
     </select>
 
+    <select id="getQuantity" resultType="Integer">
+        SELECT
+            quantite_inventaire
+        FROM
+            projet.inventaire
+        WHERE
+            inventaire.slot_inventaire = #{info.slot_inventaire} AND inventoraire.id_machine = #{info.id_machine};
+    </select>
     <select id="isProductUsed" resultType="boolean">
         SELECT
             EXISTS (
