@@ -182,6 +182,7 @@ public class machine_template_Service {
 
             if(!Mapper.isTemplateUsed(info))
             {
+                System.out.println("Je delete ta mere");
                 Mapper.deleteMachineTemplate(info);
                 System.out.println("Finished deleting: " + ID);
             }
