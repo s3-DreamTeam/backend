@@ -158,7 +158,7 @@ public class machine_inventory_Service {
                 info.quantite = slot.quantite_produit;
 
                 System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
-                System.out.println(slot.quantite_produit);
+                System.out.println(objectMapper.writeValueAsString(info));
 
                 if(slot.quantite_produit <=0)
                     continue;
