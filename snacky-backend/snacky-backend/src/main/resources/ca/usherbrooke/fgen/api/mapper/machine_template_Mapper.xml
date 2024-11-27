@@ -73,7 +73,7 @@
         WHERE id_type_m = #{info.id_template} AND id_usager = #{info.id_usager};
     </delete>
 
-    <select id="isTemplateUsed" resultType="boolean">
+    <select id="isTemplateUsed" resultType="Boolean">
         SELECT
             EXISTS (
                 SELECT 1

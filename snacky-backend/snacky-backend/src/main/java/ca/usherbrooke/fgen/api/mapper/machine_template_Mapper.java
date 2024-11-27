@@ -17,5 +17,5 @@ public interface machine_template_Mapper {
     void createMachineTemplate(@Param("machine_template") machine_template machineTemplate); //done
     void deleteMachineTemplate(@Param("info") information info); //done
 
-    boolean isTemplateUsed(@Param("info") information info); //Check si le templateID est utiliser par une machine
+    Boolean isTemplateUsed(@Param("info") information info); //Check si le templateID est utiliser par une machine
 }
