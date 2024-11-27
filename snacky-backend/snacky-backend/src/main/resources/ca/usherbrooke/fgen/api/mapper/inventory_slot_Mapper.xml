@@ -73,7 +73,7 @@
             projet.type_de_machine
                 JOIN projet.machine m ON m.id_type_m = type_de_machine.id_type_m
         WHERE
-            machine.id_machine = #{info.id_machine};
+            m.id_machine = #{info.id_machine};
     </select>
 
     <select id="getQuantity" resultType="Integer">
