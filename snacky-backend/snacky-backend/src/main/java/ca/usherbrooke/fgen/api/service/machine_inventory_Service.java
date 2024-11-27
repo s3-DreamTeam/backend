@@ -155,15 +155,15 @@ public class machine_inventory_Service {
                 Integer currentQuantity = MapperInventorySlot.getQuantity(info);
                 info.id_machine = slot.id_machine;
                 info.slot = slot.slot_inventaire;
-                info.quantite = slot.quantite_produit;
+                info.quantite = slot.quantite_inventaire;
 
                 System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
                 System.out.println(objectMapper.writeValueAsString(info));
 
-                if(slot.quantite_produit <=0)
+                if(slot.quantite_inventaire <=0)
                     continue;
 
-                if(currentQuantity >= slot.quantite_produit)
+                if(currentQuantity >= slot.quantite_inventaire)
                 {
                     MapperInventorySlot.removeProductFromSlot(info);//remove fom slot and add to warehouse
                 }

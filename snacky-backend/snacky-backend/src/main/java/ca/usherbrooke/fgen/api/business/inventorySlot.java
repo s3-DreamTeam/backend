@@ -18,8 +18,8 @@ public class inventorySlot {
     public Integer id_produit;
 
     @JsonProperty("Quantity")
-    @JsonAlias({"quantite_produit"})
-    public Integer quantite_produit;
+    @JsonAlias({"quantite_inventaire"})
+    public Integer quantite_inventaire;
 
     @JsonProperty("Price")
     @JsonAlias({"prix_achat_produit"})

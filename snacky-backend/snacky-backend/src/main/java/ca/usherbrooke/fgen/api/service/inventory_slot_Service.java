@@ -75,7 +75,7 @@ public class inventory_slot_Service {
 
         information info = new information();
         info.slot = slot.slot_inventaire;
-        info.quantite = slot.quantite_produit;
+        info.quantite = slot.quantite_inventaire;
         info.prix = slot.prix_achat_produit;
         info.id_machine = slot.id_machine;
         info.id_produit = slot.id_produit;
@@ -88,8 +88,8 @@ public class inventory_slot_Service {
         Integer maxQuantity = Mapper.getMaxQuantity(info);
         Integer currentQuantity = Mapper.getQuantity(info);
 
-        if(maxQuantity - currentQuantity + slot.quantite_produit > 0){
-            if(inventaireQuantity >= slot.quantite_produit)
+        if(maxQuantity - currentQuantity + slot.quantite_inventaire > 0){
+            if(inventaireQuantity >= slot.quantite_inventaire)
             {
                 Mapper.addProductToSlot(info);
             }
@@ -112,7 +112,7 @@ public class inventory_slot_Service {
         information info = new information();
         info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
-        info.quantite = slot.quantite_produit;
+        info.quantite = slot.quantite_inventaire;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: MachineInventory/Manage/Remove");
@@ -120,7 +120,7 @@ public class inventory_slot_Service {
 
         Integer currentQuantity = Mapper.getQuantity(info);
 
-        if(currentQuantity >= slot.quantite_produit)
+        if(currentQuantity >= slot.quantite_inventaire)
         {
             Mapper.removeProductFromSlot(info);
         }
