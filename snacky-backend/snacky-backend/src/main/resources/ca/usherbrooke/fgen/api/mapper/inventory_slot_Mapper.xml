@@ -84,7 +84,7 @@
         FROM
             projet.inventaire
         WHERE
-            inventaire.slot_inventaire = #{info.slot} AND inventoraire.id_machine = #{info.id_machine};
+            inventaire.slot_inventaire = #{info.slot} AND inventaire.id_machine = #{info.id_machine};
     </select>
     <select id="isProductUsed" resultType="boolean">
         SELECT
