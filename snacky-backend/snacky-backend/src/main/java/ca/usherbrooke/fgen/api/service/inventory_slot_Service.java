@@ -71,6 +71,7 @@ public class inventory_slot_Service {
     public void addQuantity(String jsonString) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
+        System.out.println("Received from shawn:\n" + objectMapper.writeValueAsString(slot));
 
         information info = new information();
         info.slot = slot.slot_inventaire;
