@@ -143,7 +143,7 @@ public class product_template_Service {
             System.out.println("This is what i am sending to Clovis: ProductTemplate/Delete");
             System.out.println(objectMapper.writeValueAsString(info));
 
-            if(Mapper.isTemplateUsed(info))
+            if(!Mapper.isTemplateUsed(info))
             {
                 Mapper.deleteProductTemplate(info);
                 System.out.println("Finished deleting: " + ID);

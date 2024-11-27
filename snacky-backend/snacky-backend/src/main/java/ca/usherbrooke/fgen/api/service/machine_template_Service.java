@@ -180,7 +180,7 @@ public class machine_template_Service {
             System.out.println("MachineTemplate/Delete\nRaw data received (ID):");
             System.out.println(ID);
 
-            if(Mapper.isTemplateUsed(info))
+            if(!Mapper.isTemplateUsed(info))
             {
                 Mapper.deleteMachineTemplate(info);
                 System.out.println("Finished deleting: " + ID);
