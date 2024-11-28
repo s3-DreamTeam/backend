@@ -25,7 +25,8 @@
                          NULL,
                          NULL,
                          NULL,
-                         id_type_m
+                         id_type_m,
+                         id_machine
 
                      FROM
                          projet.machine

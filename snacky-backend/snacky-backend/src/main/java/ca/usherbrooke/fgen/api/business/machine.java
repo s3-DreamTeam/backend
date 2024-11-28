@@ -8,6 +8,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class machine {
     public String id_usager;
 
+    @JsonProperty("id")
+    @JsonAlias({"id_machine"})
+    public String id_machine;
+
     @JsonProperty("Machine's Image")
     @JsonAlias({"image_machine"})
     public String image_machine;
