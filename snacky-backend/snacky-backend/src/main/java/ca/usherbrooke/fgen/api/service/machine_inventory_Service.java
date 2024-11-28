@@ -152,6 +152,9 @@ public class machine_inventory_Service {
             System.out.println(objectMapper.writeValueAsString(info));
 
             List<inventorySlot> inventSlot = MapperInventorySlot.getAllSlots(info);
+            
+            System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
+            System.out.println(objectMapper.writeValueAsString(info));
 
             for (inventorySlot slot: inventSlot) {
                 Integer currentQuantity = MapperInventorySlot.getQuantity(info);
