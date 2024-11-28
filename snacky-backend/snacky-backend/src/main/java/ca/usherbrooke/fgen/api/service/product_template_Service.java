@@ -166,19 +166,17 @@ public class product_template_Service {
     }
 
     private static void CheckAllProductTemplateStrings(product_template newProductTemplate) {
-        List<String> fieldsToCheck = List.of(
-                newProductTemplate.id_usager,
-                newProductTemplate.manufacturier_type_p,
-                newProductTemplate.model_type_p,
-                newProductTemplate.consistency_produit,
-                newProductTemplate.climate_produit,
-                newProductTemplate.forme_dimension
-        );
-
-        for (String field : fieldsToCheck) {
-            if (!isStringGood(field)) {
-                throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-            }
-        }
+        if (newProductTemplate.id_usager != null && !isStringGood(newProductTemplate.id_usager))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.manufacturier_type_p != null && !isStringGood(newProductTemplate.manufacturier_type_p))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.model_type_p != null && !isStringGood(newProductTemplate.model_type_p))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.consistency_produit != null && !isStringGood(newProductTemplate.consistency_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.climate_produit != null && !isStringGood(newProductTemplate.climate_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.forme_dimension != null && !isStringGood(newProductTemplate.forme_dimension))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
     }
 }

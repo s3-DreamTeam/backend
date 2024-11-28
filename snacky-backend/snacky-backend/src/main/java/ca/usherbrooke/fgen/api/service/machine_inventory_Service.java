@@ -227,8 +227,6 @@ public class machine_inventory_Service {
     }
 
     private static void CheckAllMachinesString(machine newMachine) {
-        if (newMachine.image_machine != null && !isStringGood(newMachine.image_machine))
-            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
         if (newMachine.nom_machine != null && !isStringGood(newMachine.nom_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
         if (newMachine.emplacement_machine != null && !isStringGood(newMachine.emplacement_machine))

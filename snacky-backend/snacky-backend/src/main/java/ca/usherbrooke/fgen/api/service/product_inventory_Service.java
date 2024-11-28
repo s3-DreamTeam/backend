@@ -162,20 +162,20 @@ public class product_inventory_Service {
     }
 
     private static void CheckAllProductStrings(product newProduct) {
-        List<String> fieldsToCheck = List.of(
-                newProduct.id_usager,
-                newProduct.nom_produit,
-                newProduct.color_produit,
-                newProduct.flavor_produit,
-                newProduct.barCode_produit,
-                newProduct.allergies_produit,
-                newProduct.ingredients_produit
-        );
-
-        for (String field : fieldsToCheck) {
-            if (!isStringGood(field)) {
-                throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-            }
-        }
+        if (newProduct.id_usager != null && !isStringGood(newProduct.id_usager))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProduct.nom_produit != null && !isStringGood(newProduct.nom_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProduct.color_produit != null && !isStringGood(newProduct.color_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProduct.flavor_produit != null && !isStringGood(newProduct.flavor_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProduct.barCode_produit != null && !isStringGood(newProduct.barCode_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProduct.allergies_produit != null && !isStringGood(newProduct.allergies_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProduct.ingredients_produit != null && !isStringGood(newProduct.ingredients_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
     }
+
 }

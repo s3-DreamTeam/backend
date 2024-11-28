@@ -202,17 +202,14 @@ public class machine_template_Service {
     }
 
     private static void CheckAllMachineTemplateStrings(machine_template template) {
-        List<String> fieldsToCheck = List.of(
-                template.id_usager,
-                template.manufacturier_type_m,
-                template.model_type_m,
-                template.climate_machine
-        );
-
-        for (String field : fieldsToCheck) {
-            if (!isStringGood(field)) {
-                throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-            }
-        }
+        if (template.id_usager != null && !isStringGood(template.id_usager))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (template.manufacturier_type_m != null && !isStringGood(template.manufacturier_type_m))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (template.model_type_m != null && !isStringGood(template.model_type_m))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (template.climate_machine != null && !isStringGood(template.climate_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
     }
+
 }
