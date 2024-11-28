@@ -168,7 +168,6 @@ public class product_template_Service {
     private static void CheckAllProductTemplateStrings(product_template newProductTemplate) {
         List<String> fieldsToCheck = List.of(
                 newProductTemplate.id_usager,
-                newProductTemplate.image_type_p,
                 newProductTemplate.manufacturier_type_p,
                 newProductTemplate.model_type_p,
                 newProductTemplate.consistency_produit,

@@ -164,7 +164,6 @@ public class product_inventory_Service {
     private static void CheckAllProductStrings(product newProduct) {
         List<String> fieldsToCheck = List.of(
                 newProduct.id_usager,
-                newProduct.image_produit,
                 newProduct.nom_produit,
                 newProduct.color_produit,
                 newProduct.flavor_produit,

@@ -224,7 +224,6 @@ public class machine_inventory_Service {
 
     private static void CheckAllMachinesString(machine newMachine) {
         List<String> fieldsToCheck = List.of(
-                newMachine.image_machine,
                 newMachine.nom_machine,
                 newMachine.emplacement_machine,
                 newMachine.no_serie,
