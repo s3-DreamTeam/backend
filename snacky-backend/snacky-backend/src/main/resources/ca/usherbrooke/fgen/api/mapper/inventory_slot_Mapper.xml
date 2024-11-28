@@ -38,7 +38,7 @@
         WHERE id_machine = #{info.id_machine} AND slot_inventaire = #{info.slot};
 
         UPDATE projet.produit
-        SET quantite_produit = quantite_produit - #{info.quantite}
+        SET quantite_produit = quantite_produit - #{info.quantite}, prix_achat_produit = #{info.prix}
         WHERE id_produit = #{info.id_produit};
     </update>
 
