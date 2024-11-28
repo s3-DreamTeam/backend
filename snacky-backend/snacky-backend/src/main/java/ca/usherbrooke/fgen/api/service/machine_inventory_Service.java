@@ -148,11 +148,8 @@ public class machine_inventory_Service {
             info.id_machine = ID;
             info.id_usager = new authentificationService.User(identity).getUserID();
 
-            System.out.println("This is what i am sending to Clovis: MachineInventory/Delete");
-            System.out.println(objectMapper.writeValueAsString(info));
-
             List<inventorySlot> inventSlot = MapperInventorySlot.getAllSlots(info);
-
+            System.out.println("Slots to delete: " + inventSlot.size());
             for (inventorySlot slot: inventSlot) {
                 Integer currentQuantity = MapperInventorySlot.getQuantity(info);
                 info.id_machine = slot.id_machine;
