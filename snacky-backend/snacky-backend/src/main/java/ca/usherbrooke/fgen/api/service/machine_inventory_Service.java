@@ -122,6 +122,7 @@ public class machine_inventory_Service {
 
         try {
             machine newMachine = objectMapper.readValue(jsonString, machine.class);
+            System.out.println("checking strings");
             CheckAllMachinesString(newMachine);
 
             newMachine.id_usager = new authentificationService.User(identity).getUserID();
@@ -137,6 +138,7 @@ public class machine_inventory_Service {
 
         } catch (Exception e) {
             //throw new MyCustomException("This is a special exception", 572);
+            System.out.println("failed to create new machine: " +e.getMessage());
             throw e;
         }
     }
