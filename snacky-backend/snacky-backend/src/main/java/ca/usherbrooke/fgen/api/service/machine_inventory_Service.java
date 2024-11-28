@@ -241,9 +241,11 @@ public class machine_inventory_Service {
         );
 
         for (String field : fieldsToCheck) {
+            System.out.print("Checking field: ");
             if (field != null && !isStringGood(field)) {
                 throw new MyCustomException("; What you trying to do, inject SQL?", 572);
             }
+            System.out.println(field);
         }
     }
 
