@@ -164,7 +164,7 @@ public class machine_inventory_Service {
 
                 if(currentQuantity >= slot.quantite_inventaire)
                 {
-                    MapperInventorySlot.removeProductFromSlot(info);//remove fom slot and add to warehouse
+                    MapperInventorySlot.resetSlot(info);//remove fom slot and add to warehouse
                 }
                 else
                 {
