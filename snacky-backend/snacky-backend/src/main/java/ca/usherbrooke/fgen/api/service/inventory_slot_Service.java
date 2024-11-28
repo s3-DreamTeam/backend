@@ -28,12 +28,15 @@ public class inventory_slot_Service {
 
     @POST
     @Path("MachineInventory/Manage/Reset")
-    public void reset(inventorySlot slot) throws JsonProcessingException {
+    public void reset(String jsonString) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
+
+        inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
         information info = new information();
         info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
+        info.id_produit = slot.id_produit;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: MachineInventory/Manage/Reset");
