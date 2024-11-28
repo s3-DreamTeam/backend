@@ -2,6 +2,7 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.entrepot_ajout;
 import ca.usherbrooke.fgen.api.business.entrepot_perdu;
+import ca.usherbrooke.fgen.api.exceptions.MyCustomException;
 import ca.usherbrooke.fgen.api.mapper.entrepot_manage_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,6 +45,9 @@ public class entrepot_Service {
         ObjectMapper objectMapper = new ObjectMapper();
         entrepot_perdu lostProduct = objectMapper.readValue(jsonString, entrepot_perdu.class);
         lostProduct.id_usager = new authentificationService.User(identity).getUserID();
+
+        if(lostProduct.reason_product.indexOf(';') != -1)
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
 
         System.out.println("This is what i am sending to Clovis: ProductInventory/Manage/Loss");
         System.out.println(objectMapper.writeValueAsString(lostProduct));

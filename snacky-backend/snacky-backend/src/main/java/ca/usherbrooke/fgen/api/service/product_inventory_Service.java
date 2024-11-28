@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
+import ca.usherbrooke.fgen.api.exceptions.MyCustomException;
 import ca.usherbrooke.fgen.api.mapper.entrepot_manage_Mapper;
 import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
 import ca.usherbrooke.fgen.api.mapper.product_inventory_Mapper;
@@ -12,6 +13,8 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+
+import static ca.usherbrooke.fgen.api.exceptions.StringExceptions.isStringGood;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -118,12 +121,14 @@ public class product_inventory_Service {
             product newProduct = objectMapper.readValue(jsonString, product.class);
             newProduct.id_usager = new authentificationService.User(identity).getUserID();
 
+            CheckAllProductStrings(newProduct);
+
             System.out.println("This is what i am sending to Clovis: ProductInventory/New");
             System.out.println(objectMapper.writeValueAsString(newProduct));
 
             Mapper.createProduct(newProduct);
         } catch (Exception e) {
-            throw new Exception("This is a general exception: ProductInventory/New:\n" + e.getMessage());
+            throw e;
         }
     }
 
@@ -153,6 +158,25 @@ public class product_inventory_Service {
         {
             System.out.println("failed to delete:");
             throw new Exception("This is a general exception " + e.getMessage());
+        }
+    }
+
+    private static void CheckAllProductStrings(product newProduct) {
+        List<String> fieldsToCheck = List.of(
+                newProduct.id_usager,
+                newProduct.image_produit,
+                newProduct.nom_produit,
+                newProduct.color_produit,
+                newProduct.flavor_produit,
+                newProduct.barCode_produit,
+                newProduct.allergies_produit,
+                newProduct.ingredients_produit
+        );
+
+        for (String field : fieldsToCheck) {
+            if (!isStringGood(field)) {
+                throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+            }
         }
     }
 }

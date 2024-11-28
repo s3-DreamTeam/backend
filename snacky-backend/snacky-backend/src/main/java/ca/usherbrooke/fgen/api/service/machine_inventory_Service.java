@@ -13,6 +13,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+import static ca.usherbrooke.fgen.api.exceptions.StringExceptions.isStringGood;
+
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -120,6 +122,8 @@ public class machine_inventory_Service {
 
         try {
             machine newMachine = objectMapper.readValue(jsonString, machine.class);
+            CheckAllMachinesString(newMachine);
+
             newMachine.id_usager = new authentificationService.User(identity).getUserID();
 
             System.out.println("This is what i am sending to Clovis: MachineInventory/New");
@@ -133,7 +137,7 @@ public class machine_inventory_Service {
 
         } catch (Exception e) {
             //throw new MyCustomException("This is a special exception", 572);
-            throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
+            throw e;
         }
     }
 
@@ -217,4 +221,29 @@ public class machine_inventory_Service {
 
         return label.toString();
     }
+
+    private static void CheckAllMachinesString(machine newMachine) {
+        List<String> fieldsToCheck = List.of(
+                newMachine.image_machine,
+                newMachine.nom_machine,
+                newMachine.emplacement_machine,
+                newMachine.no_serie,
+                newMachine.networkSSID_machine,
+                newMachine.networkPassword_machine,
+                newMachine.bluetoothSSID_machine,
+                newMachine.bluetoothPassword_machine,
+                newMachine.physicalConnector_machine,
+                newMachine.onlineStoreUrl_machine,
+                newMachine.debitProviders_machine,
+                newMachine.creditProviders_machine,
+                newMachine.acceptedCurrencies_machine
+        );
+
+        for (String field : fieldsToCheck) {
+            if (!isStringGood(field)) {
+                throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+            }
+        }
+    }
+
 }
