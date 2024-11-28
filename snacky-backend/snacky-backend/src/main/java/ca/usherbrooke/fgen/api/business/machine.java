@@ -10,7 +10,7 @@ public class machine {
 
     @JsonProperty("id")
     @JsonAlias({"id_machine"})
-    public String id_machine;
+    public Integer id_machine;
 
     @JsonProperty("Machine's Image")
     @JsonAlias({"image_machine"})

@@ -38,7 +38,7 @@ public class machine_inventory_Service {
         System.out.println("This is what i am sending to Clovis: MachineInventory/Get/Full");
         System.out.println(objectMapper.writeValueAsString(info));
         machine mach = machine_inventory_specificMapper.getMachine(info);
-
+        mach.id_machine = ID;
         String jsonString = objectMapper.writeValueAsString(mach);
 
         System.out.println("MachineInventory/Get/Full\nData received from DB:");
