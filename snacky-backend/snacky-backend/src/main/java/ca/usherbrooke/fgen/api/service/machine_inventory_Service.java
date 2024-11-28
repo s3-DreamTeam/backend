@@ -12,6 +12,10 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+import static ca.usherbrooke.fgen.api.exceptions.StringExceptions.isStringGood;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -120,6 +124,9 @@ public class machine_inventory_Service {
 
         try {
             machine newMachine = objectMapper.readValue(jsonString, machine.class);
+            System.out.println("checking strings");
+            CheckAllMachinesString(newMachine);
+
             newMachine.id_usager = new authentificationService.User(identity).getUserID();
 
             System.out.println("This is what i am sending to Clovis: MachineInventory/New");
@@ -133,7 +140,8 @@ public class machine_inventory_Service {
 
         } catch (Exception e) {
             //throw new MyCustomException("This is a special exception", 572);
-            throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
+            System.out.println("failed to create new machine: " +e.getMessage());
+            throw e;
         }
     }
 
@@ -217,4 +225,32 @@ public class machine_inventory_Service {
 
         return label.toString();
     }
+
+    private static void CheckAllMachinesString(machine newMachine) {
+        if (newMachine.nom_machine != null && !isStringGood(newMachine.nom_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.emplacement_machine != null && !isStringGood(newMachine.emplacement_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.no_serie != null && !isStringGood(newMachine.no_serie))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.networkSSID_machine != null && !isStringGood(newMachine.networkSSID_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.networkPassword_machine != null && !isStringGood(newMachine.networkPassword_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.bluetoothSSID_machine != null && !isStringGood(newMachine.bluetoothSSID_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.bluetoothPassword_machine != null && !isStringGood(newMachine.bluetoothPassword_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.physicalConnector_machine != null && !isStringGood(newMachine.physicalConnector_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.onlineStoreUrl_machine != null && !isStringGood(newMachine.onlineStoreUrl_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.debitProviders_machine != null && !isStringGood(newMachine.debitProviders_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.creditProviders_machine != null && !isStringGood(newMachine.creditProviders_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newMachine.acceptedCurrencies_machine != null && !isStringGood(newMachine.acceptedCurrencies_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+    }
+
 }

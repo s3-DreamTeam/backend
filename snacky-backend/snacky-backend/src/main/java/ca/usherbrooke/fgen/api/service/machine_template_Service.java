@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
+import ca.usherbrooke.fgen.api.exceptions.MyCustomException;
 import ca.usherbrooke.fgen.api.mapper.machine_template_Mapper;
 import io.quarkus.security.identity.SecurityIdentity;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,6 +11,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
+
+import static ca.usherbrooke.fgen.api.exceptions.StringExceptions.isStringGood;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -139,6 +142,8 @@ public class machine_template_Service {
             machine_template machineTemplate = objectMapper.readValue(jsonString, machine_template.class);
             machineTemplate.id_usager = new authentificationService.User(identity).getUserID();
 
+            CheckAllMachineTemplateStrings(machineTemplate);
+
             System.out.println("machine template:");
             System.out.println(objectMapper.writeValueAsString(machineTemplate));
 
@@ -146,9 +151,7 @@ public class machine_template_Service {
 
         } catch (Exception e) {
             System.out.println("erreur new machine template:\n" + e.getMessage());
-
-            throw new Exception("This is a general exception");
-            //throw new WebApplicationException("Image is to big", Response.Status.BAD_REQUEST);
+            throw e;
         }
     }
 
@@ -197,4 +200,16 @@ public class machine_template_Service {
             throw new Exception("This is a general exception");
         }
     }
+
+    private static void CheckAllMachineTemplateStrings(machine_template template) {
+        if (template.id_usager != null && !isStringGood(template.id_usager))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (template.manufacturier_type_m != null && !isStringGood(template.manufacturier_type_m))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (template.model_type_m != null && !isStringGood(template.model_type_m))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (template.climate_machine != null && !isStringGood(template.climate_machine))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+    }
+
 }

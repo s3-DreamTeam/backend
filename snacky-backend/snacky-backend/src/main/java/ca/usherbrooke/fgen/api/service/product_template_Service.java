@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
+import ca.usherbrooke.fgen.api.exceptions.MyCustomException;
 import ca.usherbrooke.fgen.api.mapper.product_template_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +12,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
+
+import static ca.usherbrooke.fgen.api.exceptions.StringExceptions.isStringGood;
 
 @Path("/api")
 @Produces(MediaType.APPLICATION_JSON)
@@ -111,12 +114,14 @@ public class product_template_Service {
             product_template newProductTemplate = objectMapper.readValue(jsonString, product_template.class);
             newProductTemplate.id_usager = new authentificationService.User(identity).getUserID();
 
+            CheckAllProductTemplateStrings(newProductTemplate);
+
             System.out.println("This is what i am sending to Clovis: ProductTemplate/New");
             System.out.println(objectMapper.writeValueAsString(newProductTemplate));
 
             Mapper.createProductTemplate(newProductTemplate);
         } catch (Exception e) {
-            throw new Exception("This is a general exception\n: ProductTemplate/New:\n" + e.getMessage());
+            throw e;
         }
     }
 
@@ -158,5 +163,20 @@ public class product_template_Service {
             System.out.println("failed to delete:");
             throw new Exception("This is a general exception");
         }
+    }
+
+    private static void CheckAllProductTemplateStrings(product_template newProductTemplate) {
+        if (newProductTemplate.id_usager != null && !isStringGood(newProductTemplate.id_usager))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.manufacturier_type_p != null && !isStringGood(newProductTemplate.manufacturier_type_p))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.model_type_p != null && !isStringGood(newProductTemplate.model_type_p))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.consistency_produit != null && !isStringGood(newProductTemplate.consistency_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.climate_produit != null && !isStringGood(newProductTemplate.climate_produit))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+        if (newProductTemplate.forme_dimension != null && !isStringGood(newProductTemplate.forme_dimension))
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
     }
 }
