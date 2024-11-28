@@ -109,8 +109,9 @@ public class inventory_slot_Service {
 
     @POST
     @Path("MachineInventory/Manage/Remove")
-    public void removeQuantity(inventorySlot slot) throws Exception {
+    public void removeQuantity(String jsonString) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
+        inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
         information info = new information();
         info.id_machine = slot.id_machine;
