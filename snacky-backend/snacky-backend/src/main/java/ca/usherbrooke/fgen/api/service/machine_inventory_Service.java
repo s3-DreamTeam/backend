@@ -1,6 +1,7 @@
 package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.*;
+import ca.usherbrooke.fgen.api.exceptions.MyCustomException;
 import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
 import ca.usherbrooke.fgen.api.mapper.machine_inventory_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -131,6 +132,7 @@ public class machine_inventory_Service {
             createSlots(newMachine, id_machine);
 
         } catch (Exception e) {
+            //throw new MyCustomException("This is a special exception", 572);
             throw new Exception("This is a general exception: MachineInventory/New:\n" + e.getMessage());
         }
     }
