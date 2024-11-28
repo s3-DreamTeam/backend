@@ -162,14 +162,8 @@ public class machine_inventory_Service {
                 if(slot.quantite_inventaire <=0)
                     continue;
 
-                if(currentQuantity >= slot.quantite_inventaire)
-                {
-                    MapperInventorySlot.resetSlot(info);//remove fom slot and add to warehouse
-                }
-                else
-                {
-                    throw new Exception("Not enough quantity in slot");
-                }
+
+                MapperInventorySlot.resetSlot(info);//remove fom slot and add to warehouse
             }
 
             machine_inventory_specificMapper.deleteMachineInventaire(info);
