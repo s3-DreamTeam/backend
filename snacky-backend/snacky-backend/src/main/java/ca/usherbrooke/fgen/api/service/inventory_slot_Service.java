@@ -101,7 +101,7 @@ public class inventory_slot_Service {
         Integer maxQuantity = Mapper.getMaxQuantity(info);
         Integer currentQuantity = Mapper.getQuantity(info);
         //ex:  4               2                   2
-        if(maxQuantity - (currentQuantity + slot.quantite_inventaire) > 0){
+        if(maxQuantity - (currentQuantity + slot.quantite_inventaire) >= 0){
             if(inventaireQuantity >= slot.quantite_inventaire)
             {
                 Mapper.addProductToSlot(info);
