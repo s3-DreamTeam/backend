@@ -2,6 +2,7 @@ package ca.usherbrooke.fgen.api.service;
 
 import ca.usherbrooke.fgen.api.business.information;
 import ca.usherbrooke.fgen.api.business.inventorySlot;
+import ca.usherbrooke.fgen.api.exceptions.MyCustomException;
 import ca.usherbrooke.fgen.api.mapper.inventory_slot_Mapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,6 +34,9 @@ public class inventory_slot_Service {
 
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
+        if(slot.slot_inventaire.indexOf(';') != -1)
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+
         information info = new information();
         info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
@@ -55,6 +59,9 @@ public class inventory_slot_Service {
 
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
+        if(slot.slot_inventaire.indexOf(';') != -1)
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+
         information info = new information();
         info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
@@ -76,6 +83,9 @@ public class inventory_slot_Service {
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
         System.out.println("Received from shawn:\n" + objectMapper.writeValueAsString(slot));
 
+        if(slot.slot_inventaire.indexOf(';') != -1)
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+
         information info = new information();
         info.slot = slot.slot_inventaire;
         info.quantite = slot.quantite_inventaire;
@@ -90,20 +100,22 @@ public class inventory_slot_Service {
         Integer inventaireQuantity = Mapper.getInventoryQuantity(info);
         Integer maxQuantity = Mapper.getMaxQuantity(info);
         Integer currentQuantity = Mapper.getQuantity(info);
-
-        if(maxQuantity - currentQuantity + slot.quantite_inventaire > 0){
+        //ex:  4               2                   2
+        if(maxQuantity - (currentQuantity + slot.quantite_inventaire) > 0){
             if(inventaireQuantity >= slot.quantite_inventaire)
             {
                 Mapper.addProductToSlot(info);
             }
             else
             {
-                throw new Exception("Not enough quantity in stock");
+                throw new MyCustomException("Not enough quantity in stock", 1);
+                //throw new Exception("Not enough quantity in stock");
             }
         }
         else
         {
-            throw new Exception("Not enough room for slot");
+            throw new MyCustomException("Not enough room for slot", 2);
+            //throw new Exception("Not enough room for slot");
         }
     }
 
@@ -113,10 +125,14 @@ public class inventory_slot_Service {
         ObjectMapper objectMapper = new ObjectMapper();
         inventorySlot slot = objectMapper.readValue(jsonString, inventorySlot.class);
 
+        if(slot.slot_inventaire.indexOf(';') != -1)
+            throw new MyCustomException("; What you trying to do, inject SQL?", 572);
+
         information info = new information();
         info.id_machine = slot.id_machine;
         info.slot = slot.slot_inventaire;
         info.quantite = slot.quantite_inventaire;
+        info.id_produit = slot.id_produit;
         info.id_usager = new authentificationService.User(identity).getUserID();
 
         System.out.println("This is what i am sending to Clovis: MachineInventory/Manage/Remove");
