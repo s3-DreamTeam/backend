@@ -226,33 +226,33 @@ public class machine_inventory_Service {
         return label.toString();
     }
 
-    private static void CheckAllMachinesString(machine newMachine)
-    {
-        if(!isStringGood(newMachine.image_machine))
+    private static void CheckAllMachinesString(machine newMachine) {
+        if (newMachine.image_machine != null && !isStringGood(newMachine.image_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.nom_machine))
+        if (newMachine.nom_machine != null && !isStringGood(newMachine.nom_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.emplacement_machine))
+        if (newMachine.emplacement_machine != null && !isStringGood(newMachine.emplacement_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.no_serie))
+        if (newMachine.no_serie != null && !isStringGood(newMachine.no_serie))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.networkSSID_machine))
+        if (newMachine.networkSSID_machine != null && !isStringGood(newMachine.networkSSID_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.networkPassword_machine))
+        if (newMachine.networkPassword_machine != null && !isStringGood(newMachine.networkPassword_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.bluetoothSSID_machine))
+        if (newMachine.bluetoothSSID_machine != null && !isStringGood(newMachine.bluetoothSSID_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.bluetoothPassword_machine))
+        if (newMachine.bluetoothPassword_machine != null && !isStringGood(newMachine.bluetoothPassword_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.physicalConnector_machine))
+        if (newMachine.physicalConnector_machine != null && !isStringGood(newMachine.physicalConnector_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.onlineStoreUrl_machine))
+        if (newMachine.onlineStoreUrl_machine != null && !isStringGood(newMachine.onlineStoreUrl_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.debitProviders_machine))
+        if (newMachine.debitProviders_machine != null && !isStringGood(newMachine.debitProviders_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.creditProviders_machine))
+        if (newMachine.creditProviders_machine != null && !isStringGood(newMachine.creditProviders_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
-        if(!isStringGood(newMachine.acceptedCurrencies_machine))
+        if (newMachine.acceptedCurrencies_machine != null && !isStringGood(newMachine.acceptedCurrencies_machine))
             throw new MyCustomException("; What you trying to do, inject SQL?", 572);
     }
+
 }
