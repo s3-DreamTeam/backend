@@ -16,5 +16,5 @@ public interface entrepot_manage_Mapper {
 
     Integer getQuantityWarehouseProduct(@Param("product")entrepot_perdu product);//Done
 
-    boolean isProducUsed(@Param("info") information info);//Done
+    boolean isProductUsed(@Param("info") information info);//Done
 }
