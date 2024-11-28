@@ -12,6 +12,8 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static ca.usherbrooke.fgen.api.exceptions.StringExceptions.isStringGood;
 
@@ -226,28 +228,29 @@ public class machine_inventory_Service {
 
     private static void CheckAllMachinesString(machine newMachine) {
         List<String> fieldsToCheck = List.of(
-                newMachine.nom_machine,
-                newMachine.emplacement_machine,
-                newMachine.no_serie,
-                newMachine.networkSSID_machine,
-                newMachine.networkPassword_machine,
-                newMachine.bluetoothSSID_machine,
-                newMachine.bluetoothPassword_machine,
-                newMachine.physicalConnector_machine,
-                newMachine.onlineStoreUrl_machine,
-                newMachine.debitProviders_machine,
-                newMachine.creditProviders_machine,
-                newMachine.acceptedCurrencies_machine
-        );
+                        newMachine.nom_machine,
+                        newMachine.emplacement_machine,
+                        newMachine.no_serie,
+                        newMachine.networkSSID_machine,
+                        newMachine.networkPassword_machine,
+                        newMachine.bluetoothSSID_machine,
+                        newMachine.bluetoothPassword_machine,
+                        newMachine.physicalConnector_machine,
+                        newMachine.onlineStoreUrl_machine,
+                        newMachine.debitProviders_machine,
+                        newMachine.creditProviders_machine,
+                        newMachine.acceptedCurrencies_machine
+                ).stream()
+                .filter(Objects::nonNull)  // Remove null values
+                .collect(Collectors.toList());
 
         for (String field : fieldsToCheck) {
-            System.out.print("Checking field: ");
-            if (field != null && !isStringGood(field)) {
+            if (!isStringGood(field)) {
                 throw new MyCustomException("; What you trying to do, inject SQL?", 572);
             }
-            System.out.println(field);
         }
     }
+
 
 
 }
